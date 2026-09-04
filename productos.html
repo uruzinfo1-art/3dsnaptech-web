@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ender 3 V3 Plus — Productos 3DSnapTech</title>
+<style>
+  :root{
+    --lima:#E1E91E; --negro:#05101C; --dorado:#FEAE12; --cafe:#AD6601; --crema:#FEE4AA; --paper:#F7F4EC;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins', system-ui, sans-serif; background:var(--negro); color:#fff; -webkit-font-smoothing:antialiased;}
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+  .mono{font-family:'DejaVu Sans Mono', monospace;}
+
+  header{position:sticky; top:0; z-index:50; background:rgba(5,16,28,.9); backdrop-filter:blur(6px); border-bottom:1px solid rgba(255,255,255,.08);}
+  header .bar{display:flex; align-items:center; justify-content:space-between; padding:14px 24px;}
+  header .brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:22px;}
+  header .brand img{width:52px;}
+  header .brand span.d{color:var(--lima);}
+  nav{display:flex; gap:28px; font-size:14px; font-weight:600;}
+  nav a{opacity:.85;}
+  nav a:hover{opacity:1; color:var(--lima);}
+  .btn{display:inline-flex; align-items:center; gap:8px; background:var(--lima); color:var(--negro); font-weight:800; padding:11px 20px; border-radius:8px; font-size:14px;}
+  .btn-outline{display:inline-flex; align-items:center; gap:8px; border:1.5px solid rgba(255,255,255,.35); color:#fff; padding:10px 18px; border-radius:8px; font-size:14px; font-weight:600;}
+
+  .eyebrow{font-family:'DejaVu Sans Mono', monospace; font-size:12.5px; letter-spacing:2px; color:var(--lima); display:block; margin-bottom:12px;}
+
+  /* ---------- product hero ---------- */
+  .p-hero{padding:60px 0 40px;}
+  .p-hero-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;}
+  .p-hero-img{
+    background:radial-gradient(80% 80% at 50% 40%, rgba(225,233,30,.08), transparent 70%);
+    border-radius:20px; padding:20px;
+  }
+  .p-brand-tag{font-weight:700; letter-spacing:2px; font-size:13px; color:var(--crema); opacity:.8;}
+  h1.p-title{font-size:44px; font-weight:800; margin-top:6px; line-height:1.1;}
+  .p-title .accent{color:var(--lima);}
+  .p-lead{margin-top:16px; font-size:15.5px; color:var(--crema); line-height:1.6; max-width:440px;}
+  .p-price-row{margin-top:26px; display:flex; align-items:baseline; gap:12px;}
+  .p-price{font-size:32px; font-weight:800; color:var(--lima);}
+  .p-price-note{font-size:12.5px; color:var(--crema); opacity:.7;}
+  .p-ctas{margin-top:24px; display:flex; gap:14px; flex-wrap:wrap;}
+
+  /* ---------- stat callouts ---------- */
+  .stat-strip{padding:20px 0 60px;}
+  .stat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  .stat-card{
+    background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:16px;
+    padding:26px 20px; text-align:center;
+  }
+  .stat-card .big{font-size:28px; font-weight:800; color:var(--lima);}
+  .stat-card .lbl{margin-top:6px; font-size:12.5px; color:var(--crema); opacity:.85;}
+
+  /* ---------- why grid (reuse style) ---------- */
+  .light{background:var(--paper); color:var(--negro);}
+  .light .eyebrow{color:var(--cafe);}
+  h2{font-size:30px; font-weight:800;}
+  .feat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:34px;}
+  .feat-card{background:#fff; border:1px solid rgba(5,16,28,.08); border-radius:16px; padding:24px 22px;}
+  .feat-card .n{
+    width:46px; height:46px; border-radius:12px;
+    background:radial-gradient(120% 120% at 30% 20%, rgba(173,102,1,.14), rgba(173,102,1,.05));
+    border:1px solid rgba(173,102,1,.25);
+    display:flex; align-items:center; justify-content:center; margin-bottom:14px;
+  }
+  .feat-card .n svg{width:22px; height:22px; stroke:var(--cafe); fill:none;}
+  .feat-card h4{font-size:15px; font-weight:700;}
+  .feat-card p{margin-top:6px; font-size:13px; color:#4a4a4a; line-height:1.5;}
+
+  /* ---------- specs table ---------- */
+  .specs-section{padding:70px 0;}
+  .specs-table{margin-top:30px; border-collapse:collapse; width:100%;}
+  .specs-table tr{border-bottom:1px solid rgba(255,255,255,.08);}
+  .specs-table td{padding:13px 4px; font-size:14px;}
+  .specs-table td:first-child{color:var(--crema); opacity:.7; width:45%; font-family:'DejaVu Sans Mono', monospace; font-size:12.5px;}
+  .specs-table td:last-child{font-weight:600;}
+
+  /* ---------- ideal para ---------- */
+  .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:20px;}
+  .chip{border:1.4px solid var(--negro); border-radius:20px; padding:8px 16px; font-size:13px; font-weight:600;}
+
+  /* ---------- closing cta ---------- */
+  .p-cta{padding:70px 0; text-align:center; background:linear-gradient(180deg, var(--negro), #0a1626);}
+  .p-cta h2{font-size:28px;}
+  .p-cta p{margin-top:12px; color:var(--crema); font-size:15px;}
+  .p-cta .ctas{margin-top:26px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+
+  footer{background:var(--negro); border-top:1px solid rgba(255,255,255,.08); padding:34px 0;}
+  footer .bar{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;}
+  footer .brand{display:flex; align-items:center; gap:10px; font-weight:800;}
+  footer .brand img{width:26px;}
+  footer .links{display:flex; gap:22px; font-size:13.5px; opacity:.8;}
+  footer .fine{margin-top:22px; font-size:12px; opacity:.5; text-align:center;}
+
+  @media (max-width:860px){
+    nav{display:none;}
+    .p-hero-grid{grid-template-columns:1fr; text-align:center;}
+    .p-lead{margin-left:auto; margin-right:auto;}
+    .p-ctas, .p-price-row{justify-content:center;}
+    .stat-grid, .feat-grid{grid-template-columns:1fr 1fr;}
+    h1.p-title{font-size:32px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar wrap">
+    <a href="index.html" class="brand"><img src="img/logo-transparent.png" alt="3DSnapTech"><span><span class="d">3d</span>Snaptech</span></a>
+    <nav>
+      <a href="index.html#servicios">Servicios</a>
+      <a href="productos.html">Productos</a>
+      <a href="index.html#trabajos">Trabajos</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+    <a class="btn" href="https://wa.me/573207283295" target="_blank">WhatsApp</a>
+  </div>
+</header>
+
+<section class="p-hero">
+  <div class="wrap p-hero-grid">
+    <div class="p-hero-img"><img src="img/productos/ender3.png" alt="Creality Ender 3 V3 Plus"></div>
+    <div>
+      <span class="p-brand-tag">CREALITY</span>
+      <h1 class="p-title">Ender 3 V3 <span class="accent">Plus</span></h1>
+      <p class="p-lead">Impresora 3D CoreXZ de alto rendimiento, con gran volumen de impresión, rápida, precisa y confiable — pensada para quienes ya no caben en una impresora estándar.</p>
+      <div class="p-price-row">
+        <span class="p-price">$1.599.000 COP</span>
+        <span class="p-price-note">(negociables)</span>
+      </div>
+      <div class="p-ctas">
+        <a class="btn" href="https://wa.me/573207283295?text=Hola%2C%20quiero%20cotizar%20la%20Ender%203%20V3%20Plus" target="_blank">Cotizar por WhatsApp →</a>
+        <a class="btn-outline" href="#specs">Ver especificaciones</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stat-strip">
+  <div class="wrap stat-grid">
+    <div class="stat-card"><div class="big">300×300×330</div><div class="lbl">mm de volumen de impresión</div></div>
+    <div class="stat-card"><div class="big">600mm/s</div><div class="lbl">velocidad máxima CoreXZ</div></div>
+    <div class="stat-card"><div class="big">20.000mm/s²</div><div class="lbl">aceleración máxima</div></div>
+    <div class="stat-card"><div class="big">±0.2mm</div><div class="lbl">precisión de impresión</div></div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="wrap">
+    <span class="eyebrow">POR QUÉ ELEGIRLA</span>
+    <h2>Rendimiento pensado para producir en serio.</h2>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="n"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 11-13h-7z"/></svg></div>
+        <h4>Sistema CoreXZ</h4>
+        <p>Dos motores de alto par trabajando juntos para una respuesta rápida y precisa.</p>
+      </div>
+      <div class="feat-card">
+        <div class="n"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg></div>
+        <h4>Extrusor sin atascos</h4>
+        <p>Direct drive reforzado, más de 1000 horas de extrusión confiable según el fabricante.</p>
+      </div>
+      <div class="feat-card">
+        <div class="n"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9l6 6M15 9l-6 6"/></svg></div>
+        <h4>Nivelación automática</h4>
+        <p>Calibración de un solo toque — sin hoja de papel, sin tornillos que ajustar.</p>
+      </div>
+      <div class="feat-card">
+        <div class="n"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 21v-2a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></div>
+        <h4>Pantalla táctil HD 4.3"</h4>
+        <p>Ve el proceso de nivelación, la vista previa del modelo y las temperaturas en un vistazo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="specs-section" id="specs">
+  <div class="wrap">
+    <span class="eyebrow">FICHA TÉCNICA</span>
+    <h2>Especificaciones completas</h2>
+    <table class="specs-table">
+      <tr><td>Tecnología</td><td>Modelado por deposición fundida (FDM)</td></tr>
+      <tr><td>Volumen de impresión</td><td>300 × 300 × 330 mm</td></tr>
+      <tr><td>Dimensiones del equipo</td><td>410 × 445 × 577 mm</td></tr>
+      <tr><td>Peso neto</td><td>11.5 kg</td></tr>
+      <tr><td>Velocidad de impresión</td><td>Hasta 600 mm/s</td></tr>
+      <tr><td>Aceleración máxima</td><td>20.000 mm/s²</td></tr>
+      <tr><td>Precisión de impresión</td><td>±0.2 mm</td></tr>
+      <tr><td>Altura de capa</td><td>0.1 – 0.35 mm</td></tr>
+      <tr><td>Diámetro de filamento</td><td>1.75 mm</td></tr>
+      <tr><td>Diámetro de boquilla</td><td>0.4 mm (cambio rápido)</td></tr>
+      <tr><td>Temperatura de boquilla</td><td>Hasta 300°C</td></tr>
+      <tr><td>Temperatura de cama</td><td>Hasta 100°C</td></tr>
+      <tr><td>Cama de impresión</td><td>Placa flexible con textura</td></tr>
+      <tr><td>Nivelación</td><td>Automática</td></tr>
+      <tr><td>Pantalla</td><td>Táctil a color HD de 4.3"</td></tr>
+      <tr><td>Conectividad</td><td>WiFi, USB</td></tr>
+      <tr><td>Sensor de filamento</td><td>Sí</td></tr>
+      <tr><td>Recuperación ante corte de luz</td><td>Sí</td></tr>
+      <tr><td>Filamentos compatibles</td><td>PLA, PETG, ABS, TPU y más</td></tr>
+    </table>
+
+    <span class="eyebrow" style="margin-top:50px; display:block;">IDEAL PARA</span>
+    <div class="chips">
+      <div class="chip">Estudiantes</div>
+      <div class="chip">Oficinas y empresas</div>
+      <div class="chip">Prototipado y diseño</div>
+      <div class="chip">Proyectos y productos personalizados</div>
+    </div>
+  </div>
+</section>
+
+<section class="p-cta">
+  <div class="wrap">
+    <span class="eyebrow">¿TE INTERESA?</span>
+    <h2>Aparta la tuya o resuelve tus dudas por WhatsApp.</h2>
+    <p>Stock limitado — te contamos disponibilidad, tiempos de entrega y forma de pago.</p>
+    <div class="ctas">
+      <a class="btn" href="https://wa.me/573207283295?text=Hola%2C%20quiero%20cotizar%20la%20Ender%203%20V3%20Plus" target="_blank">Escríbenos por WhatsApp</a>
+      <a class="btn-outline" href="mailto:info@ansuzstudio.com">info@ansuzstudio.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="bar">
+      <a href="index.html" class="brand"><img src="img/logo-transparent.png" alt="3DSnapTech"><span>3dSnaptech</span></a>
+      <div class="links">
+        <a href="https://wa.me/573207283295" target="_blank">WhatsApp</a>
+        <a href="https://www.instagram.com/3dsnaptech/" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@3dsnaptech" target="_blank">TikTok</a>
+        <a href="mailto:info@ansuzstudio.com">Correo</a>
+      </div>
+    </div>
+    <div class="fine mono">© 2026 3DSNAPTECH · COLOMBIA</div>
+  </div>
+</footer>
+
+</body>
+</html>
