@@ -7,34 +7,82 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Impresión 3D ecológica: materiales reciclables — Blog 3DSnapTech</title>
+<title>Impresión 3D ecológica: materiales reciclables y su impacto — Blog 3DSnapTech</title>
 <style>
   :root{ --lima:#E1E91E; --negro:#05101C; --dorado:#FEAE12; --cafe:#AD6601; --crema:#FEE4AA; --paper:#F7F4EC; }
   *{box-sizing:border-box; margin:0; padding:0;}
   body{font-family:'Poppins', system-ui, sans-serif; background:var(--negro); color:#fff; -webkit-font-smoothing:antialiased;}
   img{max-width:100%; display:block;}
   a{color:inherit; text-decoration:none;}
-  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
   .mono{font-family:'DejaVu Sans Mono', monospace;}
+
   header{position:sticky; top:0; z-index:50; background:rgba(5,16,28,.9); backdrop-filter:blur(6px); border-bottom:1px solid rgba(255,255,255,.08);}
   header .bar{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:1120px; margin:0 auto;}
   header .brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:18px;}
   header .brand img{width:34px;}
   header .brand span.d{color:var(--lima);}
+  header nav{display:flex; gap:22px; font-size:13.5px; font-weight:600;}
+  header nav a{opacity:.85;}
+  header nav a:hover{opacity:1; color:var(--lima);}
   .btn{display:inline-flex; align-items:center; gap:8px; background:var(--lima); color:var(--negro); font-weight:800; padding:11px 20px; border-radius:8px; font-size:14px;}
-  .back{display:inline-block; margin:36px 0 16px; font-size:13px; color:var(--lima); font-weight:600;}
-  .eyebrow{font-family:'DejaVu Sans Mono', monospace; font-size:12px; letter-spacing:2px; color:var(--dorado);}
-  h1{font-size:32px; font-weight:800; margin-top:12px; line-height:1.2;}
-  .meta{margin-top:14px; font-size:13px; color:var(--crema); opacity:.7;}
-  article{padding:10px 0 80px; font-size:16px; line-height:1.8; color:var(--crema);}
-  article h2{color:#fff; font-size:21px; margin-top:36px; margin-bottom:12px; font-weight:700;}
+
+  .crumb{padding:22px 0 0; font-size:12.5px; color:var(--crema); opacity:.65;}
+  .crumb a{color:var(--lima); opacity:1;}
+
+  .art-hero{padding:18px 0 30px;}
+  .eyebrow{font-family:'DejaVu Sans Mono', monospace; font-size:12px; letter-spacing:2px; color:var(--dorado); display:block;}
+  h1{font-size:34px; font-weight:800; margin-top:10px; line-height:1.2; max-width:720px;}
+  .meta{margin-top:14px; font-size:13px; color:var(--crema); opacity:.7; display:flex; gap:16px; flex-wrap:wrap;}
+  .lead{margin-top:16px; font-size:15.5px; color:var(--crema); line-height:1.6; max-width:680px;}
+  .hero-img{margin-top:26px; border-radius:18px; overflow:hidden; aspect-ratio:21/9; border:1px solid rgba(225,233,30,.2);}
+  .hero-img img{width:100%; height:100%; object-fit:cover;}
+  .hero-icon{
+    margin-top:26px; border-radius:18px; aspect-ratio:21/9; border:1px solid rgba(225,233,30,.2);
+    background:radial-gradient(60% 90% at 50% 50%, rgba(225,233,30,.10), transparent 70%);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .hero-icon svg{width:64px; height:64px; stroke:var(--lima); fill:none; stroke-width:1.2;}
+
+  .content-layout{display:grid; grid-template-columns:1fr 300px; gap:50px; padding:10px 0 80px; align-items:start;}
+  article{font-size:16px; line-height:1.8; color:var(--crema);}
+  article h2{color:#fff; font-size:22px; margin-top:38px; margin-bottom:14px; font-weight:700;}
   article p{margin-top:14px;}
   article ul{margin-top:14px; padding-left:20px;}
   article li{margin-top:8px;}
-  .cta-box{margin-top:44px; padding:26px; border-radius:16px; background:rgba(225,233,30,.06); border:1px solid rgba(225,233,30,.2); text-align:center;}
-  .cta-box p{margin-top:0; color:#fff; font-weight:600;}
-  .cta-box .btn{margin-top:16px;}
-  footer{background:var(--negro); border-top:1px solid rgba(255,255,255,.08); padding:34px 0; margin-top:40px;}
+
+  .cta-box{margin-top:44px; padding:26px 28px; border-radius:16px; background:rgba(225,233,30,.06); border:1px solid rgba(225,233,30,.2); display:flex; align-items:center; gap:20px; flex-wrap:wrap; justify-content:space-between;}
+  .cta-box .txt{display:flex; align-items:center; gap:16px;}
+  .cta-box img{width:52px;}
+  .cta-box p{margin:0; color:#fff; font-weight:600; font-size:15px;}
+
+  aside{position:sticky; top:90px; display:flex; flex-direction:column; gap:26px;}
+  .side-box{background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:20px;}
+  .side-box h3{font-size:13px; text-transform:uppercase; letter-spacing:1px; color:var(--crema); opacity:.7; margin-bottom:14px; font-family:'DejaVu Sans Mono', monospace;}
+  .share-row{display:flex; gap:10px;}
+  .share-row a{width:38px; height:38px; border-radius:50%; border:1.4px solid rgba(255,255,255,.18); display:flex; align-items:center; justify-content:center;}
+  .share-row svg{width:17px; height:17px; stroke:var(--crema); fill:none;}
+  .share-row a:hover{border-color:var(--lima);}
+  .related-item{display:flex; gap:12px; margin-top:14px;}
+  .related-item:first-child{margin-top:0;}
+  .related-item .shot{width:64px; height:64px; border-radius:10px; overflow:hidden; flex-shrink:0;}
+  .related-item .shot img{width:100%; height:100%; object-fit:cover;}
+  .related-item .txt{font-size:13px;}
+  .related-item .cat{color:var(--lima); font-size:11px; text-transform:uppercase; font-family:'DejaVu Sans Mono', monospace;}
+  .related-item .ttl{margin-top:3px; font-weight:600; line-height:1.35; color:#fff;}
+  .cat-list{list-style:none;}
+  .cat-list li{display:flex; justify-content:space-between; padding:8px 0; font-size:13.5px; border-bottom:1px solid rgba(255,255,255,.06);}
+  .cat-list li:last-child{border-bottom:none;}
+  .cat-list span.count{color:var(--crema); opacity:.5;}
+  .news-box input{width:100%; background:rgba(5,16,28,.6); border:1px solid rgba(255,255,255,.15); border-radius:8px; padding:10px 12px; font-size:13.5px; color:#fff; margin-bottom:10px;}
+  .news-box button{width:100%; background:var(--lima); color:var(--negro); font-weight:800; border:none; padding:11px; border-radius:8px; font-size:13.5px; cursor:pointer; font-family:'Poppins',sans-serif;}
+  @media (max-width:900px){
+    .content-layout{grid-template-columns:1fr;}
+    aside{position:static; flex-direction:row; flex-wrap:wrap;}
+    .side-box{flex:1; min-width:260px;}
+  }
+
+  footer{background:var(--negro); border-top:1px solid rgba(255,255,255,.08); padding:34px 0;}
   footer .bar{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; max-width:1120px; margin:0 auto; padding:0 24px;}
   footer .brand{display:flex; align-items:center; gap:10px; font-weight:800;}
   footer .brand img{width:26px;}
@@ -44,17 +92,36 @@
 <body>
 <header>
   <div class="bar">
-    <a href="index.html" class="brand"><img src="img/logo-transparent.png" alt="3DSnapTech"><span><span class="d">3d</span>Snaptech</span></a>
+    <a href="index.html" class="brand"><img src="logo-transparent.png" alt="3DSnapTech"><span><span class="d">3d</span>Snaptech</span></a>
+    <nav>
+      <a href="index.html#servicios">Servicios</a>
+      <a href="productos.html">Productos</a>
+      <a href="index.html#trabajos">Trabajos</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
     <a class="btn" href="https://wa.me/573207283295" target="_blank">WhatsApp</a>
   </div>
 </header>
 
-<div class="wrap">
-  <a class="back" href="blog.html">← Volver al blog</a>
-  <span class="eyebrow">SOSTENIBILIDAD</span>
-  <h1>Impresión 3D ecológica: materiales reciclables y su impacto</h1>
-  <div class="meta">3DSnapTech · Sostenibilidad</div>
+<div class="wrap crumb">
+  <a href="index.html">Inicio</a> · <a href="blog.html">Blog</a> · Sostenibilidad · Impresión 3D ecológica: materiales reciclables y su impacto
+</div>
 
+<section class="art-hero">
+  <div class="wrap">
+    <span class="eyebrow">SOSTENIBILIDAD</span>
+    <h1>Impresión 3D ecológica: materiales reciclables y su impacto</h1>
+    <div class="meta">
+      <span>🐼 3DSnapTech</span>
+      <span>📁 Sostenibilidad</span>
+    </div>
+    <p class="lead">Cómo la manufactura digital puede ser, al mismo tiempo, revolucionaria y amigable con el medio ambiente.</p>
+    <div class="hero-img"><img src="sostenibilidad.jpg" alt="Materiales sostenibles y reciclables para impresión 3D"></div>
+  </div>
+</section>
+
+<div class="wrap content-layout">
   <article>
     <p>Cuando la gente piensa en impresión 3D, casi nunca piensa en sostenibilidad — pero es justo uno de los puntos que más nos importa en 3DSnapTech. Creemos que la manufactura digital puede ser, al mismo tiempo, revolucionaria y ecológica, y eso empieza por los materiales que elegimos usar.</p>
 
@@ -74,15 +141,56 @@
     <p>En 3DSnapTech trabajamos con materiales amigables con el medio ambiente y reciclables como parte de cómo operamos, no como un discurso de marketing aparte. Es una decisión que va de la mano con nuestra misión: acercar la tecnología a quien la necesita, de una forma consciente con el planeta.</p>
 
     <div class="cta-box">
-      <p>¿Quieres saber qué material sostenible conviene para tu proyecto?</p>
+      <div class="txt">
+        <img src="pango-call.png" alt="Pango">
+        <p>¿Quieres saber qué material sostenible conviene para tu proyecto?</p>
+      </div>
       <a class="btn" href="https://wa.me/573207283295" target="_blank">Escríbenos por WhatsApp</a>
     </div>
   </article>
+
+  <aside>
+    <div class="side-box">
+      <h3>Compartir artículo</h3>
+      <div class="share-row">
+        <a href="https://wa.me/?text=https://3dsnaptech.com/blog-sostenibilidad.html" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.4-4.1a8.4 8.4 0 1 1 3.2 3.1z"/></svg></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://3dsnaptech.com/blog-sostenibilidad.html" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h-2a4 4 0 0 0-4 4v2H7v3h2v7h3v-7h2.5l.5-3H12V8a1 1 0 0 1 1-1h2z"/></svg></a>
+        <a href="mailto:?body=https://3dsnaptech.com/blog-sostenibilidad.html" aria-label="Correo"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></a>
+      </div>
+    </div>
+
+    <div class="side-box">
+      <h3>Artículos relacionados</h3>
+      <a class="related-item" href="blog-materiales.html"><div class="shot"><img src="materiales.jpg" alt="Materiales"></div><div class="txt"><div class="cat">Materiales</div><div class="ttl">PLA, PETG o ABS: qué material elegir para tu proyecto</div></div></a>
+      <a class="related-item" href="blog-escaneo.html"><div class="shot"><img src="escaneo.jpg" alt="Escaneo 3D"></div><div class="txt"><div class="cat">Escaneo 3D</div><div class="ttl">Qué es el escaneo 3D y para qué sirve</div></div></a>
+      <a class="related-item" href="blog-postprocesado.html"><div class="shot"><img src="postprocesado.jpg" alt="Diseño y manufactura"></div><div class="txt"><div class="cat">Diseño y manufactura</div><div class="ttl">Acabado superficial en impresión 3D: técnicas de post-procesado</div></div></a>
+    </div>
+
+    <div class="side-box">
+      <h3>Categorías</h3>
+      <ul class="cat-list">
+        <li>Materiales <span class="count">1</span></li>
+        <li>Impresoras y calidad <span class="count">1</span></li>
+        <li>Diseño y manufactura <span class="count">1</span></li>
+        <li>Escaneo 3D <span class="count">1</span></li>
+        <li>Sostenibilidad <span class="count">1</span></li>
+      </ul>
+    </div>
+
+    <div class="side-box news-box">
+      <h3>Suscríbete al blog</h3>
+      <p style="font-size:13px; color:var(--crema); opacity:.8; margin-bottom:12px;">Recibe contenido exclusivo sobre impresión 3D, materiales, consejos y mucho más.</p>
+      <form onsubmit="event.preventDefault(); window.open('https://wa.me/573207283295?text=' + encodeURIComponent('Hola, quiero suscribirme al contenido del blog. Mi correo: ' + document.getElementById('news-email').value), '_blank');">
+        <input id="news-email" type="email" placeholder="Tu correo electrónico" required>
+        <button type="submit">Suscribirme</button>
+      </form>
+    </div>
+  </aside>
 </div>
 
 <footer>
   <div class="bar">
-    <a href="index.html" class="brand"><img src="img/logo-transparent.png" alt="3DSnapTech"><span>3dSnaptech</span></a>
+    <a href="index.html" class="brand"><img src="logo-transparent.png" alt="3DSnapTech"><span>3dSnaptech</span></a>
     <div class="links">
       <a href="https://wa.me/573207283295" target="_blank">WhatsApp</a>
       <a href="https://www.instagram.com/3dsnaptech/" target="_blank">Instagram</a>
