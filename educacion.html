@@ -32,8 +32,7 @@
   .btn{display:inline-flex; align-items:center; gap:8px; background:var(--lima); color:var(--negro); font-weight:800; padding:11px 20px; border-radius:8px; font-size:14px;}
   .btn-outline{display:inline-flex; align-items:center; gap:8px; border:1.5px solid rgba(255,255,255,.35); color:#fff; padding:10px 18px; border-radius:8px; font-size:14px; font-weight:600;}
 
-  /* hero con imagen */
-  .edu-hero{padding:70px 0 20px; position:relative; overflow:hidden;}
+  .edu-hero{padding:70px 0 20px;}
   .edu-hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:44px; align-items:center;}
   h1{font-size:40px; font-weight:800; line-height:1.2;}
   .edu-hero p{margin-top:18px; font-size:15.5px; color:var(--crema); line-height:1.6; max-width:480px;}
@@ -44,51 +43,51 @@
     border:1px solid rgba(225,233,30,.2);
     display:flex; align-items:center; justify-content:center;
   }
-  .edu-hero-img img{width:78%;}
+  .edu-hero-img img{width:100%; height:100%; object-fit:cover;}
 
-  /* audiencias */
   .light{background:var(--paper); color:var(--negro); padding:60px 0;}
   .light .eyebrow{color:var(--cafe);}
   h2{font-size:28px; font-weight:800;}
   .aud-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:32px;}
-  .aud-card{background:#fff; border:1px solid rgba(5,16,28,.08); border-radius:16px; padding:26px 22px; text-align:center;}
+  .aud-card{background:#fff; border:1px solid rgba(5,16,28,.08); border-radius:16px; overflow:hidden;}
+  .aud-card .shot{aspect-ratio:4/3; overflow:hidden;}
+  .aud-card .shot img{width:100%; height:100%; object-fit:cover;}
+  .aud-card .body{padding:22px;}
   .aud-card .n{
-    width:52px; height:52px; margin:0 auto 16px; border-radius:14px;
+    width:40px; height:40px; margin-bottom:12px; border-radius:11px;
     background:radial-gradient(120% 120% at 30% 20%, rgba(173,102,1,.14), rgba(173,102,1,.05));
     border:1px solid rgba(173,102,1,.25);
     display:flex; align-items:center; justify-content:center;
   }
-  .aud-card .n svg{width:24px; height:24px; stroke:var(--cafe); fill:none;}
+  .aud-card .n svg{width:20px; height:20px; stroke:var(--cafe); fill:none;}
   .aud-card h4{font-size:16px; font-weight:700;}
   .aud-card p{margin-top:8px; font-size:13.5px; color:#4a4a4a; line-height:1.5;}
 
-  /* formatos con fotos reales */
   .fmt-section{padding:70px 0;}
   .fmt-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:32px;}
   .fmt-card{
     background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:16px;
-    overflow:hidden;
+    padding:26px; display:flex; gap:16px;
   }
-  .fmt-card .shot{aspect-ratio:16/10; overflow:hidden;}
-  .fmt-card .shot img{width:100%; height:100%; object-fit:cover;}
-  .fmt-card .body{padding:22px 24px 26px; display:flex; gap:14px;}
   .fmt-card .n{
-    flex-shrink:0; width:40px; height:40px; border-radius:11px;
+    flex-shrink:0; width:44px; height:44px; border-radius:12px;
     background:radial-gradient(120% 120% at 30% 20%, rgba(225,233,30,.16), rgba(225,233,30,.04));
     border:1px solid rgba(225,233,30,.3);
     display:flex; align-items:center; justify-content:center;
   }
-  .fmt-card .n svg{width:20px; height:20px; stroke:var(--lima); fill:none;}
+  .fmt-card .n svg{width:22px; height:22px; stroke:var(--lima); fill:none;}
   .fmt-card h4{font-size:15.5px; font-weight:700;}
   .fmt-card p{margin-top:6px; font-size:13.5px; color:var(--crema); opacity:.85; line-height:1.5;}
 
-  /* galería de proceso */
-  .gallery-section{padding:0 0 70px;}
-  .gallery-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:28px;}
-  .gallery-grid .shot{border-radius:14px; overflow:hidden; aspect-ratio:1/1; border:1px solid rgba(255,255,255,.08);}
-  .gallery-grid .shot img{width:100%; height:100%; object-fit:cover;}
+  .proj-section{padding:0 0 70px;}
+  .proj-card{display:grid; grid-template-columns:1fr 1fr; gap:0; border-radius:18px; overflow:hidden; border:1px solid rgba(225,233,30,.2);}
+  .proj-card .shot{aspect-ratio:4/3;}
+  .proj-card .shot img{width:100%; height:100%; object-fit:cover;}
+  .proj-card .txt{padding:36px; background:rgba(255,255,255,.03); display:flex; flex-direction:column; justify-content:center;}
+  .proj-card h3{font-size:22px; font-weight:800; line-height:1.3;}
+  .proj-card p{margin-top:12px; font-size:14.5px; color:var(--crema); opacity:.9; line-height:1.6;}
+  @media (max-width:760px){ .proj-card{grid-template-columns:1fr;} }
 
-  /* cierre cta */
   .edu-cta{padding:70px 0; text-align:center; background:linear-gradient(180deg, var(--negro), #0a1626);}
   .edu-cta p{margin-top:12px; color:var(--crema); font-size:15px; max-width:520px; margin-left:auto; margin-right:auto;}
   .edu-cta .ctas{margin-top:26px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
@@ -106,7 +105,6 @@
     .edu-hero-grid{grid-template-columns:1fr;}
     .aud-grid{grid-template-columns:1fr;}
     .fmt-grid{grid-template-columns:1fr;}
-    .gallery-grid{grid-template-columns:1fr 1fr;}
   }
 </style>
 </head>
@@ -149,19 +147,28 @@
     <h2>Trabajamos con distintos públicos.</h2>
     <div class="aud-grid">
       <div class="aud-card">
-        <div class="n"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9 12 5 2 9l10 4 10-4z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div>
-        <h4>Colegios</h4>
-        <p>Charlas y talleres introductorios pensados para estudiantes de primaria y bachillerato.</p>
+        <div class="shot"><img src="edu-colegios.jpg" alt="Estudiantes de colegio con la impresora 3DSnapTech"></div>
+        <div class="body">
+          <div class="n"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9 12 5 2 9l10 4 10-4z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div>
+          <h4>Colegios</h4>
+          <p>Charlas y talleres introductorios pensados para estudiantes de primaria y bachillerato.</p>
+        </div>
       </div>
       <div class="aud-card">
-        <div class="n"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
-        <h4>Universidades</h4>
-        <p>Capacitaciones más formales y acompañamiento en proyectos de estudiantes.</p>
+        <div class="shot"><img src="edu-universidades.jpg" alt="Grupo de estudiantes universitarios en taller de impresión 3D"></div>
+        <div class="body">
+          <div class="n"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+          <h4>Universidades</h4>
+          <p>Capacitaciones más formales y acompañamiento en proyectos de estudiantes.</p>
+        </div>
       </div>
       <div class="aud-card">
-        <div class="n"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></div>
-        <h4>Personas independientes</h4>
-        <p>¿Quieres aprender por tu cuenta? También damos talleres prácticos para particulares.</p>
+        <div class="shot"><img src="edu-independientes.jpg" alt="Persona aprendiendo impresión 3D de forma independiente"></div>
+        <div class="body">
+          <div class="n"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg></div>
+          <h4>Personas independientes</h4>
+          <p>¿Quieres aprender por tu cuenta? También damos talleres prácticos para particulares.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -173,57 +180,46 @@
     <h2>Cómo se ve una capacitación con nosotros.</h2>
     <div class="fmt-grid">
       <div class="fmt-card">
-        <div class="shot"><img src="trabajo-controller.png" alt="Proceso de impresión 3D en vivo durante un taller"></div>
-        <div class="body">
-          <div class="n"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div>
-          <div>
-            <h4>Charlas introductorias</h4>
-            <p>Qué es la impresión 3D, cómo funciona y para qué sirve — una primera aproximación clara, sin tecnicismos innecesarios.</p>
-          </div>
+        <div class="n"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div>
+        <div>
+          <h4>Charlas introductorias</h4>
+          <p>Qué es la impresión 3D, cómo funciona y para qué sirve — una primera aproximación clara, sin tecnicismos innecesarios.</p>
         </div>
       </div>
       <div class="fmt-card">
-        <div class="shot"><img src="trabajo-organizador.png" alt="Pieza funcional impresa durante un taller práctico"></div>
-        <div class="body">
-          <div class="n"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-          <div>
-            <h4>Talleres prácticos</h4>
-            <p>Manos a la obra con las máquinas — los asistentes ven de cerca todo el proceso, desde el diseño hasta la pieza terminada.</p>
-          </div>
+        <div class="n"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <div>
+          <h4>Talleres prácticos</h4>
+          <p>Manos a la obra con las máquinas — los asistentes ven de cerca todo el proceso, desde el diseño hasta la pieza terminada.</p>
         </div>
       </div>
       <div class="fmt-card">
-        <div class="shot"><img src="kobras1.png" alt="Impresora 3D usada en las capacitaciones formales"></div>
-        <div class="body">
-          <div class="n"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 21v-2a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/><path d="M8 8h8M8 12h5"/></svg></div>
-          <div>
-            <h4>Capacitaciones formales</h4>
-            <p>Sesiones más largas y estructuradas, ideales para instituciones que quieren profundizar en el tema.</p>
-          </div>
+        <div class="n"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M9 21v-2a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/><path d="M8 8h8M8 12h5"/></svg></div>
+        <div>
+          <h4>Capacitaciones formales</h4>
+          <p>Sesiones más largas y estructuradas, ideales para instituciones que quieren profundizar en el tema.</p>
         </div>
       </div>
       <div class="fmt-card">
-        <div class="shot"><img src="trabajo-samurai.png" alt="Proyecto de estudiante terminado y pintado"></div>
-        <div class="body">
-          <div class="n"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4.5-2-7-5.5-7-9.5C5 7 8 4 12 3c4 1 7 4 7 8.5 0 4-2.5 7.5-7 9.5z"/><path d="M9 11.5l2 2 4-4"/></svg></div>
-          <div>
-            <h4>Acompañamiento de proyectos</h4>
-            <p>Apoyamos a estudiantes en proyectos de grado o de clase que necesiten impresión, diseño o escaneo 3D.</p>
-          </div>
+        <div class="n"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4.5-2-7-5.5-7-9.5C5 7 8 4 12 3c4 1 7 4 7 8.5 0 4-2.5 7.5-7 9.5z"/><path d="M9 11.5l2 2 4-4"/></svg></div>
+        <div>
+          <h4>Acompañamiento de proyectos</h4>
+          <p>Apoyamos a estudiantes en proyectos de grado o de clase que necesiten impresión, diseño o escaneo 3D.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="gallery-section">
+<section class="proj-section">
   <div class="wrap">
-    <span class="eyebrow">ASÍ SE VE EN LA PRÁCTICA</span>
-    <h2>Momentos de talleres y proyectos reales.</h2>
-    <div class="gallery-grid">
-      <div class="shot"><img src="photon-m7.png" alt="Impresora de resina usada en talleres"></div>
-      <div class="shot"><img src="neptune4pro.png" alt="Impresora FDM usada en capacitaciones"></div>
-      <div class="shot"><img src="foto-extrusor-bg.png" alt="Detalle del extrusor durante una demostración"></div>
+    <div class="proj-card">
+      <div class="shot"><img src="edu-proyecto.jpg" alt="Estudiante trabajando en su proyecto de impresión 3D con acompañamiento"></div>
+      <div class="txt">
+        <span class="eyebrow">ACOMPAÑAMIENTO REAL</span>
+        <h3>No solo prestamos la máquina — te ayudamos a que el proyecto salga bien.</h3>
+        <p>Desde ajustar el diseño para que imprima correctamente, hasta resolver dudas técnicas durante el proceso. El objetivo es que aprendas haciendo, no solo mirando.</p>
+      </div>
     </div>
   </div>
 </section>

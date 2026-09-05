@@ -440,9 +440,9 @@
       </div>
     </div>
     <div class="hero-img">
-      <img class="pango-watermark" src="isotipo-clean.png" alt="">
+      <img class="pango-watermark" src="isotipo-hexagono.png" alt="">
       <div class="pango-video-wrap">
-        <video class="pango-video" autoplay muted playsinline poster="pango-hero.png">
+        <video class="pango-video" id="pango-video" autoplay muted playsinline poster="pango-hero.png">
           <source src="pango-walk.webm" type="video/webm">
           <source src="pango-walk.mp4" type="video/mp4">
         </video>
@@ -558,7 +558,7 @@
     SpaceX imprime en 3D motores de cohete completos, listos para volar.
   </div>
   <div class="wrap mascota-sec">
-    <img class="small-logo" src="isotipo-clean.png" alt="">
+    <img class="small-logo" src="isotipo-hexagono.png" alt="">
     <span class="eyebrow">04 · NUESTRA MISIÓN</span>
     <h2>Acercamos la tecnología a quien siente que su idea no se puede hacer realidad.</h2>
     <p>Educamos sobre impresión 3D y prototipado, y creemos que la manufactura digital puede ser revolucionaria y ecológica a la vez — por eso trabajamos con materiales amigables con el medio ambiente y reciclables.</p>
@@ -706,5 +706,17 @@
   }
 </script>
 
+
+<script>
+  var pangoVideo = document.getElementById('pango-video');
+  if (pangoVideo) {
+    pangoVideo.addEventListener('ended', function() {
+      setTimeout(function() {
+        pangoVideo.currentTime = 0;
+        pangoVideo.play();
+      }, 5000);
+    });
+  }
+</script>
 </body>
 </html>
