@@ -19,6 +19,10 @@
 - ✅ Post-procesado y acabado superficial
 - ✅ Errores comunes en impresión 3D
 
+## Fotos Pendientes
+- `fotogrametria.jpg` — para blog-escaneo-fotogrametria.html (persona capturando fotos para fotogrametría, o pantalla de software de fotogrametría)
+- `fusion-360.jpg` — para blog-fusion-360-gratuito.html (interfaz de Autodesk Fusion 360 con modelo 3D)
+
 ## Temas Pendientes / En Desarrollo
 - Preparación de archivos STL
 - Tolerancias y precisión
