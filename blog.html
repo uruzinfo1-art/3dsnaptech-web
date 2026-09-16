@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <title>Blog de Impresión 3D — 3DSnapTech Bogotá</title>
-<meta name="description" content="Blog de 3DSnapTech, taller de impresión 3D en Bogotá: materiales, procesos, escaneo 3D, diseño 3D y sostenibilidad.">
+<meta name="description" content="Blog de 3DSnapTech: impresión 3D, escaneo 3D, diseño 3D, materiales, procesos y sostenibilidad en Bogotá.">
 <style>
   :root{
     --lima:#E1E91E; --negro:#05101C; --dorado:#FEAE12; --cafe:#AD6601; --crema:#FEE4AA; --paper:#F7F4EC;
@@ -35,14 +35,25 @@
   h1{font-size:38px; font-weight:800;}
   .hero p{margin-top:14px; color:var(--crema); max-width:520px; margin-left:auto; margin-right:auto; font-size:15.5px;}
 
+  .pillar-nav{padding:30px 0 10px; display:flex; gap:20px; justify-content:center; flex-wrap:wrap;}
+  .pillar-nav button{background:transparent; border:1px solid rgba(255,255,255,.2); color:#fff; padding:10px 20px; border-radius:8px; cursor:pointer; font-weight:600; font-size:13px; transition:all .2s;}
+  .pillar-nav button.active{background:var(--lima); color:var(--negro); border-color:var(--lima);}
+  .pillar-nav button:hover{border-color:var(--lima); color:var(--lima);}
+
   .posts{padding:20px 0 90px;}
-  .post-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+
+  .pillar-section{display:none;}
+  .pillar-section.active{display:block;}
+
+  .category-grid{margin-bottom:50px;}
+  .category-title{font-size:18px; font-weight:700; color:var(--lima); margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid rgba(225,233,30,.2);}
+  .post-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:30px;}
+
   .post-card{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:16px; overflow:hidden; transition:border-color .2s, transform .2s;}
   .post-card:hover{border-color:var(--lima); transform:translateY(-3px);}
   .post-card .cover{aspect-ratio:16/10; overflow:hidden; display:flex; align-items:center; justify-content:center; background:radial-gradient(120% 120% at 30% 20%, rgba(225,233,30,.18), rgba(5,16,28,.9));}
   .post-card .cover img{width:100%; height:100%; object-fit:cover; transition:transform .3s ease;}
   .post-card:hover .cover img{transform:scale(1.05);}
-  .post-card .cover svg{width:56px; height:56px; stroke:var(--lima); fill:none;}
   .post-card .info{padding:20px 22px 24px;}
   .post-card .tag{font-family:'DejaVu Sans Mono', monospace; font-size:11px; letter-spacing:1px; color:var(--dorado);}
   .post-card h2{font-size:17px; font-weight:700; margin-top:8px; line-height:1.35;}
@@ -86,63 +97,15 @@
   </div>
 </section>
 
-<section class="posts">
-  <div class="wrap">
-    <div class="post-grid">
-
-      <a class="post-card" href="blog-materiales.html">
-        <div class="cover"><img src="materiales.jpg" alt="Filamentos y piezas impresas en 3D"></div>
-        <div class="info">
-          <span class="tag">MATERIALES</span>
-          <h2>PLA, PETG o ABS: qué material elegir para tu proyecto</h2>
-          <p>Cada filamento tiene fortalezas distintas. Te explicamos cuál conviene según lo que vayas a imprimir.</p>
-          <span class="read">Leer artículo →</span>
-        </div>
-      </a>
-
-      <a class="post-card" href="blog-sostenibilidad.html">
-        <div class="cover"><img src="sostenibilidad.jpg" alt="Materiales sostenibles y reciclables para impresión 3D"></div>
-        <div class="info">
-          <span class="tag">SOSTENIBILIDAD</span>
-          <h2>Impresión 3D ecológica: materiales reciclables y su impacto</h2>
-          <p>Cómo la manufactura digital puede ser, al mismo tiempo, revolucionaria y amigable con el medio ambiente.</p>
-          <span class="read">Leer artículo →</span>
-        </div>
-      </a>
-
-      <a class="post-card" href="blog-escaneo.html">
-        <div class="cover"><img src="escaneo.jpg" alt="Escáner 3D digitalizando una escultura"></div>
-        <div class="info">
-          <span class="tag">ESCANEO 3D</span>
-          <h2>Qué es el escaneo 3D y para qué sirve</h2>
-          <p>Digitalizar una pieza existente abre posibilidades que muchos aún no conocen. Te contamos cómo funciona.</p>
-          <span class="read">Leer artículo →</span>
-        </div>
-      </a>
-
-      <a class="post-card" href="blog-postprocesado.html">
-        <div class="cover"><img src="posprocesado.jpg" alt="Acabado superficial en piezas impresas en 3D"></div>
-        <div class="info">
-          <span class="tag">DISEÑO Y MANUFACTURA</span>
-          <h2>Acabado superficial en impresión 3D: técnicas de post-procesado</h2>
-          <p>Sanding, vapor de acetona y pintura: cómo transformar una pieza bruta en algo profesional.</p>
-          <span class="read">Leer artículo →</span>
-        </div>
-      </a>
-
-      <a class="post-card" href="blog-errores-impresion.html">
-        <div class="cover"><img src="errores-impresion.jpg" alt="Piezas con fallas comunes de impresión 3D: warping y stringing"></div>
-        <div class="info">
-          <span class="tag">IMPRESORAS Y CALIDAD</span>
-          <h2>Errores comunes en impresión 3D y cómo evitarlos</h2>
-          <p>Warping, spaghetti, mala adhesión: identificar y prevenir los fallos más comunes.</p>
-          <span class="read">Leer artículo →</span>
-        </div>
-      </a>
-
-    </div>
+<div class="wrap">
+  <div class="pillar-nav">
+    <button class="pillar-btn active" data-pillar="impresion">Impresión 3D</button>
+    <button class="pillar-btn" data-pillar="escaneo">Escaneo 3D</button>
+    <button class="pillar-btn" data-pillar="diseno">Diseño 3D</button>
   </div>
-</section>
+</div>
+
+<section class="posts" id="posts-container"></section>
 
 <footer>
   <div class="wrap">
@@ -158,6 +121,94 @@
     <div class="fine mono">© 2026 3DSNAPTECH · BOGOTÁ, COLOMBIA</div>
   </div>
 </footer>
+
+<script>
+const categoriesByPillar = {
+  impresion: ['Fundamentos', 'Tecnologías', 'Materiales', 'Calidad', 'Problemas', 'Postprocesado', '3D Curioso'],
+  escaneo: ['Fundamentos', 'Tecnologías', 'Escaneo de objetos', 'Calidad', 'Problemas', 'Postprocesado', '3D Curioso'],
+  diseno: ['Fundamentos', 'Tecnologías', 'Software', 'Calidad', 'Problemas', 'Postprocesado', '3D Curioso']
+};
+
+const posts = [
+  {pillar:'impresion', cat:'Fundamentos', href:'blog-que-es-impresion-3d.html', img:'que-es-impresion-3d.jpg', title:'¿Qué es la impresión 3D?', desc:'Una introducción a cómo funciona la tecnología que está transformando la fabricación.'},
+  {pillar:'impresion', cat:'Fundamentos', href:'blog-como-funciona-impresora.html', img:'como-funciona-impresora.jpg', title:'¿Cómo funciona una impresora 3D?', desc:'Paso a paso: desde el archivo digital hasta la pieza física lista en tus manos.'},
+  {pillar:'impresion', cat:'Tecnologías', href:'blog-fdm-sla-sls.html', img:'fdm-sla-sls.jpg', title:'FDM, SLA, SLS: tipos de tecnologías 3D', desc:'Tres formas diferentes de imprimir, cada una con ventajas y desventajas propias.'},
+  {pillar:'impresion', cat:'Tecnologías', href:'blog-altura-capa-velocidad-temperatura.html', img:'altura-capa.jpg', title:'Altura de capa, velocidad y temperatura', desc:'Parámetros clave que controlan la calidad y velocidad de tus impresiones.'},
+  {pillar:'impresion', cat:'Materiales', href:'blog-materiales.html', img:'materiales.jpg', title:'PLA, PETG o ABS: qué material elegir', desc:'Cada filamento tiene fortalezas distintas. Te explicamos cuál conviene según tu proyecto.'},
+  {pillar:'impresion', cat:'Materiales', href:'blog-guia-materiales.html', img:'guia-materiales.jpg', title:'Guía completa de materiales para impresión 3D', desc:'Propiedades, características y aplicaciones de los principales filamentos.'},
+  {pillar:'impresion', cat:'Materiales', href:'blog-sostenibilidad.html', img:'sostenibilidad.jpg', title:'Impresión 3D ecológica: materiales reciclables', desc:'Cómo la manufactura digital puede ser revolucionaria y amigable con el medio ambiente.'},
+  {pillar:'impresion', cat:'Calidad', href:'blog-mejorar-calidad-impresion.html', img:'mejorar-calidad.jpg', title:'Cómo mejorar la calidad de tus impresiones', desc:'Consejos prácticos para lograr acabados profesionales en cada pieza.'},
+  {pillar:'impresion', cat:'Problemas', href:'blog-errores-impresion.html', img:'errores-impresion.jpg', title:'Errores comunes en impresión 3D y cómo evitarlos', desc:'Warping, spaghetti, mala adhesión: identifica y prevén los fallos más frecuentes.'},
+  {pillar:'impresion', cat:'Problemas', href:'blog-por-que-falla-impresion.html', img:'por-que-falla.jpg', title:'¿Por qué falla mi impresión 3D?', desc:'Diagnóstico de problemas: de lo obvio a lo más sutil.'},
+  {pillar:'impresion', cat:'Postprocesado', href:'blog-postprocesado.html', img:'posprocesado.jpg', title:'Acabado superficial: técnicas de post-procesado', desc:'Sanding, vapor de acetona y pintura: transforma una pieza bruta en algo profesional.'},
+  {pillar:'impresion', cat:'Postprocesado', href:'blog-como-pintar-pieza-3d.html', img:'como-pintar.jpg', title:'Cómo pintar una pieza impresa en 3D', desc:'Preparación, técnicas y pinturas: guía completa para un acabado impecable.'},
+  {pillar:'impresion', cat:'3D Curioso', href:'blog-cine-impresion-3d.html', img:'cine-3d.jpg', title:'La impresión 3D en el cine y la TV', desc:'Cómo Hollywood usa la tecnología 3D para crear efectos especiales.', curioso:true},
+  {pillar:'impresion', cat:'3D Curioso', href:'blog-impresoras-reales-peliculas.html', img:'impresoras-peliculas.jpg', title:'Impresoras y robots de películas que existen en la realidad', desc:'Lo que vemos en ficción que ya es posible fabricar en el mundo real.', curioso:true},
+  {pillar:'impresion', cat:'3D Curioso', href:'blog-cosas-sorprendentes-imprimibles.html', img:'cosas-sorprendentes.jpg', title:'Cosas sorprendentes que se pueden imprimir en 3D', desc:'Desde órganos humanos hasta estructuras del espacio: lo que ya es realidad.', curioso:true},
+  {pillar:'impresion', cat:'3D Curioso', href:'blog-impresiones-mas-extranas.html', img:'impresiones-extranas.jpg', title:'Las impresiones 3D más extrañas jamás hechas', desc:'Desde lo bizarro hasta lo sublime: objetos que demuestran los límites de la tecnología.', curioso:true},
+  {pillar:'impresion', cat:'Problemas', href:'blog-pieza-mas-grande.html', img:'pieza-grande.jpg', title:'¿Cuál es la pieza más grande que se puede imprimir?', desc:'Límites, técnicas y estrategias para imprimir obras monumentales.'},
+  {pillar:'escaneo', cat:'Fundamentos', href:'blog-escaneo.html', img:'escaneo.jpg', title:'Qué es el escaneo 3D y para qué sirve', desc:'Digitalizar una pieza existente abre posibilidades que muchos aún no conocen.'},
+  {pillar:'escaneo', cat:'Escaneo de objetos', href:'blog-escaneo-fotogrametria.html', img:'fotogrametria.jpg', title:'Fotogrametría: escanea con tu teléfono', desc:'La tecnología más accesible para capturar objetos en 3D con precisión.'},
+  {pillar:'diseno', cat:'Fundamentos', href:'blog-que-es-diseno-3d.html', img:'diseno-3d-fundamentos.jpg', title:'¿Qué es el diseño 3D y para qué sirve?', desc:'Una introducción clara a cómo se crean los modelos antes de imprimir.'},
+  {pillar:'diseno', cat:'Tecnologías', href:'blog-que-tecnologia-necesitas.html', img:'tecnologia-diseno.jpg', title:'Qué tecnología necesitas para diseñar en 3D', desc:'Software, hardware y herramientas: guía para elegir lo adecuado para tu workflow.'},
+  {pillar:'diseno', cat:'Software', href:'blog-fusion-360-gratuito.html', img:'fusion-360.jpg', title:'Fusion 360: CAD gratuito y poderoso', desc:'Por qué Autodesk Fusion 360 es la opción ideal para diseñadores que empiezan.'}
+];
+
+let currentPillar = 'impresion';
+
+function renderPosts() {
+  const container = document.getElementById('posts-container');
+  container.innerHTML = '';
+
+  const categories = categoriesByPillar[currentPillar];
+
+  categories.forEach(cat => {
+    const catPosts = posts.filter(p => p.pillar === currentPillar && p.cat === cat);
+    if (catPosts.length === 0) return;
+
+    const section = document.createElement('div');
+    section.className = 'category-grid';
+
+    const title = document.createElement('h2');
+    title.className = 'category-title';
+    title.textContent = cat;
+    section.appendChild(title);
+
+    const grid = document.createElement('div');
+    grid.className = 'post-grid';
+
+    catPosts.forEach(post => {
+      const card = document.createElement('a');
+      card.className = 'post-card';
+      card.href = post.href;
+      card.innerHTML = `
+        <div class="cover"><img src="${post.img}" alt="${post.title}"></div>
+        <div class="info">
+          <span class="tag">${post.cat.toUpperCase()}</span>
+          <h2>${post.title}</h2>
+          <p>${post.desc}</p>
+          <span class="read">Leer artículo →</span>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    section.appendChild(grid);
+    container.appendChild(section);
+  });
+}
+
+document.querySelectorAll('.pillar-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    document.querySelectorAll('.pillar-btn').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    currentPillar = e.target.dataset.pillar;
+    renderPosts();
+  });
+});
+
+renderPosts();
+</script>
 
 </body>
 </html>

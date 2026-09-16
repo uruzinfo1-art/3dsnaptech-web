@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<title>Fotogrametría: escanea con tu teléfono — 3DSnapTech</title>
+<meta name="description" content="Fotogrametría: cómo capturar objetos en 3D con precisión usando solo tu teléfono. Guía paso a paso con software gratuito.">
+<style>
+  :root{ --lima:#E1E91E; --negro:#05101C; --dorado:#FEAE12; --cafe:#AD6601; --crema:#FEE4AA; --paper:#F7F4EC; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins', system-ui, sans-serif; background:var(--negro); color:#fff; -webkit-font-smoothing:antialiased;}
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+  .mono{font-family:'DejaVu Sans Mono', monospace;}
+  header{position:sticky; top:0; z-index:50; background:rgba(5,16,28,.9); backdrop-filter:blur(6px); border-bottom:1px solid rgba(255,255,255,.08);}
+  header .bar{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:1120px; margin:0 auto;}
+  header .brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:22px; text-decoration:none;}
+  header .brand img{width:52px;}
+  header .brand span.d{color:var(--lima);}
+  .btn{display:inline-flex; align-items:center; gap:8px; background:var(--lima); color:var(--negro); font-weight:800; padding:11px 20px; border-radius:8px; font-size:14px; text-decoration:none;}
+  .article{padding:50px 0 80px;}
+  .back{font-size:13px; color:var(--lima); text-decoration:none; font-weight:600;}
+  .tag{font-family:'DejaVu Sans Mono', monospace; font-size:11px; letter-spacing:1.5px; color:var(--dorado); margin-left:10px;}
+  h1{font-size:32px; font-weight:800; margin-top:12px; line-height:1.25;}
+  .meta{margin-top:10px; font-size:13px; color:var(--crema); opacity:.7;}
+  .cover-img{margin-top:26px; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.1);}
+  .content{margin-top:30px; font-size:15.5px; line-height:1.75; color:#e8e8e8;}
+  .content p{margin-bottom:18px;}
+  .content h2{font-size:20px; font-weight:700; margin:34px 0 12px; color:var(--lima);}
+  .content ul{margin:0 0 18px 20px;}
+  .content li{margin-bottom:10px;}
+  .step-box{background:rgba(225,233,30,.06); border:1px solid rgba(225,233,30,.15); border-radius:10px; padding:16px; margin:20px 0; font-size:14.5px;}
+  .step-box strong{color:var(--lima);}
+  .cta-box{margin-top:44px; background:rgba(225,233,30,.06); border:1px solid rgba(225,233,30,.25); border-radius:14px; padding:26px;}
+  .cta-box p{margin-bottom:14px; font-size:14.5px;}
+  footer{background:var(--negro); border-top:1px solid rgba(255,255,255,.08); padding:30px 0; text-align:center; font-size:12px; opacity:.5;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a href="index.html" class="brand"><img src="logo-transparent.png" alt="3DSnapTech"><span><span class="d">3d</span>Snaptech</span></a>
+    <a class="btn" href="https://wa.me/573207283295" target="_blank">WhatsApp</a>
+  </div>
+</header>
+
+<section class="article">
+  <div class="wrap">
+    <a class="back" href="blog.html">← Volver al blog</a><span class="tag">ESCANEO DE OBJETOS</span>
+    <h1>Fotogrametría: escanea con tu teléfono</h1>
+    <div class="meta">3DSnapTech · Escaneo 3D</div>
+
+    <div class="cover-img"><img src="fotogrametria.jpg" alt="Persona capturando imágenes de un objeto para fotogrametría"></div>
+
+    <div class="content">
+      <p>No necesitas un escáner 3D profesional de $50,000 para capturar un objeto en tres dimensiones. Con tu teléfono y una técnica llamada <strong>fotogrametría</strong>, puedes crear modelos 3D de alta precisión desde cualquier lugar.</p>
+
+      <h2>¿Qué es la fotogrametría?</h2>
+      <p>La fotogrametría es el proceso de tomar múltiples fotografías de un objeto desde diferentes ángulos y alturas, y luego usar software especializado para analizar esas imágenes y construir un modelo 3D. El software compara las variaciones en los píxeles, detecta características en común entre fotos, y reconstruye la geometría del objeto.</p>
+      <p>Es la misma técnica que usa Google Earth para crear sus modelos en 3D, y la que los estudios de efectos especiales usan para digitalizar actores y accesorios de forma rápida.</p>
+
+      <h2>¿Por qué funciona mejor que un escáner manual?</h2>
+      <ul>
+        <li><strong>Precisión sin contacto:</strong> No necesitas tocar el objeto. Funciona con cosas frágiles, orgánicas, o que simplemente no quieres rayar.</li>
+        <li><strong>Captura de color y textura:</strong> A diferencia de muchos escáneres que solo capturan forma, la fotogrametría preserva el color y los detalles superficiales.</li>
+        <li><strong>Costo casi cero:</strong> Un teléfono y software gratuito. Eso es todo.</li>
+        <li><strong>Escala flexible:</strong> Desde una moneda hasta un monumento: ajusta solo la distancia de tus fotos.</li>
+      </ul>
+
+      <h2>Cómo capturar las imágenes</h2>
+      <div class="step-box">
+        <strong>Paso 1: iluminación</strong><br>
+        La clave está aquí. Necesitas luz uniforme, preferiblemente natural (ventana nublada o exterior). Evita sombras duras y reflejos especulares (esos brillos que confunden a la cámara).
+      </div>
+
+      <div class="step-box">
+        <strong>Paso 2: posiciona el objeto</strong><br>
+        Colócalo sobre una superficie neutra (fondo blanco o gris ayuda). El objeto debe estar quieto — usa un trípode para el teléfono si es posible.
+      </div>
+
+      <div class="step-box">
+        <strong>Paso 3: toma fotos</strong><br>
+        Camina alrededor del objeto en un círculo, tomando fotos cada 15-20 grados. Luego, sube un poco y repite. Luego baja. Busca entre 40-100 fotos en total. Más fotos = más detalle, pero también más procesamiento.
+      </div>
+
+      <div class="step-box">
+        <strong>Paso 4: detalle cercano (opcional)</strong><br>
+        Si el objeto tiene detalles pequeños (grabados, texturas finas), toma fotos adicionales acercándote solo a esas zonas. El software puede combinar múltiples capturas en un solo modelo.
+      </div>
+
+      <h2>Software para procesar fotogrametría</h2>
+      <p><strong>Gratuito:</strong></p>
+      <ul>
+        <li><strong>Meshroom</strong> — La opción preferida de profesionales. Totalmente libre, open-source, y produce resultados excelentes. Requiere una GPU decente.</li>
+        <li><strong>RealityCapture (versión gratuita limitada)</strong> — Muy amigable, procesa rápido, pero limita la resolución en versión free.</li>
+        <li><strong>OpenDroneMap</strong> — Originalmente para drones, pero funciona con fotos de tierra también.</li>
+      </ul>
+      <p><strong>Pago (pero valen la pena):</strong></p>
+      <ul>
+        <li><strong>Reality Capture Pro</strong> — Procesa en minutos, máxima precisión.</li>
+        <li><strong>Agisoft Metashape</strong> — El estándar en arqueología y surveys profesionales.</li>
+      </ul>
+
+      <h2>De la nube de puntos al modelo imprimible</h2>
+      <p>Cuando el software termina, tienes una "nube de puntos" — millones de puntos en el espacio que representan la superficie del objeto. Esto no se puede imprimir directamente. Necesitas convertirlo a una malla (mesh) sólida usando herramientas como:</p>
+      <ul>
+        <li><strong>Meshmixer</strong> (gratis, Autodesk)</li>
+        <li><strong>CloudCompare</strong> (open-source, especializado en nubes de puntos)</li>
+        <li><strong>Fusion 360</strong> (tiene funciones de reconstrucción de superficies)</li>
+      </ul>
+
+      <h2>Casos de uso reales</h2>
+      <p><strong>En 3DSnapTech usamos fotogrametría para:</strong></p>
+      <ul>
+        <li>Recrear piezas de repuesto que ya no se fabrican.</li>
+        <li>Escanear objetos pequeños de clientes para prototipos personalizados.</li>
+        <li>Duplicar figuras, esculturas o moldes con precisión.</li>
+        <li>Archivar objetos valiosos en formato digital (seguros, registros históricos).</li>
+      </ul>
+
+      <h2>Limitaciones que debes conocer</h2>
+      <p>La fotogrametría es poderosa, pero no es magia. Funciona mejor en objetos con:</p>
+      <ul>
+        <li>Superficies matte o textured (no objetos espejo o vidrio puro).</li>
+        <li>Formas relativamente simples (sin agujeros muy pequeños o detalles microscópicos).</li>
+        <li>Objetos sin movimiento entre fotos.</li>
+      </ul>
+      <p>Objetos completamente reflectantes (un espejo) o vidrio transparente son casi imposibles de escanear sin trucos especiales (como aplicar polvo o spray matificante temporal).</p>
+
+      <h2>Tip profesional</h2>
+      <p>Si vas a vender tus escaneos o modelos, certifícate de que tienes permiso del propietario del objeto original. La fotogrametría es una herramienta de captura, pero los derechos de autor de la forma física siguen siendo del dueño.</p>
+    </div>
+
+    <div class="cta-box">
+      <p><strong>¿Tienes un objeto que quieres escanear pero no sabes por dónde empezar?</strong> En 3DSnapTech ofrecemos servicios profesionales de fotogrametría con equipo especializado. Escríbenos.</p>
+      <a class="btn" href="https://wa.me/573207283295?text=Hola%2C%20quiero%20escanear%20un%20objeto%20en%203D" target="_blank">Contáctanos por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 3DSNAPTECH · COLOMBIA</footer>
+
+</body>
+</html>
