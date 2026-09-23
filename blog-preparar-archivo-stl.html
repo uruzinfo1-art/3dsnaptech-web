@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<title>Cómo preparar un archivo STL para imprimir en 3D — 3DSnapTech</title>
+<meta name="description" content="Guía paso a paso: exportar STL correctamente, validar la malla, detectar errores, y configurar escala y orientación para una impresión exitosa.">
+<style>
+  :root{ --lima:#E1E91E; --negro:#05101C; --dorado:#FEAE12; --cafe:#AD6601; --crema:#FEE4AA; --paper:#F7F4EC; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins', system-ui, sans-serif; background:var(--negro); color:#fff; -webkit-font-smoothing:antialiased;}
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+  .mono{font-family:'DejaVu Sans Mono', monospace;}
+  header{position:sticky; top:0; z-index:50; background:rgba(5,16,28,.9); backdrop-filter:blur(6px); border-bottom:1px solid rgba(255,255,255,.08);}
+  header .bar{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:1120px; margin:0 auto;}
+  header .brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:22px; text-decoration:none;}
+  header .brand img{width:52px;}
+  header .brand span.d{color:var(--lima);}
+  .btn{display:inline-flex; align-items:center; gap:8px; background:var(--lima); color:var(--negro); font-weight:800; padding:11px 20px; border-radius:8px; font-size:14px; text-decoration:none;}
+  .article{padding:50px 0 80px;}
+  .back{font-size:13px; color:var(--lima); text-decoration:none; font-weight:600;}
+  .tag{font-family:'DejaVu Sans Mono', monospace; font-size:11px; letter-spacing:1.5px; color:var(--dorado); margin-left:10px;}
+  h1{font-size:32px; font-weight:800; margin-top:12px; line-height:1.25;}
+  .meta{margin-top:10px; font-size:13px; color:var(--crema); opacity:.7;}
+  .cover-img{margin-top:26px; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.1);}
+  .content{margin-top:30px; font-size:15.5px; line-height:1.75; color:#e8e8e8;}
+  .content p{margin-bottom:18px;}
+  .content h2{font-size:20px; font-weight:700; margin:34px 0 12px; color:var(--lima);}
+  .content ul{margin:0 0 18px 20px;}
+  .content li{margin-bottom:10px;}
+  .content strong{color:var(--dorado);}
+  .cta-box{margin-top:44px; background:rgba(225,233,30,.06); border:1px solid rgba(225,233,30,.25); border-radius:14px; padding:26px;}
+  .cta-box p{margin-bottom:14px; font-size:14.5px;}
+  footer{background:var(--negro); border-top:1px solid rgba(255,255,255,.08); padding:30px 0; text-align:center; font-size:12px; opacity:.5;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a href="index.html" class="brand"><img src="logo-transparent.png" alt="3DSnapTech"><span><span class="d">3d</span>Snaptech</span></a>
+    <a class="btn" href="https://wa.me/573207283295" target="_blank">WhatsApp</a>
+  </div>
+</header>
+
+<section class="article">
+  <div class="wrap">
+    <a class="back" href="blog.html">← Volver al blog</a><span class="tag">FUNDAMENTOS</span>
+    <h1>Cómo preparar un archivo STL para imprimir en 3D</h1>
+    <div class="meta">3DSnapTech · Impresión 3D</div>
+
+    <div class="cover-img"><img src="preparar-archivo-stl.jpg" alt="Pantalla de computador mostrando un archivo STL abierto en software de slicing"></div>
+
+    <div class="content">
+      <p>Tienes tu modelo 3D listo. Ahora viene el paso que muchos olvidan: preparar correctamente el archivo antes de llevarlo a la impresora. Un STL mal preparado es la receta para fallos, desperdicios de filamento y mucho tiempo perdido. Aquí te enseñamos cómo hacerlo bien.</p>
+
+      <h2>¿Qué es un archivo STL?</h2>
+      <p>STL (Stereolithography) es el formato estándar para impresión 3D. Es, básicamente, una descripción matemática de la geometría de tu objeto: una malla de triángulos que definen su superficie. Casi todas las impresoras 3D lo entienden.</p>
+
+      <h2>Paso 1: Exporta desde tu software de diseño</h2>
+      <ul>
+        <li>Abre tu modelo en Fusion 360, Blender, FreeCAD o lo que uses.</li>
+        <li>Busca "Export" o "Save as".</li>
+        <li>Selecciona formato STL (a veces dice "Stereolithography" en los detalles).</li>
+        <li>Importante: revisa que esté en la unidad correcta (milímetros, centímetros, lo que tu proyecto necesite).</li>
+      </ul>
+      <p>Pro tip: algunos software también permiten exportar como "ASCII STL" o "Binary STL". El binario es más pequeño de archivo, pero si planeas revisar o editar después, ASCII es más manejable.</p>
+
+      <h2>Paso 2: Valida la malla</h2>
+      <p>Una malla "rota" (con huecos, caras invertidas o triángulos desconectados) es una pesadilla en la impresora. Usa herramientas gratuitas para verificar:</p>
+      <ul>
+        <li><strong>Netfabb Online (autodesk.com/products/netfabb/free-download)</strong> — automáticamente detecta y arregla problemas.</li>
+        <li><strong>Meshmixer</strong> — revisa y repara mallas con control fino.</li>
+        <li><strong>Cura (software de slicing)</strong> — abre el STL y te avisa de errores.</li>
+      </ul>
+      <p>Si la herramienta dice que hay problemas, déjale que los repare automáticamente. El 99% de las veces funciona.</p>
+
+      <h2>Paso 3: Revisa la escala</h2>
+      <p>Aquí es donde ocurren muchos desastres. Si diseñaste en centímetros pero el software interpreta milímetros, tu pieza saldrá 10 veces más pequeña (o grande).</p>
+      <ul>
+        <li>Abre el STL en tu software de slicing (Cura, PrusaSlicer, etc.).</li>
+        <li>Verifica las dimensiones que el software reporta.</li>
+        <li>Compárala con lo que esperabas.</li>
+        <li>Si está mal, vuelve al diseño, verifica unidades, y re-exporta.</li>
+      </ul>
+
+      <h2>Paso 4: Orienta correctamente</h2>
+      <p>La orientación de tu pieza en la plataforma de impresión afecta:</p>
+      <ul>
+        <li><strong>Tiempo de impresión</strong> — una orientación puede ser 30% más rápida que otra.</li>
+        <li><strong>Calidad de superficie</strong> — las capas horizontales suelen verse mejor que las verticales.</li>
+        <li><strong>Necesidad de soportes</strong> — ángulos mayores a 45° generalmente necesitan soportes.</li>
+      </ul>
+      <p>Regla general: orienta tu pieza de forma que minimice soportes y que los detalles finos (rostro, letras pequeñas) queden horizontales.</p>
+
+      <h2>Paso 5: Agrega soportes si es necesario</h2>
+      <p>Si tu pieza tiene voladizos (partes que flotan en el aire), necesitarás soportes. Tu software de slicing puede generarlos automáticamente, pero revisa:</p>
+      <ul>
+        <li>¿Los soportes no toquen detalles frágiles?</li>
+        <li>¿Hay suficientes puntos de contacto?</li>
+        <li>¿Puedes removerlos fácilmente sin dañar la pieza?</li>
+      </ul>
+
+      <h2>Paso 6: Genera el G-code (archivo de la impresora)</h2>
+      <p>Este es el último paso, llamado "slicing". El software parte tu modelo en capas horizontales y genera las instrucciones que tu impresora entenderá.</p>
+      <ul>
+        <li>Abre el STL en tu software de slicing.</li>
+        <li>Configura: altura de capa (0.2mm es estándar), velocidad, temperatura según el material.</li>
+        <li>Genera el G-code.</li>
+        <li>Guárdalo en tu tarjeta SD o envíalo directamente a la impresora si tiene conexión.</li>
+      </ul>
+
+      <h2>Último consejo</h2>
+      <p>Si es tu primer proyecto o estás inseguro, imprime un modelo pequeño y simple primero. Es la manera más rápida y económica de aprender qué sale bien y qué necesita ajuste.</p>
+    </div>
+
+    <div class="cta-box">
+      <p><strong>¿Ya tienes tu STL pero necesitas ayuda para prepararlo o quieres que lo imprimamos?</strong> En 3DSnapTech nos encargamos de todos estos pasos.</p>
+      <a class="btn" href="https://wa.me/573207283295?text=Tengo%20un%20STL%20y%20necesito%20ayuda%20con%20la%20preparaci%C3%B3n" target="_blank">Escríbenos por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 3DSNAPTECH · COLOMBIA</footer>
+
+</body>
+</html>
