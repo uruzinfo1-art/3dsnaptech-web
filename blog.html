@@ -35,6 +35,11 @@
   h1{font-size:38px; font-weight:800;}
   .hero p{margin-top:14px; color:var(--crema); max-width:520px; margin-left:auto; margin-right:auto; font-size:15.5px;}
 
+  .pillars{padding:20px 0; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
+  .pillar-btn{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); color:inherit; padding:10px 18px; border-radius:8px; font-size:13px; font-weight:600; cursor:pointer; transition:all .2s;}
+  .pillar-btn:hover{border-color:var(--lima); color:var(--lima);}
+  .pillar-btn.active{background:var(--lima); color:var(--negro);}
+
   .posts{padding:20px 0 90px;}
   .post-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
   .post-card{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:16px; overflow:hidden; transition:border-color .2s, transform .2s;}
@@ -48,6 +53,7 @@
   .post-card h2{font-size:17px; font-weight:700; margin-top:8px; line-height:1.35;}
   .post-card p{font-size:13.5px; color:var(--crema); opacity:.85; margin-top:8px; line-height:1.55;}
   .post-card .read{margin-top:14px; font-size:13px; font-weight:700; color:var(--lima); border-bottom:1.5px solid var(--lima); display:inline-block;}
+  .post-card.hidden{display:none;}
 
   footer{background:var(--negro); border-top:1px solid rgba(255,255,255,.08); padding:34px 0;}
   footer .bar{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;}
@@ -60,6 +66,8 @@
     nav{display:none;}
     .post-grid{grid-template-columns:1fr;}
     h1{font-size:28px;}
+    .pillars{gap:8px;}
+    .pillar-btn{font-size:12px; padding:8px 14px;}
   }
 </style>
 </head>
@@ -86,81 +94,18 @@
   </div>
 </section>
 
+<section class="pillars">
+  <div class="wrap" style="width:100%; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+    <button class="pillar-btn active" data-pillar="all">Todos</button>
+    <button class="pillar-btn" data-pillar="impresion">Impresión 3D</button>
+    <button class="pillar-btn" data-pillar="escaneo">Escaneo 3D</button>
+    <button class="pillar-btn" data-pillar="diseno">Diseño 3D</button>
+  </div>
+</section>
+
 <section class="posts">
   <div class="wrap">
-    <div class="post-grid">
-
-      <a class="post-card" href="blog-materiales.html">
-        <div class="cover"><img src="materiales.jpg" alt="Filamentos y piezas impresas en 3D"></div>
-        <div class="info">
-          <span class="tag">MATERIALES</span>
-          <h2>PLA, PETG o ABS: qué material elegir para tu proyecto</h2>
-          <p>Cada filamento tiene fortalezas distintas. Te explicamos cuál conviene según lo que vayas a imprimir.</p>
-          <span class="read">Leer artículo →</span>
-        </div>
-      </a>
-
-      <a class="post-card" href="blog-sostenibilidad.html">
-        <div class="cover"><img src="sostenibilidad.jpg" alt="Materiales sostenibles y reciclables para impresión 3D"></div>
-        <div class="info">
-          <span class="tag">SOSTENIBILIDAD</span>
-          <h2>Impresión 3D ecológica: materiales reciclables y su impacto</h2>
-          <p>Cómo la manufactura digital puede ser, al mismo tiempo, revolucionaria y amigable con el medio ambiente.</p>
-          <span class="read">Leer artículo →</span>
-        </div>
-      </a>
-
-      <a class="post-card" href="blog-escaneo.html">
-        <div class="cover"><img src="escaneo.jpg" alt="Escáner 3D digitalizando una escultura"></div>
-        <div class="info">
-          <span class="tag">ESCANEO 3D</span>
-          <h2>Qué es el escaneo 3D y para qué sirve</h2>
-          <p>Digitalizar una pieza existente abre posibilidades que muchos aún no conocen. Te contamos cómo funciona.</p>
-          <span class="read">Leer artículo →</span>
-        </div>
-      </a>
-
-      <a class="post-card" href="blog-postprocesado.html">
-        <div class="cover"><img src="posprocesado.jpg" alt="Acabado superficial en piezas impresas en 3D"></div>
-        <div class="info">
-          <span class="tag">DISEÑO Y MANUFACTURA</span>
-          <h2>Acabado superficial en impresión 3D: técnicas de post-procesado</h2>
-          <p>Sanding, vapor de acetona y pintura: cómo transformar una pieza bruta en algo profesional.</p>
-          <span class="read">Leer artículo →</span>
-        </div>
-      </a>
-
-      <a class="post-card" href="blog-errores-impresion.html">
-        <div class="cover"><img src="errores-impresion.jpg" alt="Piezas con fallas comunes de impresión 3D: warping y stringing"></div>
-        <div class="info">
-          <span class="tag">IMPRESORAS Y CALIDAD</span>
-          <h2>Errores comunes en impresión 3D y cómo evitarlos</h2>
-          <p>Warping, spaghetti, mala adhesión: identificar y prevenir los fallos más comunes.</p>
-          <span class="read">Leer artículo →</span>
-        </div>
-      </a>
-
-      <a class="post-card" href="blog-software-diseno-3d.html">
-        <div class="cover"><img src="software-diseno-3d.jpg" alt="Diferentes interfaces de software de diseño 3D en computadores"></div>
-        <div class="info">
-          <span class="tag">SOFTWARE</span>
-          <h2>Software de diseño 3D: cuál elegir según tu proyecto</h2>
-          <p>Fusion 360, FreeCAD, Blender, Tinkercad: cada herramienta es para algo diferente. Te guiamos para elegir la correcta.</p>
-          <span class="read">Leer artículo →</span>
-        </div>
-      </a>
-
-      <a class="post-card" href="blog-preparar-archivo-stl.html">
-        <div class="cover"><img src="preparar-archivo-stl.jpg" alt="Pantalla de computador mostrando un archivo STL en software de slicing"></div>
-        <div class="info">
-          <span class="tag">FUNDAMENTOS</span>
-          <h2>Cómo preparar un archivo STL para imprimir en 3D</h2>
-          <p>Validación, escala, orientación y soportes: todo lo que necesitas saber antes de llevar tu diseño a la impresora.</p>
-          <span class="read">Leer artículo →</span>
-        </div>
-      </a>
-
-    </div>
+    <div class="post-grid" id="postGrid"></div>
   </div>
 </section>
 
@@ -178,6 +123,63 @@
     <div class="fine mono">© 2026 3DSNAPTECH · BOGOTÁ, COLOMBIA</div>
   </div>
 </footer>
+
+<script>
+var categoryBysPillar = {
+  impresion: ['Fundamentos', 'Tecnologías', 'Materiales', 'Calidad', 'Problemas', 'Post-procesado', '3D Curioso'],
+  escaneo: ['Fundamentos', 'Tecnologías', 'Escaneo de Objetos', 'Calidad', 'Problemas', 'Software', '3D Curioso'],
+  diseno: ['Fundamentos', 'Tecnologías', 'Software', 'Mejores Prácticas', 'Problemas', 'Validación', '3D Curioso']
+};
+
+var posts = [
+  {pillar:'impresion', cat:'Materiales', href:'blog-materiales.html', img:'materiales.jpg', title:'PLA, PETG o ABS: qué material elegir para tu proyecto', desc:'Cada filamento tiene fortalezas distintas. Te explicamos cuál conviene según lo que vayas a imprimir.'},
+  {pillar:'impresion', cat:'Post-procesado', href:'blog-postprocesado.html', img:'posprocesado.jpg', title:'Acabado superficial en impresión 3D: técnicas de post-procesado', desc:'Sanding, vapor de acetona y pintura: cómo transformar una pieza bruta en algo profesional.'},
+  {pillar:'impresion', cat:'Problemas', href:'blog-errores-impresion.html', img:'errores-impresion.jpg', title:'Errores comunes en impresión 3D y cómo evitarlos', desc:'Warping, spaghetti, mala adhesión: identificar y prevenir los fallos más comunes.'},
+  {pillar:'impresion', cat:'Fundamentos', href:'blog-preparar-archivo-stl.html', img:'preparar-archivo-stl.jpg', title:'Cómo preparar un archivo STL para imprimir en 3D', desc:'Validación, escala, orientación y soportes: todo lo que necesitas saber antes de llevar tu diseño a la impresora.'},
+  {pillar:'impresion', cat:'Fundamentos', href:'blog-tipos-soportes-impresion.html', img:'tipos-soportes.jpg', title:'Tipos de soportes en impresión 3D: cuál elegir', desc:'Estructurales, ramificados, lineales y solubles: guía completa para elegir el soporte perfecto.'},
+  {pillar:'escaneo', cat:'Fundamentos', href:'blog-escaneo.html', img:'escaneo.jpg', title:'Qué es el escaneo 3D y para qué sirve', desc:'Digitalizar una pieza existente abre posibilidades que muchos aún no conocen. Te contamos cómo funciona.'},
+  {pillar:'escaneo', cat:'Tecnologías', href:'blog-escaneo-objetos-complejos.html', img:'escaneo-objetos-complejos.jpg', title:'Cómo escanear objetos complejos en 3D', desc:'Guía técnica para capturar geometría compleja: objetos reflectantes, texturas y detalles finos.'},
+  {pillar:'diseno', cat:'Software', href:'blog-software-diseno-3d.html', img:'software-diseno-3d.jpg', title:'Software de diseño 3D: cuál elegir según tu proyecto', desc:'Fusion 360, FreeCAD, Blender, Tinkercad: cada herramienta es para algo diferente. Te guiamos para elegir la correcta.'},
+  {pillar:'diseno', cat:'Fundamentos', href:'blog-que-es-diseno-3d.html', img:'diseno-3d-fundamentos.jpg', title:'¿Qué es el diseño 3D y para qué sirve?', desc:'Una introducción clara al diseño 3D: qué es, en qué se diferencia del modelado, y para qué se usa.'},
+  {pillar:'diseno', cat:'Mejores Prácticas', href:'blog-diseno-para-impresion.html', img:'diseno-para-impresion.jpg', title:'Cómo diseñar piezas optimizadas para impresión 3D', desc:'Espesores, voladizos, tolerancias y orientación: crea modelos que se imprimen perfectamente.'},
+  {pillar:'impresion', cat:'Materiales', href:'blog-sostenibilidad.html', img:'sostenibilidad.jpg', title:'Impresión 3D ecológica: materiales reciclables y su impacto', desc:'Cómo la manufactura digital puede ser, al mismo tiempo, revolucionaria y amigable con el medio ambiente.'}
+];
+
+function renderPosts(filter = 'all') {
+  var grid = document.getElementById('postGrid');
+  grid.innerHTML = '';
+
+  var filtered = posts.filter(function(p) {
+    return filter === 'all' || p.pillar === filter;
+  });
+
+  filtered.forEach(function(post) {
+    var card = document.createElement('a');
+    card.className = 'post-card';
+    card.href = post.href;
+    card.innerHTML = `
+      <div class="cover"><img src="${post.img}" alt="${post.title}"></div>
+      <div class="info">
+        <span class="tag">${post.cat.toUpperCase()}</span>
+        <h2>${post.title}</h2>
+        <p>${post.desc}</p>
+        <span class="read">Leer artículo →</span>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+document.querySelectorAll('.pillar-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.pillar-btn').forEach(function(b) { b.classList.remove('active'); });
+    this.classList.add('active');
+    renderPosts(this.dataset.pillar);
+  });
+});
+
+renderPosts('all');
+</script>
 
 </body>
 </html>

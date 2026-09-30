@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<title>Tipos de soportes en impresión 3D: cuál elegir — 3DSnapTech</title>
+<meta name="description" content="Guía completa sobre tipos de soportes en impresión 3D: soportes estructurales, ramificados, lineales y solubles. Cómo elegir el mejor para tu pieza.">
+<style>
+  :root{ --lima:#E1E91E; --negro:#05101C; --dorado:#FEAE12; --cafe:#AD6601; --crema:#FEE4AA; --paper:#F7F4EC; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins', system-ui, sans-serif; background:var(--negro); color:#fff; -webkit-font-smoothing:antialiased;}
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+  .mono{font-family:'DejaVu Sans Mono', monospace;}
+  header{position:sticky; top:0; z-index:50; background:rgba(5,16,28,.9); backdrop-filter:blur(6px); border-bottom:1px solid rgba(255,255,255,.08);}
+  header .bar{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:1120px; margin:0 auto;}
+  header .brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:22px; text-decoration:none;}
+  header .brand img{width:52px;}
+  header .brand span.d{color:var(--lima);}
+  .btn{display:inline-flex; align-items:center; gap:8px; background:var(--lima); color:var(--negro); font-weight:800; padding:11px 20px; border-radius:8px; font-size:14px; text-decoration:none;}
+  .article{padding:50px 0 80px;}
+  .back{font-size:13px; color:var(--lima); text-decoration:none; font-weight:600;}
+  .tag{font-family:'DejaVu Sans Mono', monospace; font-size:11px; letter-spacing:1.5px; color:var(--dorado); margin-left:10px;}
+  h1{font-size:32px; font-weight:800; margin-top:12px; line-height:1.25;}
+  .meta{margin-top:10px; font-size:13px; color:var(--crema); opacity:.7;}
+  .cover-img{margin-top:26px; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.1);}
+  .content{margin-top:30px; font-size:15.5px; line-height:1.75; color:#e8e8e8;}
+  .content p{margin-bottom:18px;}
+  .content h2{font-size:20px; font-weight:700; margin:34px 0 12px; color:var(--lima);}
+  .content h3{font-size:17px; font-weight:600; margin:24px 0 10px; color:var(--dorado);}
+  .content ul{margin:0 0 18px 20px;}
+  .content li{margin-bottom:10px;}
+  .content strong{color:var(--crema);}
+  .cta-box{margin-top:44px; background:rgba(225,233,30,.06); border:1px solid rgba(225,233,30,.25); border-radius:14px; padding:26px;}
+  .cta-box p{margin-bottom:14px; font-size:14.5px;}
+  footer{background:var(--negro); border-top:1px solid rgba(255,255,255,.08); padding:30px 0; text-align:center; font-size:12px; opacity:.5;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a href="index.html" class="brand"><img src="logo-transparent.png" alt="3DSnapTech"><span><span class="d">3d</span>Snaptech</span></a>
+    <a class="btn" href="https://wa.me/573207283295" target="_blank">WhatsApp</a>
+  </div>
+</header>
+
+<section class="article">
+  <div class="wrap">
+    <a class="back" href="blog.html">← Volver al blog</a><span class="tag">FUNDAMENTOS</span>
+    <h1>Tipos de soportes en impresión 3D: cuál elegir</h1>
+    <div class="meta">3DSnapTech · Impresión 3D</div>
+
+    <div class="cover-img"><img src="tipos-soportes.jpg" alt="Pieza 3D con diferentes tipos de soportes durante impresión"></div>
+
+    <div class="content">
+      <p>Los soportes son estructuras temporales que se imprimen junto a tu pieza para sostener las zonas que cuelgan o sobresalen. Sin soportes, esas áreas caerían durante la impresión o quedarían deformadas. La clave es elegir el tipo correcto: uno que sea fácil de remover sin dañar tu modelo, y que no deje marcas feas en la superficie.</p>
+
+      <h2>¿Cuándo necesitas soportes?</h2>
+      <p>No todos los modelos los necesitan. La regla general es: si hay geometría que sobresale más de 45° respecto a la horizontal, probablemente necesites soportes. Los ángulos más pronunciados (hacia arriba) pueden imprimirse sin soportes, pero todo lo que apunta hacia abajo o hacia los lados requiere ayuda.</p>
+
+      <h2>Tipos de soportes principales</h2>
+
+      <h3>1. Soportes estructurales (Linear / Rectos)</h3>
+      <p>Son pilares simples, rectos, que van desde la pieza hasta la base de impresión. <strong>Ventajas:</strong> usan menos material, se generan rápido, fáciles de remover. <strong>Desventajas:</strong> pueden marcar la superficie donde tocan, no son ideales para geometrías complejas.</p>
+      <p><em>Mejor para:</em> piezas simples, figuras con pocos voladizos, prototipos rápidos.</p>
+
+      <h3>2. Soportes ramificados (Tree Support)</h3>
+      <p>Funcionan como un árbol: un tronco principal que se divide en ramas más pequeñas para llegar a la pieza. Usan menos material que los estructurales, se adhieren mejor a la geometría compleja y dejan menos marcas. Son más eficientes, pero requieren más poder de cálculo del software.</p>
+      <p><em>Mejor para:</em> modelos complejos, figuras con muchos detalles, cuando quieres minimizar desperdicio.</p>
+
+      <h3>3. Soportes lineales densificados</h3>
+      <p>Una versión mejorada de los rectos: el software distribuye soportes lineales de forma más inteligente, aumentando la densidad donde más se necesita. Equilibrio entre calidad y eficiencia.</p>
+
+      <h3>4. Soportes solubles</h3>
+      <p>Se imprimen en un material diferente al de la pieza (ej: HIPS o PVA si imprimes en PLA). Después, se disuelven con un solvente específico (agua para PVA, limoneno para HIPS). No dejan marcas, pero requieren una impresora de doble extrusora y añaden costo material.</p>
+      <p><em>Mejor para:</em> piezas de alta precisión, modelos que serán pintados, cuando la calidad superficial es crítica.</p>
+
+      <h2>Cómo elegir en tu software de slicing</h2>
+      <ul>
+        <li><strong>Genera soportes automáticos primero:</strong> Cura, PrusaSlicer y otros tienen algoritmos que detectan dónde se necesitan. No siempre son perfectos, pero es un buen punto de partida.</li>
+        <li><strong>Ajusta la densidad:</strong> si la pieza es frágil, aumenta densidad. Si es resistente, reduce para ahorrar material.</li>
+        <li><strong>Orienta tu pieza estratégicamente:</strong> a veces, rotar 45° elimina la necesidad de soportes complejos.</li>
+        <li><strong>Prueba con el tipo "tree":</strong> muchos usuarios se sorprenden de lo eficientes que son, aunque tarden más en calcularse.</li>
+      </ul>
+
+      <h2>Removiendo soportes sin arruinar tu pieza</h2>
+      <p>Una vez que el objeto sale de la impresora, toca remover los soportes. Usa unas cortantes afiladas, pellízca desde la base (donde se adhieren) y ve despegando lentamente. Si tiras desde la punta, puedes romper la pieza. Para superficies delicadas, una pequeña lija de grano fino suaviza las marcas de adhesión.</p>
+
+      <p><strong>Consejo pro:</strong> algunos usuarios crean soportes "rompibles" — pequeños cuellos finos que se quiebran fácilmente con la mano, sin herramientas.</p>
+    </div>
+
+    <div class="cta-box">
+      <p><strong>¿Tu pieza queda con marcas feas o los soportes se rompen al removerlos?</strong> Podemos optimizar tu modelo para imprimirse perfectamente.</p>
+      <a class="btn" href="https://wa.me/573207283295?text=Hola%2C%20necesito%20ayuda%20con%20soportes%20en%20impresión%203D" target="_blank">Escríbenos por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 3DSNAPTECH · COLOMBIA</footer>
+
+</body>
+</html>

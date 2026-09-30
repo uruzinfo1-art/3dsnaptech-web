@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<title>Cómo escanear objetos complejos en 3D — 3DSnapTech</title>
+<meta name="description" content="Guía técnica para escanear objetos tridimensionales complejos: objetos reflectantes, texturas, detalles finos. Pasos, desafíos y mejores prácticas.">
+<style>
+  :root{ --lima:#E1E91E; --negro:#05101C; --dorado:#FEAE12; --cafe:#AD6601; --crema:#FEE4AA; --paper:#F7F4EC; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins', system-ui, sans-serif; background:var(--negro); color:#fff; -webkit-font-smoothing:antialiased;}
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+  .mono{font-family:'DejaVu Sans Mono', monospace;}
+  header{position:sticky; top:0; z-index:50; background:rgba(5,16,28,.9); backdrop-filter:blur(6px); border-bottom:1px solid rgba(255,255,255,.08);}
+  header .bar{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:1120px; margin:0 auto;}
+  header .brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:22px; text-decoration:none;}
+  header .brand img{width:52px;}
+  header .brand span.d{color:var(--lima);}
+  .btn{display:inline-flex; align-items:center; gap:8px; background:var(--lima); color:var(--negro); font-weight:800; padding:11px 20px; border-radius:8px; font-size:14px; text-decoration:none;}
+  .article{padding:50px 0 80px;}
+  .back{font-size:13px; color:var(--lima); text-decoration:none; font-weight:600;}
+  .tag{font-family:'DejaVu Sans Mono', monospace; font-size:11px; letter-spacing:1.5px; color:var(--dorado); margin-left:10px;}
+  h1{font-size:32px; font-weight:800; margin-top:12px; line-height:1.25;}
+  .meta{margin-top:10px; font-size:13px; color:var(--crema); opacity:.7;}
+  .cover-img{margin-top:26px; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.1);}
+  .content{margin-top:30px; font-size:15.5px; line-height:1.75; color:#e8e8e8;}
+  .content p{margin-bottom:18px;}
+  .content h2{font-size:20px; font-weight:700; margin:34px 0 12px; color:var(--lima);}
+  .content h3{font-size:17px; font-weight:600; margin:24px 0 10px; color:var(--dorado);}
+  .content ul{margin:0 0 18px 20px;}
+  .content li{margin-bottom:10px;}
+  .content strong{color:var(--crema);}
+  .cta-box{margin-top:44px; background:rgba(225,233,30,.06); border:1px solid rgba(225,233,30,.25); border-radius:14px; padding:26px;}
+  .cta-box p{margin-bottom:14px; font-size:14.5px;}
+  footer{background:var(--negro); border-top:1px solid rgba(255,255,255,.08); padding:30px 0; text-align:center; font-size:12px; opacity:.5;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a href="index.html" class="brand"><img src="logo-transparent.png" alt="3DSnapTech"><span><span class="d">3d</span>Snaptech</span></a>
+    <a class="btn" href="https://wa.me/573207283295" target="_blank">WhatsApp</a>
+  </div>
+</header>
+
+<section class="article">
+  <div class="wrap">
+    <a class="back" href="blog.html">← Volver al blog</a><span class="tag">TECNOLOGÍAS</span>
+    <h1>Cómo escanear objetos complejos en 3D</h1>
+    <div class="meta">3DSnapTech · Escaneo 3D</div>
+
+    <div class="cover-img"><img src="escaneo-objetos-complejos.jpg" alt="Escáner 3D capturando un objeto con detalles finos"></div>
+
+    <div class="content">
+      <p>Escanear un objeto simple —una caja, una esfera— es relativamente directo. Pero cuando la geometría es compleja, con muchos detalles, superficies reflectantes o texturas variadas, el escaneo se convierte en un reto técnico. En 3DSnapTech, hemos aprendido qué funciona y qué no. Te compartimos cómo hacerlo bien.</p>
+
+      <h2>El problema con los objetos complejos</h2>
+      <p>Los escáneres 3D funcionan capturando luz (fotogrametría) o proyectando patrones de luz estructurada. Ambos métodos tienen enemigos claros: superficies espejadas (como cromo o vidrio), objetos muy oscuros, detalles microscópicos y áreas con poco contraste. Cuando tu objeto tiene varias de estas características, el escaneo falla o produce ruido.</p>
+
+      <h2>Preparación previa: el 50% del éxito</h2>
+
+      <h3>1. Limpia y elimina brillos</h3>
+      <p>Las superficies reflectantes confunden al escáner. Si es posible, aplica un spray mate temporal (spray de tiza para fotografía 3D). Estos productos se quitan fácilmente y no dañan el objeto. Si no puedes modificar el objeto, ajusta la iluminación para minimizar reflexiones especulares.</p>
+
+      <h3>2. Contraste visual</h3>
+      <p>Objetos muy oscuros o de un solo color son difíciles de capturar porque el scanner no ve las variaciones. Si es temporal, marca puntos de referencia con pequeños dots de pintura mate. En escaneo fotogramétrico, estas marcas ayudan enormemente.</p>
+
+      <h3>3. Escala de referencia</h3>
+      <p>Coloca algo de tamaño conocido cerca del objeto: una regla, un cubo de calibración. Esto ayuda al software a entender la escala real y evita ambigüedades.</p>
+
+      <h2>Técnicas de captura avanzada</h2>
+
+      <h3>Fotogrametría: múltiples ángulos</h3>
+      <p>Toma fotos desde <strong>muchas direcciones</strong> — mínimo 50, idealmente 100+. Cubre el objeto como si estuvieras haciendo un mapa: arriba, abajo, lados, diagonales. El software usa el solapamiento entre fotos para reconstruir la geometría. Más fotos = más precisión, especialmente en detalles.</p>
+
+      <h3>Escaneo láser estructurado</h3>
+      <p>Proyecta un patrón de luz y captura cómo se deforma. Funciona bien en objetos opacos pero con texturas variadas. El desafío: los reflejos aún pueden confundirlo. Si el objeto tiene acabado muy brillante, pule ligeramente el área o recubre con polvos desmoldantes (como los que usan en fotografía publicitaria).</p>
+
+      <h3>Múltiples pasadas desde ángulos complementarios</h3>
+      <p>No captures desde un solo punto. Rota el objeto, escanea desde arriba, después desde el frente y desde los lados. Cada pasada captura detalles que las otras perdieron. El software une todos los escaneos en una nube de puntos consolidada.</p>
+
+      <h2>Post-procesamiento: limpieza y refinamiento</h2>
+      <p>Ningún escaneo sale perfecto. Espera ruido, agujeros pequeños y áreas ruidosas. Softwares como <strong>Meshmixer</strong>, <strong>Cloudcompare</strong> (gratuito) o <strong>Geomagic</strong> (profesional) te ayudan a:</p>
+      <ul>
+        <li>Eliminar puntos ruidosos fuera del objeto principal.</li>
+        <li>Rellenar agujeros pequeños automáticamente.</li>
+        <li>Suavizar superficies sin perder detalles críticos.</li>
+        <li>Validar que el modelo sea imprimible (cerrado, sin caras invertidas).</li>
+      </ul>
+
+      <h2>Desafíos específicos y soluciones</h2>
+
+      <h3>Objetos con cavidades profundas</h3>
+      <p>Un tornillo, una grieta, un agujero profundo: el láser no llega o las fotos no ven el interior. <strong>Solución:</strong> escanea múltiples veces desde ángulos rasantes, o si es crítico, disecciona (mentalmente) el objeto — escanea la parte externa normal, luego rota e insiste en los detalles internos que veas.</p>
+
+      <h3>Texturas finas o poros</h3>
+      <p>Si necesitas capturar la textura superficial exacta (como poros de cuero), usa fotogrametría de alta resolución con luz raking (rasante) que realce cada imperfección. Esto requiere foto de excelente calidad pero produce modelos muy fieles.</p>
+
+      <h3>Objetos translúcidos o semitransparentes</h3>
+      <p>El plástico claro o el vidrio confunden a cualquier scanner. Si puedes, recubre temporalmente con un spray mate. Si no, espera — fotogrametría con luz controlada es tu única opción, pero será imperfecta. Considera además si realmente necesitas capturar esos detalles internos.</p>
+
+      <h2>Errores comunes</h2>
+      <ul>
+        <li><strong>Pocas fotos/escaneos:</strong> menos de 20 garantiza agujeros grandes y deformidades.</li>
+        <li><strong>Iluminación inconsistente:</strong> sombras irregulares confunden al software de alineación.</li>
+        <li><strong>No validar el modelo 3D resultante:</strong> muchos escaneos son geométricamente inválidos — asegúrate que sea cerrado y sin caras invertidas antes de usarlo.</li>
+        <li><strong>No limpiar el ruido:</strong> un escaneo sucio es casi inútil para impresión. Dedica tiempo al post-procesamiento.</li>
+      </ul>
+
+      <h2>¿Cuándo es mejor contratar?</h2>
+      <p>Si necesitas capturar un objeto orgánico, texturas finas, o geometría muy compleja, la inversión en un escaneo profesional suele valer la pena. Un equipo dedicado tendrá mejor hardware, mejor software y experiencia diagnosticando problemas. En 3DSnapTech ofrecemos este servicio — la calidad de entrada determina la calidad del modelo final.</p>
+    </div>
+
+    <div class="cta-box">
+      <p><strong>¿Tienes un objeto que necesita ser escaneado en 3D?</strong> Te ayudamos a digitalizarlo con precisión profesional.</p>
+      <a class="btn" href="https://wa.me/573207283295?text=Quiero%20escanear%20un%20objeto%20en%203D" target="_blank">Escríbenos por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 3DSNAPTECH · COLOMBIA</footer>
+
+</body>
+</html>
