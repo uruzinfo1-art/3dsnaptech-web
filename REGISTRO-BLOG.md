@@ -11,6 +11,8 @@
 | Errores comunes en impresión 3D y cómo evitarlos | 2026-09-03 | impresoras-calidad | blog-errores-impresion | blog-errores-impresion.html |
 | Software de diseño 3D: cuál elegir según tu proyecto | 2026-09-23 | software | blog-software-diseno-3d | blog-software-diseno-3d.html |
 | Cómo preparar un archivo STL para imprimir en 3D | 2026-09-23 | fundamentos | blog-preparar-archivo-stl | blog-preparar-archivo-stl.html |
+| FDM vs Resina: qué impresora 3D elegir | 2026-10-07 | tecnologías | blog-fdm-vs-resina | blog-fdm-vs-resina.html |
+| Diseño 3D para principiantes: cómo pensar en 3D | 2026-10-07 | fundamentos | blog-diseno-3d-principiantes | blog-diseno-3d-principiantes.html |
 
 ## Temas Cubiertos
 - ✅ Materiales (PLA, PETG, ABS)
@@ -20,6 +22,8 @@
 - ✅ Errores comunes en impresión 3D
 - ✅ Software de diseño 3D (Fusion 360, FreeCAD, Blender, Tinkercad)
 - ✅ Preparación de archivos STL (validación, escala, orientación, soportes)
+- ✅ Tecnologías: FDM vs Resina (diferencias, ventajas, desventajas)
+- ✅ Fundamentos de diseño 3D para principiantes
 
 ## Temas Pendientes / En Desarrollo
 - Tolerancias y precisión
