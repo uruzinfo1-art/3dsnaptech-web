@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<title>Diseño para impresión 3D: mejores prácticas y patrones | 3DSnapTech</title>
+<meta name="description" content="Aprende los principios clave para diseñar piezas que se impriman bien: espesores mínimos, soportes, ángulos de salida y optimización para cada tecnología.">
+<style>
+  :root{ --lima:#E1E91E; --negro:#05101C; --dorado:#FEAE12; --cafe:#AD6601; --crema:#FEE4AA; --paper:#F7F4EC; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins', system-ui, sans-serif; background:var(--negro); color:#fff; -webkit-font-smoothing:antialiased;}
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+  .mono{font-family:'DejaVu Sans Mono', monospace;}
+  header{position:sticky; top:0; z-index:50; background:rgba(5,16,28,.9); backdrop-filter:blur(6px); border-bottom:1px solid rgba(255,255,255,.08);}
+  header .bar{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:1120px; margin:0 auto;}
+  header .brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:22px; text-decoration:none;}
+  header .brand img{width:52px;}
+  header .brand span.d{color:var(--lima);}
+  .btn{display:inline-flex; align-items:center; gap:8px; background:var(--lima); color:var(--negro); font-weight:800; padding:11px 20px; border-radius:8px; font-size:14px; text-decoration:none;}
+  .article{padding:50px 0 80px;}
+  .back{font-size:13px; color:var(--lima); text-decoration:none; font-weight:600;}
+  .tag{font-family:'DejaVu Sans Mono', monospace; font-size:11px; letter-spacing:1.5px; color:var(--dorado); margin-left:10px;}
+  h1{font-size:32px; font-weight:800; margin-top:12px; line-height:1.25;}
+  .meta{margin-top:10px; font-size:13px; color:var(--crema); opacity:.7;}
+  .cover-img{margin-top:26px; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.1);}
+  .content{margin-top:30px; font-size:15.5px; line-height:1.75; color:#e8e8e8;}
+  .content p{margin-bottom:18px;}
+  .content h2{font-size:20px; font-weight:700; margin:34px 0 12px; color:var(--lima);}
+  .content ul{margin:0 0 18px 20px;}
+  .content li{margin-bottom:10px;}
+  .cta-box{margin-top:44px; background:rgba(225,233,30,.06); border:1px solid rgba(225,233,30,.25); border-radius:14px; padding:26px;}
+  .cta-box p{margin-bottom:14px; font-size:14.5px;}
+  footer{background:var(--negro); border-top:1px solid rgba(255,255,255,.08); padding:30px 0; text-align:center; font-size:12px; opacity:.5;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a href="index.html" class="brand"><img src="logo-transparent.png" alt="3DSnapTech"><span><span class="d">3d</span>Snaptech</span></a>
+    <a class="btn" href="https://wa.me/573207283295" target="_blank">WhatsApp</a>
+  </div>
+</header>
+
+<section class="article">
+  <div class="wrap">
+    <a class="back" href="blog.html">← Volver al blog</a><span class="tag">FUNDAMENTOS</span>
+    <h1>Diseño para impresión 3D: mejores prácticas que hacen la diferencia</h1>
+    <div class="meta">3DSnapTech · Diseño 3D</div>
+
+    <div class="cover-img"><img src="diseno-para-impresion.jpg" alt="Modelo 3D en software de diseño optimizado para impresión"></div>
+
+    <div class="content">
+      <p>Hay una diferencia profunda entre un modelo 3D que "se ve bien" en pantalla y uno que <em>imprime bien</em>. Los diseñadores principiantes aprenden esto la manera difícil: terminan con una pieza deformada, quebrada o que nunca debió haberse diseñado de esa forma en primer lugar. La buena noticia es que la mayoría de estos problemas se evitan entendiendo los principios básicos del diseño para impresión 3D.</p>
+
+      <h2>Espesores mínimos: el enemigo invisible</h2>
+      <p>No puedes imprimir una pared de 0.5 mm de espesor en FDM. Simplemente no sucede. El filamento necesita espacio para fluir, y si creas geometría más delgada que el ancho del nozzle (típicamente 0.4 mm), la impresora no sabrá qué hacer.</p>
+      <p>La regla práctica:</p>
+      <ul>
+        <li><strong>FDM (plástico):</strong> mínimo 1-1.5 mm de espesor en paredes.</li>
+        <li><strong>Resina:</strong> 0.5-1 mm es posible, pero 1 mm es seguro.</li>
+        <li><strong>Nylon (SLS):</strong> paredes pueden ser más delgadas porque el proceso es diferente.</li>
+      </ul>
+      <p>Esto aplica a secciones delgadas, alas de figuras, conexiones frágiles. Si lo ignoras, esas zonas simplemente desaparecerán en la impresión, o quedarán tan frágiles que se rompen al manipularlas.</p>
+
+      <h2>Ángulos de salida y geometría desmoldeable</h2>
+      <p>Aunque no estés usando un molde tradicional, la impresora necesita acceso desde arriba para construir cada capa. Si diseñas una superficie completamente vertical que luego se vuelve volada (como un bulto que sale hacia los lados), deberás agregar soportes, y los soportes requieren post-procesado para removerlos.</p>
+      <p>La solución: diseña con <strong>ángulos de salida</strong> — superficies que se inclinan ligeramente (mínimo 5-10 grados) para que la impresora pueda alcanzarlas sin soportes adicionales. En piezas funcionales, esto casi siempre es posible sin afectar la estética o la función.</p>
+
+      <h2>Orificios y roscas: no los diseñes esperando precisión perfecta</h2>
+      <p>Un agujero de 5 mm en FDM no saldrá de exactamente 5 mm. Saldrá de 5.2 mm, o 4.9 mm, dependiendo del calibrado. Si necesitas un agujero que encaje ajustado con un perno, diseña el agujero un poquito más pequeño (4.8 mm para un perno de 5 mm) y después taladra o escaria a mano para ajustarlo.</p>
+      <p>Las roscas impresas en FDM son un cuento de hadas. Simplemente no funcionan con suficiente precisión. Si necesitas roscar, inserta una tuerca de latón durante la impresión, o diseña para un tornillo roscador que muerda el plástico.</p>
+
+      <h2>Volados, áreas grandes sin soporte y resistencia</h2>
+      <p>Una viga horizontal que sobresale de un punto de anclaje puede volverse frágil si es muy larga o delgada. Si lo evitas, ahórrate soportes. Si es inevitable, asegúrate de que el área de conexión sea lo suficientemente gruesa para resistir fuerzas.</p>
+      <p>Las grandes áreas planas sin soporte también tienden a ondularse (warping) si el filamento se enfría desigualmente. Una costilla o estructura interna ajustada ayuda a mantener la rigidez sin agregar masa visible.</p>
+
+      <h2>Diseño modular: divide para conquistar</h2>
+      <p>En lugar de imprimir una pieza monolítica complicada, divídela en componentes más pequeños que se encajen entre sí. Esto trae tres beneficios:</p>
+      <ul>
+        <li><strong>Menos soportes</strong> — piezas más simples necesitan menos estructuras de soporte.</li>
+        <li><strong>Menos fallos</strong> — una pieza pequeña que falla es menos desperdicio que una grande.</li>
+        <li><strong>Tolerancia de ensamble</strong> — ajustas tolerancias en cada componente por separado, más fácil que en todo de una vez.</li>
+      </ul>
+
+      <h2>Considera el material desde el diseño</h2>
+      <p>PLA es frágil y quebradizo — evita formas delgadas. PETG es resistente pero contrae un poco — diseña con holgura extra. TPU es flexible — usa paredes gruesas o refuerza con estructura interna. Desde la primera línea de tu modelo, piensa en qué material usarás y cómo eso afecta lo que puedes y no puedes hacer.</p>
+    </div>
+
+    <div class="cta-box">
+      <p><strong>¿Tienes un diseño que quieres que imprima bien a la primera?</strong> 3DSnapTech revisa tu modelo antes de imprimir, optimizándolo para el material y la tecnología correcta. Contáctanos.</p>
+      <a class="btn" href="https://wa.me/573207283295" target="_blank">Escríbenos por WhatsApp</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><strong>3DSnapTech</strong> · Bogotá, Colombia</div>
+</footer>
+
+</body>
+</html>
