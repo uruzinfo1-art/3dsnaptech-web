@@ -38,6 +38,9 @@
   .size input{width:100%; padding:9px 10px; border:1.4px solid rgba(5,16,28,.2); border-radius:8px;}
   .size input.bad{border-color:#b91c1c; background:#fef2f2;}
   .size small{grid-column:1/-1; font-size:11.5px; color:#777;}
+  .size.unico{grid-template-columns:1fr; max-width:220px; margin-top:10px;}
+  .modo{display:flex; gap:16px; margin-top:8px; font-size:13.5px;}
+  .modo label{display:flex; align-items:center; gap:6px; cursor:pointer;}
   .bar{position:fixed; left:0; right:0; bottom:0; background:#fff; border-top:1px solid rgba(5,16,28,.1); padding:12px 16px; display:flex; justify-content:center; align-items:center; gap:16px;}
   .bar .msg{margin:0;}
   [hidden]{display:none !important;}
@@ -60,7 +63,7 @@
 </form>
 
 <main class="wrap" id="panel" hidden>
-  <p class="help">Cada producto puede tener hasta <b>2 tamaños</b>, cada uno con su precio en pesos, sin puntos (ejemplo: <b>25000</b>). Si dejas los tamaños vacíos, el producto aparece como <b>"Precio por confirmar"</b>. Quita la marca de <b>Visible</b> para ocultarlo de la tienda. Al guardar, la tienda se actualiza en 1 o 2 minutos.</p>
+  <p class="help">Elige para cada producto <b>Un precio</b> o <b>Dos tamaños</b> (cada uno con su precio). Los precios van en pesos, sin puntos (ejemplo: <b>25000</b>). Si dejas el precio vacío, el producto aparece como <b>"Precio por confirmar"</b>. Quita la marca de <b>Visible</b> para ocultarlo de la tienda. Al guardar, la tienda se actualiza en 1 o 2 minutos.</p>
   <div id="lista"></div>
 </main>
 
@@ -106,31 +109,59 @@
       top.appendChild(vis);
       box.appendChild(top);
 
-      var sizes = el('div', 'sizes');
-      [0, 1].forEach(function(i){
-        var t = p.tamanos[i] || { nombre: '', precio: '' };
-        p.tamanos[i] = t;
-        var s = el('div', 'size');
-        var nom = el('input'); nom.placeholder = i === 0 ? '10 cm' : '15 cm'; nom.maxLength = 20; nom.value = t.nombre || '';
-        nom.setAttribute('aria-label', 'Tamaño ' + (i + 1));
-        var pre = el('input'); pre.placeholder = 'Precio'; pre.inputMode = 'numeric'; pre.value = t.precio || '';
-        pre.setAttribute('aria-label', 'Precio del tamaño ' + (i + 1));
-        var ver = el('small', null, t.precio ? pesos(t.precio) : '');
-        nom.addEventListener('input', function(){ t.nombre = nom.value; marcar(); });
-        pre.addEventListener('input', function(){
-          var limpio = pre.value.replace(/[^\d]/g, '');
-          if (pre.value !== limpio) pre.value = limpio;
-          t.precio = limpio ? Number(limpio) : '';
-          ver.textContent = t.precio ? pesos(t.precio) : '';
-          marcar();
-        });
-        s.appendChild(nom); s.appendChild(pre); s.appendChild(ver);
-        sizes.appendChild(s);
+      if (!p.modo) p.modo = p.tamanos.length ? 'tamanos' : 'unico';
+      var modo = el('div', 'modo');
+      var campos = el('div');
+      [['unico', 'Un precio'], ['tamanos', 'Dos tamaños']].forEach(function(m){
+        var lab = el('label');
+        var r = el('input'); r.type = 'radio'; r.name = 'modo-' + p.id; r.checked = p.modo === m[0];
+        r.addEventListener('change', function(){ p.modo = m[0]; pintarCampos(p, campos); marcar(); });
+        lab.appendChild(r); lab.appendChild(document.createTextNode(m[1]));
+        modo.appendChild(lab);
       });
-      box.appendChild(sizes);
+      box.appendChild(modo);
+      pintarCampos(p, campos);
+      box.appendChild(campos);
       item.appendChild(box);
       lista.appendChild(item);
     });
+  }
+
+  function campoPrecio(obj, aria) {
+    var pre = el('input'); pre.placeholder = 'Precio'; pre.inputMode = 'numeric'; pre.value = obj.precio || '';
+    pre.setAttribute('aria-label', aria);
+    var ver = el('small', null, obj.precio ? pesos(obj.precio) : '');
+    pre.addEventListener('input', function(){
+      var limpio = pre.value.replace(/[^\d]/g, '');
+      if (pre.value !== limpio) pre.value = limpio;
+      obj.precio = limpio ? Number(limpio) : '';
+      ver.textContent = obj.precio ? pesos(obj.precio) : '';
+      marcar();
+    });
+    return [pre, ver];
+  }
+
+  function pintarCampos(p, cont) {
+    cont.textContent = '';
+    if (p.modo === 'unico') {
+      var u = el('div', 'size unico');
+      campoPrecio(p, 'Precio de ' + p.nombre).forEach(function(n){ u.appendChild(n); });
+      cont.appendChild(u);
+      return;
+    }
+    var sizes = el('div', 'sizes');
+    [0, 1].forEach(function(i){
+      var t = p.tamanos[i] || { nombre: '', precio: '' };
+      p.tamanos[i] = t;
+      var s = el('div', 'size');
+      var nom = el('input'); nom.placeholder = i === 0 ? '10 cm' : '15 cm'; nom.maxLength = 20; nom.value = t.nombre || '';
+      nom.setAttribute('aria-label', 'Tamaño ' + (i + 1));
+      nom.addEventListener('input', function(){ t.nombre = nom.value; marcar(); });
+      s.appendChild(nom);
+      campoPrecio(t, 'Precio del tamaño ' + (i + 1)).forEach(function(n){ s.appendChild(n); });
+      sizes.appendChild(s);
+    });
+    cont.appendChild(sizes);
   }
 
   function marcar() {
@@ -143,6 +174,10 @@
   function revisar() {
     var error = '';
     productos.forEach(function(p){
+      if (p.modo === 'unico') {
+        if (p.precio && (p.precio < 1000 || p.precio > 50000000) && !error) error = p.nombre + ': el precio debe estar entre 1.000 y 50.000.000.';
+        return;
+      }
       p.tamanos.forEach(function(t){
         var tieneNombre = String(t.nombre || '').trim() !== '';
         var tienePrecio = t.precio !== '' && t.precio != null;
@@ -179,6 +214,7 @@
     btn.disabled = true;
     msg.className = 'msg'; msg.textContent = 'Guardando…';
     var cambios = productos.map(function(p){
+      if (p.modo === 'unico') return { id: p.id, oculto: p.oculto, tamanos: [], precio: p.precio || null };
       return { id: p.id, oculto: p.oculto, tamanos: p.tamanos.filter(function(t){ return String(t.nombre || '').trim() && t.precio; }) };
     });
     llamar({ accion: 'guardar', cambios: cambios }).then(function(){

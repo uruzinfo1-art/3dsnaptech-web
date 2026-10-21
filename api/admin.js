@@ -55,14 +55,17 @@ async function leerCatalogo() {
   return { sha: f.sha, datos: JSON.parse(Buffer.from(f.content, 'base64').toString('utf8')) };
 }
 
+function precioValido(v) {
+  const precio = Number(v);
+  if (!Number.isInteger(precio) || precio < 1000 || precio > 50000000) throw new Error('precio');
+  return precio;
+}
 // Valida un tamaño enviado desde el panel. Devuelve null si está vacío, o lanza si es inválido.
 function tamanoValido(t) {
   if (!t || (t.nombre === '' && (t.precio === '' || t.precio == null))) return null;
   const nombre = String(t.nombre || '').trim();
-  const precio = Number(t.precio);
   if (!/^[\p{L}\p{N} .,/×x"'-]{1,20}$/u.test(nombre)) throw new Error('nombre');
-  if (!Number.isInteger(precio) || precio < 1000 || precio > 50000000) throw new Error('precio');
-  return { nombre: nombre, precio: precio };
+  return { nombre: nombre, precio: precioValido(t.precio) };
 }
 
 module.exports = async function (req, res) {
@@ -92,7 +95,7 @@ module.exports = async function (req, res) {
     if (body.accion === 'listar') {
       const { datos } = await leerCatalogo();
       res.status(200).json({ productos: (datos.productos || []).map(function (p) {
-        return { id: p.id, nombre: p.nombre, imagen: p.imagen, tamanos: p.tamanos || [], oculto: p.oculto === true };
+        return { id: p.id, nombre: p.nombre, imagen: p.imagen, tamanos: p.tamanos || [], precio: p.tamanos ? null : (p.precio || null), oculto: p.oculto === true };
       }) });
       return;
     }
@@ -106,15 +109,17 @@ module.exports = async function (req, res) {
       for (const c of cambios) {
         const p = c && porId.get(c.id);
         if (!p) { res.status(400).json({ error: 'Producto desconocido.' }); return; }
-        let tamanos;
+        // Dos tamaños con precio cada uno, o un precio único (sin tamaños). Vacío = "Precio por confirmar".
+        let tamanos, unico = null;
         try {
           tamanos = (Array.isArray(c.tamanos) ? c.tamanos.slice(0, 2) : []).map(tamanoValido).filter(Boolean);
+          if (!tamanos.length && c.precio !== undefined && c.precio !== null && c.precio !== '') unico = precioValido(c.precio);
         } catch (e) {
           res.status(400).json({ error: 'Revisa ' + p.nombre + ': ' + (e.message === 'precio' ? 'el precio debe ser un número entero entre 1.000 y 50.000.000.' : 'el tamaño debe tener máximo 20 letras o números.') });
           return;
         }
-        if (tamanos.length) p.tamanos = tamanos; else delete p.tamanos;
-        delete p.precio;
+        if (tamanos.length) { p.tamanos = tamanos; delete p.precio; }
+        else { delete p.tamanos; if (unico) p.precio = unico; else delete p.precio; }
         if (c.oculto === true) p.oculto = true; else delete p.oculto;
         modificados++;
       }
