@@ -72,6 +72,8 @@
   .info .lead{margin-top:12px; font-size:16.5px; line-height:1.55; color:#333;}
   .price-row{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-top:20px;}
   .price{font-size:34px; font-weight:800;}
+  .price.tbd{font-size:24px; color:var(--cafe);}
+  .tbd-note{margin-top:10px; font-size:13.5px; color:#666;}
   .stock{display:inline-flex; align-items:center; gap:6px; font-size:13.5px; font-weight:700; padding:6px 12px; border-radius:20px; background:rgba(173,102,1,.12); color:var(--cafe);}
   .stock svg{width:16px; height:16px; stroke:currentColor; fill:none;}
   .desc{margin-top:18px;}
@@ -390,7 +392,7 @@
     var cantidad = 1;
 
     var priceRow = el('div', 'price-row');
-    var precio = el('span', 'price', pesos(precioDe(p, tamano)));
+    var precio = el('span', p.sinPrecio ? 'price tbd' : 'price', p.sinPrecio ? 'Precio por confirmar' : pesos(precioDe(p, tamano)));
     priceRow.appendChild(precio);
     if (p.disponibilidad) {
       var stock = el('span', 'stock');
@@ -467,6 +469,18 @@
     }
 
     var buy = el('div', 'buy');
+    if (p.sinPrecio) {
+      var cot = el('a', 'btn', 'Cotizar por WhatsApp →');
+      cot.href = enlaceCotizar(p);
+      cot.target = '_blank';
+      cot.rel = 'noopener';
+      buy.appendChild(cot);
+      info.appendChild(buy);
+      info.appendChild(el('p', 'tbd-note', 'Escríbenos y te contamos los tamaños y el precio de este producto.'));
+      detail.appendChild(info);
+      document.getElementById('main').appendChild(detail);
+      return;
+    }
     var q = el('div', 'qty-big');
     var menos = el('button', null, '−'); menos.type = 'button'; menos.setAttribute('aria-label', 'Quitar uno');
     var num = el('span', null, '1');

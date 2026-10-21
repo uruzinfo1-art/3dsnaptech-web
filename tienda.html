@@ -111,6 +111,7 @@
   .prod-card .more{display:block; text-align:center; margin-top:10px; font-size:13px; font-weight:700; color:var(--cafe);}
   .prod-card .cat{font-size:12px; color:#777; margin-top:2px;}
   .prod-card .price{font-size:16px; font-weight:800; margin-top:8px;}
+  .prod-card .price.tbd{font-size:14px; color:var(--cafe);}
   .swatches{display:flex; gap:7px; margin-top:10px; flex-wrap:wrap;}
   .swatches button{width:20px; height:20px; border-radius:50%; border:2px solid #fff; box-shadow:0 0 0 1px rgba(5,16,28,.25); cursor:pointer;}
   .swatches button.on{box-shadow:0 0 0 2px var(--negro);}
@@ -417,7 +418,7 @@
       body.appendChild(titulo);
       body.appendChild(el('div', 'cat', CATEGORIAS[p.categoria] || ''));
       var tamano = p.tamanos ? p.tamanos[0].nombre : '';
-      var precio = el('div', 'price', pesos(precioDe(p, tamano)));
+      var precio = el('div', p.sinPrecio ? 'price tbd' : 'price', p.sinPrecio ? 'Precio por confirmar' : pesos(precioDe(p, tamano)));
       body.appendChild(precio);
 
       if (p.tamanos) {
@@ -458,10 +459,18 @@
       }
 
       var add = el('div', 'add');
-      var btn = el('button', 'btn', 'Agregar al carrito');
-      btn.type = 'button';
-      btn.addEventListener('click', function(){ agregar(p.id, elegido, tamano); });
-      add.appendChild(btn);
+      if (p.sinPrecio) {
+        var cot = el('a', 'btn', 'Cotizar por WhatsApp');
+        cot.href = enlaceCotizar(p);
+        cot.target = '_blank';
+        cot.rel = 'noopener';
+        add.appendChild(cot);
+      } else {
+        var btn = el('button', 'btn', 'Agregar al carrito');
+        btn.type = 'button';
+        btn.addEventListener('click', function(){ agregar(p.id, elegido, tamano); });
+        add.appendChild(btn);
+      }
       var ver = el('a', 'more', 'Ver detalles →');
       ver.href = urlProducto(p);
       add.appendChild(ver);

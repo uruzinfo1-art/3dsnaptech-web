@@ -204,18 +204,23 @@ document.getElementById('checkout').addEventListener('click', mostrarPago);
 document.addEventListener('keydown', function(e){ if (e.key === 'Escape') cerrarCarrito(); });
 
 // ---------- carga de productos ----------
+// Un producto sin precio válido se muestra como "Precio por confirmar"; uno con oculto: true no se muestra.
 function validarProducto(p) {
   if (!p || typeof p.id !== 'string' || typeof p.nombre !== 'string' || !CATEGORIAS.hasOwnProperty(p.categoria)) return false;
+  if (p.oculto === true) return false;
   if (p.colores && !Array.isArray(p.colores)) return false;
   if (p.galeria && !Array.isArray(p.galeria)) return false;
   if (p.descripcionLarga && !Array.isArray(p.descripcionLarga)) return false;
   if (p.tamanos) {
-    if (!Array.isArray(p.tamanos) || !p.tamanos.length) return false;
-    p.tamanos = p.tamanos.filter(function(t){ return t && typeof t.nombre === 'string' && typeof t.precio === 'number' && t.precio > 0; });
-    if (!p.tamanos.length) return false;
-    p.precio = p.tamanos[0].precio;
+    p.tamanos = Array.isArray(p.tamanos) ? p.tamanos.filter(function(t){ return t && typeof t.nombre === 'string' && t.nombre && typeof t.precio === 'number' && t.precio > 0; }) : [];
+    if (p.tamanos.length) p.precio = p.tamanos[0].precio;
+    else delete p.tamanos;
   }
-  return typeof p.precio === 'number' && p.precio > 0;
+  p.sinPrecio = !(typeof p.precio === 'number' && p.precio > 0);
+  return true;
+}
+function enlaceCotizar(p) {
+  return 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent('Hola 3DSnapTech, quiero cotizar el producto: ' + p.nombre);
 }
 function cargarTienda(listo) {
   fetch('productos.json', { cache: 'no-cache' })

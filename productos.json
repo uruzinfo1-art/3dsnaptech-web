@@ -110,6 +110,1074 @@
           "hex": "#F5F5F5"
         }
       ]
+    },
+    {
+      "id": "dragon-cristal",
+      "nombre": "Dragón de Cristal",
+      "categoria": "figuras",
+      "descripcion": "Un dragón de cristal que se mueve como si estuviera vivo. ¡Una pieza que nadie deja de mirar!",
+      "descripcionLarga": [
+        "Imagínate tu escritorio o tu repisa con este dragón enroscado, brillando en tus colores favoritos. Cada segmento se mueve, así que lo puedes poner en mil poses distintas: estirado, enrollado o listo para atacar.",
+        "Es el regalo perfecto para los amantes de los dragones y los coleccionistas. Y te advertimos: una vez lo tengas en la mano, no vas a poder dejar de moverlo."
+      ],
+      "imagen": "productos/dragon-cristal-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-cristal-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-cristal-2.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-cristal-3.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "dragon-shadowcoil",
+      "nombre": "Dragón Shadowcoil",
+      "categoria": "figuras",
+      "descripcion": "Elegante, feroz y lleno de detalles. El dragón que se roba todas las miradas de tu colección.",
+      "descripcionLarga": [
+        "El Shadowcoil tiene ese look de dragón legendario que impresiona desde lejos. Su cuerpo articulado se enrosca y se mueve con fluidez, y en colores combinados queda espectacular.",
+        "Ponlo en tu escritorio, en tu cuarto o regálaselo a ese fan de la fantasía que conoces. Va a ser la sensación de la casa."
+      ],
+      "imagen": "productos/dragon-shadowcoil-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-shadowcoil-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-shadowcoil-2.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-shadowcoil-3.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-shadowcoil-4.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "dragon-esqueleto",
+      "nombre": "Dragón Esqueleto",
+      "categoria": "figuras",
+      "descripcion": "Un esqueleto de dragón con casi todas sus articulaciones móviles. Rudo, curioso y súper divertido.",
+      "descripcionLarga": [
+        "¿Un dragón… pero en huesos? Sí, y se ve increíble. Cada vértebra, cada pata y las alas se mueven, así que lo puedes acomodar sobre tu brazo, en la repisa o colgando del monitor.",
+        "A los niños les fascina y a los grandes también. Perfecto para Halloween, para tu colección o para darle un toque diferente a tu espacio."
+      ],
+      "imagen": "productos/dragon-esqueleto-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-esqueleto-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-esqueleto-2.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-esqueleto-3.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-esqueleto-4.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "dragon-nocturno",
+      "nombre": "Dragón Nocturno Mini",
+      "categoria": "figuras",
+      "descripcion": "Un dragoncito negro, tierno y travieso que cabe en la palma de tu mano.",
+      "descripcionLarga": [
+        "Este pequeño dragón nocturno tiene unos ojos que enamoran. Es totalmente articulado, así que mueve la cola, las patas y el cuerpo como si estuviera jugando contigo.",
+        "Llévalo en el bolso, ponlo junto al computador o regálalo a quien ame las películas de dragones. Pequeño en tamaño, gigante en ternura."
+      ],
+      "imagen": "productos/dragon-nocturno-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-nocturno-1.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "mini-bebe-dragon",
+      "nombre": "Mini Bebé Dragón",
+      "categoria": "figuras",
+      "descripcion": "El dragón más chiquito y consentido de la familia. Ideal para tenerlo siempre a la mano.",
+      "descripcionLarga": [
+        "Imagínate este bebé dragón descansando en tu mano o vigilando tu escritorio. Es flexible, suave al movimiento y queda hermoso en colores tornasol.",
+        "Es perfecto como detalle sorpresa, para coleccionar en varios colores o para que los niños tengan su propia mascota mítica."
+      ],
+      "imagen": "productos/mini-bebe-dragon-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/mini-bebe-dragon-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/mini-bebe-dragon-2.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/mini-bebe-dragon-3.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/mini-bebe-dragon-4.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "bebe-dragon-ember",
+      "nombre": "Bebé Dragón Ember",
+      "categoria": "figuras",
+      "descripcion": "Un bebé dragón de fuego, colorido y lleno de energía. ¡Pura alegría en tu escritorio!",
+      "descripcionLarga": [
+        "El Ember es un dragoncito con actitud: cabeza grande, cuerpo flexible y colores que parecen llamas. Muévelo, enróscalo y ponlo a posar donde quieras.",
+        "Un regalo genial para niños y grandes, y una pieza perfecta para empezar tu colección de dragones."
+      ],
+      "imagen": "productos/bebe-dragon-ember-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/bebe-dragon-ember-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/bebe-dragon-ember-2.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "dragon-koi",
+      "nombre": "Dragón Koi de Agua",
+      "categoria": "figuras",
+      "descripcion": "Mitad dragón, mitad pez koi. Una figura elegante que parece nadar en el aire.",
+      "descripcionLarga": [
+        "Este dragón de agua tiene aletas, bigotes y un cuerpo largo que se mueve con suavidad. En tonos azules o aguamarina se ve como sacado de una leyenda oriental.",
+        "Queda precioso en una repisa, en el escritorio o como regalo para alguien que ame lo místico y lo marino."
+      ],
+      "imagen": "productos/dragon-koi-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-koi-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-koi-2.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-koi-3.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-koi-4.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "dragon-cristal-v2",
+      "nombre": "Dragón de Cristal V2",
+      "categoria": "figuras",
+      "descripcion": "La versión mejorada del dragón de cristal: más movimiento desde la cabeza hasta la cola.",
+      "descripcionLarga": [
+        "Esta versión tiene las articulaciones del cuello mejoradas, así que se mueve todavía mejor. En colores arcoíris se ve brutal: cada segmento brilla con un tono distinto.",
+        "Ideal para quien quiere un dragón grande y vistoso que se convierta en el centro de atención de su colección."
+      ],
+      "imagen": "productos/dragon-cristal-v2-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-cristal-v2-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-cristal-v2-2.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-cristal-v2-3.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "ajolote-feliz",
+      "nombre": "Ajolote Feliz",
+      "categoria": "figuras",
+      "descripcion": "Un ajolote sonriente y flexible que te va a alegrar el día cada vez que lo veas.",
+      "descripcionLarga": [
+        "¿Quién no ama a los ajolotes? Este tiene una sonrisa contagiosa y un cuerpo articulado que se mueve de lado a lado. En colores pastel queda tiernísimo.",
+        "Perfecto para regalar, para decorar tu escritorio o para coleccionarlos en todos los colores. Advertencia: es imposible tener solo uno."
+      ],
+      "imagen": "productos/ajolote-feliz-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/ajolote-feliz-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/ajolote-feliz-2.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/ajolote-feliz-3.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/ajolote-feliz-4.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "serpiente-articulada",
+      "nombre": "Serpiente Articulada",
+      "categoria": "figuras",
+      "descripcion": "Una serpiente con escamas detalladas que se enrosca y se mueve como una de verdad.",
+      "descripcionLarga": [
+        "Imagínate la cara de tus amigos cuando vean esta serpiente enroscada en tu escritorio. Sus segmentos se mueven con fluidez y su textura de escamas la hace ver muy realista.",
+        "Ideal para bromas, para los amantes de los reptiles o como pieza decorativa diferente."
+      ],
+      "imagen": "productos/serpiente-articulada-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/serpiente-articulada-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/serpiente-articulada-2.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/serpiente-articulada-3.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/serpiente-articulada-4.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "gato-abrazador",
+      "nombre": "Gato Abrazador",
+      "categoria": "figuras",
+      "descripcion": "Un gato flexible que abraza y sostiene tus cosas. ¡El ayudante más tierno del escritorio!",
+      "descripcionLarga": [
+        "Este gato se acomoda y sostiene lo que le pongas: tus audífonos, el control, tus lapiceros o el celular. Es flexible, así que lo puedes poner en la posición que más te guste.",
+        "Un regalo perfecto para los amantes de los gatos y una forma divertida de tener el escritorio organizado."
+      ],
+      "imagen": "productos/gato-abrazador-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/gato-abrazador-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/gato-abrazador-2.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "pangolin-flexi",
+      "nombre": "Pangolín Flexi",
+      "categoria": "figuras",
+      "descripcion": "Un pangolín con casi todas sus escamas flexibles. ¡Nuestra mascota favorita, ahora en tu mano!",
+      "descripcionLarga": [
+        "Si conoces a Pango, nuestra mascota, sabes que amamos a los pangolines. Este es súper detallado: cada escama se mueve y se puede enrollar y estirar como uno de verdad.",
+        "Ideal para coleccionistas, amantes de los animales y para todo el que quiera un regalo original y con mucho detalle."
+      ],
+      "imagen": "productos/pangolin-flexi-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/pangolin-flexi-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/pangolin-flexi-2.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/pangolin-flexi-3.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/pangolin-flexi-4.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "tiburon-ballena",
+      "nombre": "Tiburón Ballena",
+      "categoria": "figuras",
+      "descripcion": "El gigante gentil del océano, ahora flexible y listo para nadar en tu escritorio.",
+      "descripcionLarga": [
+        "Este tiburón ballena tiene su patrón de manchas característico y un cuerpo articulado que se mueve como si nadara. En azul con blanco queda hermoso.",
+        "Perfecto para los amantes del mar, para decorar el cuarto de los niños o como regalo para buzos y viajeros."
+      ],
+      "imagen": "productos/tiburon-ballena-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/tiburon-ballena-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/tiburon-ballena-2.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/tiburon-ballena-3.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/tiburon-ballena-4.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "escorpion-flexi",
+      "nombre": "Escorpión Flexi",
+      "categoria": "figuras",
+      "descripcion": "Un escorpión lleno de detalles que mueve las patas, las pinzas y la cola.",
+      "descripcionLarga": [
+        "Este escorpión impresiona: tiene muchísimas articulaciones y se ve casi real. En plateado, dorado o cobre parece una pieza de metal.",
+        "Ideal para coleccionistas, para los amantes de los bichos o para darle un toque rudo a tu escritorio."
+      ],
+      "imagen": "productos/escorpion-flexi-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/escorpion-flexi-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/escorpion-flexi-2.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/escorpion-flexi-3.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/escorpion-flexi-4.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "pulpo-flexi",
+      "nombre": "Pulpo Llavero",
+      "categoria": "accesorios",
+      "descripcion": "Un pulpito flexible y sonriente para llevar en tus llaves o en tu maleta.",
+      "descripcionLarga": [
+        "Imagínate tus llaves con este pulpo sonriente colgando. Sus tentáculos se mueven y es tan tierno que todos te van a preguntar dónde lo conseguiste.",
+        "Pídelos en varios colores para regalar, para tus amigos o para combinarlos con tu maleta."
+      ],
+      "imagen": "productos/pulpo-flexi-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/pulpo-flexi-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/pulpo-flexi-2.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/pulpo-flexi-3.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/pulpo-flexi-4.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "lagartija-articulada",
+      "nombre": "Lagartija Articulada",
+      "categoria": "figuras",
+      "descripcion": "La clásica lagartija flexible que se mueve con cada toque. ¡Un clásico de la impresión 3D!",
+      "descripcionLarga": [
+        "Esta lagartija es de las figuras flexibles más queridas: se mueve de lado a lado y parece que fuera a salir corriendo. Ponla en tu carro, en el escritorio o en la repisa.",
+        "Pídela en tus colores favoritos, o en varios para armar toda una familia de lagartijas."
+      ],
+      "imagen": "productos/lagartija-articulada-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/lagartija-articulada-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/lagartija-articulada-2.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/lagartija-articulada-3.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/lagartija-articulada-4.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "dragon-barbudo",
+      "nombre": "Dragón Barbudo",
+      "categoria": "figuras",
+      "descripcion": "Un dragón barbudo realista y flexible, con toda la actitud de los reptiles.",
+      "descripcionLarga": [
+        "Este lagarto tiene detalles muy realistas y un cuerpo flexible que se mueve con naturalidad. En tonos tierra parece de verdad.",
+        "Perfecto para los amantes de los reptiles, para quien no puede tener una mascota en casa o para sorprender a tus visitas."
+      ],
+      "imagen": "productos/dragon-barbudo-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-barbudo-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-barbudo-2.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-barbudo-3.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/dragon-barbudo-4.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "dinosaurio-tierno",
+      "nombre": "Dinosaurio Tierno",
+      "categoria": "figuras",
+      "descripcion": "Un dinosaurio chiquito, adorable y articulado. ¡El compañero ideal de escritorio!",
+      "descripcionLarga": [
+        "Este dino tiene ojos grandes y una cola que se mueve. Es tierno, divertido y queda precioso en rosado, verde o cualquier color que elijas.",
+        "Un detalle perfecto para niños, para fanáticos de los dinosaurios o para regalar en cualquier ocasión."
+      ],
+      "imagen": "productos/dinosaurio-tierno-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/dinosaurio-tierno-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/dinosaurio-tierno-2.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "mantarraya-flexi",
+      "nombre": "Mantarraya Flexi",
+      "categoria": "figuras",
+      "descripcion": "Una mantarraya sonriente que mueve sus alas como si volara bajo el agua.",
+      "descripcionLarga": [
+        "Esta mantarraya tiene una cara tan feliz que contagia. Su cuerpo flexible ondula como en el mar, y en rojo o azul se ve hermosa.",
+        "Ideal como juguete de escritorio para relajarte, para los amantes del océano o como regalo para los niños."
+      ],
+      "imagen": "productos/mantarraya-flexi-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/mantarraya-flexi-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/mantarraya-flexi-2.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/mantarraya-flexi-3.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "hipopotamo-bebe",
+      "nombre": "Hipopótamo Bebé",
+      "categoria": "figuras",
+      "descripcion": "Un hipopótamo bebé, gordito y flexible, que te va a robar el corazón.",
+      "descripcionLarga": [
+        "Este hipopotamito es pura ternura: cachetón, regordete y con patas que se mueven. Queda divino en gris, en rosado o en el color que más te guste.",
+        "Perfecto para regalar, para decorar el cuarto de los niños o para alegrar cualquier escritorio."
+      ],
+      "imagen": "productos/hipopotamo-bebe-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/hipopotamo-bebe-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/hipopotamo-bebe-2.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/hipopotamo-bebe-3.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
     }
   ]
 }
