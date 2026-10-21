@@ -13,21 +13,34 @@
 | Cómo preparar un archivo STL para imprimir en 3D | 2026-09-23 | fundamentos | blog-preparar-archivo-stl | blog-preparar-archivo-stl.html |
 | FDM vs Resina: qué impresora 3D elegir | 2026-10-07 | tecnologías | blog-fdm-vs-resina | blog-fdm-vs-resina.html |
 | Diseño 3D para principiantes: cómo pensar en 3D | 2026-10-07 | fundamentos | blog-diseno-3d-principiantes | blog-diseno-3d-principiantes.html |
+| Escaneo de objetos 3D: técnicas y aplicaciones prácticas | 2026-10-21 | escaneo-objetos | blog-escaneo-objetos | blog-escaneo-objetos.html |
+| Tolerancias y precisión en diseño 3D: cómo encajan tus piezas | 2026-10-21 | calidad-precision | blog-tolerancias-precision | blog-tolerancias-precision.html |
+| Impresión 3D en el arte: cuando la tecnología se vuelve creativa | 2026-10-21 | 3d-curioso | blog-impresion-3d-arte | blog-impresion-3d-arte.html |
 
 ## Temas Cubiertos
 - ✅ Materiales (PLA, PETG, ABS)
 - ✅ Sostenibilidad y reciclaje
-- ✅ Servicios de escaneo 3D
+- ✅ Servicios de escaneo 3D (definición y usos)
+- ✅ Escaneo de objetos 3D (técnicas: fotogrametría, estructura de luz, láser, CT)
 - ✅ Post-procesado y acabado superficial
 - ✅ Errores comunes en impresión 3D
 - ✅ Software de diseño 3D (Fusion 360, FreeCAD, Blender, Tinkercad)
 - ✅ Preparación de archivos STL (validación, escala, orientación, soportes)
 - ✅ Tecnologías: FDM vs Resina (diferencias, ventajas, desventajas)
 - ✅ Fundamentos de diseño 3D para principiantes
+- ✅ Tolerancias y precisión en diseño (holgura, interferencia, cálculos)
+- ✅ Impresión 3D artística y creativa (arte, esculturas, instalaciones)
 
 ## Temas Pendientes / En Desarrollo
-- Tolerancias y precisión
-- Impresión rápida vs calidad
-- Diseño para impresión 3D (mejores prácticas)
-- Historia de la impresión 3D
-- Comparación impresoras FDM vs Resina
+- Impresión rápida vs calidad (trade-offs)
+- Diseño para impresión 3D: mejores prácticas (pared gruesa, drenaje)
+- Historia de la impresión 3D (evolución tecnológica)
+- Comparación avanzada de impresoras específicas (SLA vs DLP vs LCD)
+- Reciclaje y reutilización de materiales de impresión fallida
+- Acabados cromáticos (pintura, tintado, effects)
+- Impresión 3D en medicina (prótesis, modelos quirúrgicos)
+
+## Fotos Pendientes
+- escaneo-objetos.jpg (búsqueda en Drive: estructura de luz, escaneo 3D)
+- tolerancias-precision.jpg (búsqueda en Drive: ensamble, piezas precisas)
+- impresion-arte.jpg (búsqueda en Drive: escultura artística impresa)
