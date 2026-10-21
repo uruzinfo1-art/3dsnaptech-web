@@ -1,19 +1,48 @@
 {
-  "_instrucciones": "Para publicar un producto, copia el bloque de _ejemplo dentro de la lista productos (entre los corchetes, separado con una coma) y cambia sus datos. categoria puede ser: figuras, accesorios, hogar o regalos. Los precios van en pesos, sin puntos. Si el producto tiene un solo tamaño, quita tamanos y escribe \"precio\": 25000. La foto y el video van en la carpeta productos/; video es opcional. El pago usa la imagen nequi-qr.png (nequiQR) y la llave nequiLlave.",
+  "_instrucciones": "Para publicar un producto, copia el bloque de _ejemplo dentro de la lista productos (entre los corchetes, separado con una coma) y cambia sus datos. categoria puede ser: figuras, accesorios, hogar o regalos. Los precios van en pesos, sin puntos. Si el producto tiene un solo tamaño, quita tamanos y escribe \"precio\": 25000. Fotos y videos van en la carpeta productos/. imagen y video se usan en la tarjeta de la tienda; galeria es lo que se ve en la página del producto (video, descripcion, descripcionLarga, galeria y disponibilidad son opcionales). El pago usa la imagen nequi-qr.png (nequiQR) y la llave nequiLlave.",
   "_ejemplo": {
     "id": "nombre-del-producto",
     "nombre": "Nombre del producto",
     "categoria": "figuras",
+    "descripcion": "Frase corta que aparece debajo del nombre.",
+    "descripcionLarga": [
+      "Primer párrafo de la descripción.",
+      "Segundo párrafo (opcional)."
+    ],
     "imagen": "productos/nombre-del-producto.jpg",
     "video": "productos/nombre-del-producto.mp4",
+    "galeria": [
+      {
+        "tipo": "video",
+        "src": "productos/nombre-del-producto.mp4",
+        "poster": "productos/nombre-del-producto.jpg"
+      },
+      {
+        "tipo": "imagen",
+        "src": "productos/otra-foto.jpg"
+      }
+    ],
     "etiqueta": "Nuevo",
+    "disponibilidad": "Hecho a pedido",
     "tamanos": [
-      { "nombre": "10 cm", "precio": 25000 },
-      { "nombre": "15 cm", "precio": 35000 }
+      {
+        "nombre": "10 cm",
+        "precio": 25000
+      },
+      {
+        "nombre": "15 cm",
+        "precio": 35000
+      }
     ],
     "colores": [
-      { "nombre": "Verde", "hex": "#2DB84B" },
-      { "nombre": "Negro", "hex": "#111111" }
+      {
+        "nombre": "Verde",
+        "hex": "#2DB84B"
+      },
+      {
+        "nombre": "Negro",
+        "hex": "#111111"
+      }
     ]
   },
   "nequiQR": "nequi-qr.png",
@@ -23,20 +52,63 @@
       "id": "lizard-flex",
       "nombre": "Lizard Flex",
       "categoria": "figuras",
-      "imagen": "productos/lizard-flex.jpg",
-      "video": "productos/lizard-flex.mp4",
+      "descripcion": "Un lagarto flexible con resorte que se mueve con cada curva del camino. ¡Pura buena vibra para tu carro, tu moto o tu escritorio!",
+      "descripcionLarga": [
+        "Imagínate tu moto o tu carro con este lagarto saludando a todo el que pasa. Con cada frenada, cada curva y cada bache, el Lizard Flex se mueve y se balancea gracias a su resorte. Vas a ser la sensación del parqueadero.",
+        "También queda genial en el escritorio, en una repisa o como regalo para ese amigo que ya lo tiene todo. Te advertimos: nadie se resiste a moverlo.",
+        "Lo imprimimos en 3D aquí en Bogotá, en el color que tú elijas. Escoge 10 cm si lo quieres discreto, o 15 cm para que se note desde lejos."
+      ],
+      "imagen": "productos/lizard-flex-moto.jpg",
+      "video": "productos/lizard-flex-moto.mp4",
+      "galeria": [
+        {
+          "tipo": "video",
+          "src": "productos/lizard-flex-moto.mp4",
+          "poster": "productos/lizard-flex-moto.jpg"
+        },
+        {
+          "tipo": "video",
+          "src": "productos/lizard-flex.mp4",
+          "poster": "productos/lizard-flex.jpg"
+        }
+      ],
       "etiqueta": "Nuevo",
+      "disponibilidad": "Hecho a pedido",
       "tamanos": [
-        { "nombre": "10 cm", "precio": 25000 },
-        { "nombre": "15 cm", "precio": 35000 }
+        {
+          "nombre": "10 cm",
+          "precio": 25000
+        },
+        {
+          "nombre": "15 cm",
+          "precio": 35000
+        }
       ],
       "colores": [
-        { "nombre": "Verde", "hex": "#2DB84B" },
-        { "nombre": "Azul", "hex": "#1D4ED8" },
-        { "nombre": "Rojo", "hex": "#DC2626" },
-        { "nombre": "Amarillo", "hex": "#FACC15" },
-        { "nombre": "Negro", "hex": "#111111" },
-        { "nombre": "Blanco", "hex": "#F5F5F5" }
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
       ]
     }
   ]

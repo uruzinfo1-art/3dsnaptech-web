@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Producto — Tienda 3DSnapTech</title>
+<meta name="description" content="Productos impresos en 3D en Bogotá, con envíos a toda Colombia.">
+<style>
+  :root{
+    --lima:#E1E91E; --negro:#05101C; --dorado:#FEAE12; --cafe:#AD6601; --crema:#FEE4AA; --paper:#F7F4EC;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins', system-ui, sans-serif; background:var(--paper); color:var(--negro); -webkit-font-smoothing:antialiased;}
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+  .mono{font-family:'DejaVu Sans Mono', monospace;}
+
+  header{position:sticky; top:0; z-index:50; background:rgba(5,16,28,.95); backdrop-filter:blur(6px); border-bottom:1px solid rgba(255,255,255,.08); color:#fff;}
+  header .bar{display:flex; align-items:center; justify-content:space-between; padding:14px 24px;}
+  header .brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:22px;}
+  header .brand img{width:52px;}
+  header .brand span.d{color:var(--lima);}
+  nav{display:flex; gap:28px; font-size:14px; font-weight:600; align-items:center;}
+  nav a{opacity:.85;}
+  nav a:hover{opacity:1; color:var(--lima);}
+  .nav-drop{position:relative;}
+  .nav-drop > button{background:none; border:0; color:inherit; font:inherit; cursor:pointer; opacity:.85; display:flex; align-items:center; gap:5px; padding:0;}
+  .nav-drop > button:hover, .nav-drop.active > button{opacity:1; color:var(--lima);}
+  .nav-drop > button svg{width:12px; height:12px; stroke:currentColor; fill:none; transition:transform .2s;}
+  .nav-drop .menu{display:none; position:absolute; top:100%; left:-16px; padding-top:12px; min-width:240px;}
+  .nav-drop .menu div{background:#0b1a2b; border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:8px; box-shadow:0 14px 30px rgba(0,0,0,.4);}
+  .nav-drop .menu a{display:block; padding:10px 12px; border-radius:8px; opacity:1;}
+  .nav-drop .menu a:hover{background:rgba(225,233,30,.1);}
+  .nav-drop .menu small{display:block; font-weight:400; font-size:12px; color:var(--crema); opacity:.7; margin-top:2px;}
+  .nav-drop:hover .menu, .nav-drop:focus-within .menu, .nav-drop.open .menu{display:block;}
+  .nav-drop:hover > button svg, .nav-drop.open > button svg{transform:rotate(180deg);}
+  .head-actions{display:flex; align-items:center; gap:14px;}
+  .cart-btn{position:relative; background:none; border:1.5px solid rgba(255,255,255,.2); color:#fff; width:42px; height:42px; border-radius:10px; display:flex; align-items:center; justify-content:center; cursor:pointer;}
+  .cart-btn:hover{border-color:var(--lima);}
+  .cart-btn svg{width:20px; height:20px; stroke:currentColor; fill:none;}
+  .cart-count{position:absolute; top:-7px; right:-7px; background:var(--lima); color:var(--negro); font-size:11px; font-weight:800; min-width:19px; height:19px; border-radius:10px; display:flex; align-items:center; justify-content:center; padding:0 4px;}
+  .cart-count[hidden]{display:none;}
+  .btn{display:inline-flex; align-items:center; gap:8px; background:var(--lima); color:var(--negro); font-weight:800; padding:11px 20px; border-radius:8px; font-size:14px; border:0; cursor:pointer;}
+
+  /* ---------- detalle ---------- */
+  .crumbs{padding:22px 0 0; font-size:13.5px; color:#666; display:flex; flex-wrap:wrap; gap:8px;}
+  .crumbs a:hover{color:var(--cafe);}
+  .crumbs b{color:var(--negro); font-weight:600;}
+  .detail{display:grid; grid-template-columns:1.1fr 1fr; gap:48px; padding:22px 0 50px; align-items:start;}
+  .gallery{display:grid; grid-template-columns:84px 1fr; gap:14px;}
+  .thumbs{display:flex; flex-direction:column; gap:10px;}
+  .thumbs button{position:relative; width:84px; height:84px; border-radius:12px; overflow:hidden; border:2px solid transparent; padding:0; cursor:pointer; background:#0b1a2b;}
+  .thumbs button.on{border-color:var(--negro);}
+  .thumbs img{width:100%; height:100%; object-fit:cover;}
+  .thumbs .play{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(5,16,28,.25);}
+  .thumbs .play svg{width:30px; height:30px;}
+  .stage{position:relative; aspect-ratio:1; border-radius:18px; overflow:hidden; background:#0b1a2b;}
+  .stage img, .stage video{width:100%; height:100%; object-fit:cover; display:block;}
+  .stage img{cursor:zoom-in;}
+  .zoom-btn{position:absolute; right:14px; bottom:14px; width:42px; height:42px; border-radius:50%; background:#fff; border:0; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,.2);}
+  .zoom-btn svg{width:20px; height:20px; stroke:var(--negro); fill:none;}
+  .zoom-btn[hidden]{display:none;}
+
+  .info .tag{display:inline-block; background:var(--lima); color:var(--negro); font-size:12.5px; font-weight:700; padding:5px 12px; border-radius:20px;}
+  .info h1{font-size:38px; font-weight:800; line-height:1.1; margin-top:12px;}
+  .info .lead{margin-top:12px; font-size:16.5px; line-height:1.55; color:#333;}
+  .price-row{display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-top:20px;}
+  .price{font-size:34px; font-weight:800;}
+  .stock{display:inline-flex; align-items:center; gap:6px; font-size:13.5px; font-weight:700; padding:6px 12px; border-radius:20px; background:rgba(173,102,1,.12); color:var(--cafe);}
+  .stock svg{width:16px; height:16px; stroke:currentColor; fill:none;}
+  .desc{margin-top:18px;}
+  .desc p{font-size:15px; line-height:1.7; color:#3a3a3a; margin-top:10px;}
+  .perks{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:24px; padding:20px 0; border-top:1px solid rgba(5,16,28,.1); border-bottom:1px solid rgba(5,16,28,.1);}
+  .perk{display:flex; gap:10px; align-items:center; font-size:12.5px; line-height:1.35; color:#555;}
+  .perk b{display:block; color:var(--negro); font-size:13px;}
+  .perk svg{width:28px; height:28px; stroke:var(--cafe); fill:none; flex-shrink:0;}
+  .opt{margin-top:22px;}
+  .opt h4{font-size:15px; font-weight:700; margin-bottom:10px;}
+  .opt h4 span{font-weight:400; color:#666;}
+  .chips{display:flex; flex-wrap:wrap; gap:10px;}
+  .chips button{display:flex; align-items:center; gap:8px; background:#fff; border:1.6px solid rgba(5,16,28,.15); border-radius:10px; padding:9px 14px; font-size:14px; font-weight:600; cursor:pointer; text-align:left;}
+  .chips button small{display:block; font-weight:400; font-size:12px; color:#666;}
+  .chips button.on{border-color:var(--negro); box-shadow:0 0 0 1px var(--negro);}
+  .chips .dot{width:18px; height:18px; border-radius:50%; box-shadow:0 0 0 1px rgba(5,16,28,.25);}
+  .buy{display:flex; gap:14px; margin-top:26px; align-items:stretch;}
+  .qty-big{display:flex; align-items:center; border:1.6px solid rgba(5,16,28,.15); border-radius:10px; background:#fff;}
+  .qty-big button{width:44px; height:100%; min-height:50px; border:0; background:none; font-size:20px; cursor:pointer;}
+  .qty-big span{min-width:34px; text-align:center; font-weight:700;}
+  .buy .btn{flex:1; justify-content:center; font-size:16px; border-radius:10px;}
+  .buy .btn svg{width:20px; height:20px; stroke:currentColor; fill:none;}
+
+  .strip{background:#fff; border-top:1px solid rgba(5,16,28,.08);}
+  .strip .wrap{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; padding-top:28px; padding-bottom:28px;}
+  .strip .it{display:flex; gap:14px; align-items:center;}
+  .strip svg{width:32px; height:32px; stroke:var(--negro); fill:none; flex-shrink:0;}
+  .strip b{display:block; font-size:15px;}
+  .strip span{font-size:13.5px; color:#555;}
+  .strip a{color:var(--cafe); font-weight:600;}
+
+  .notfound{text-align:center; padding:90px 0;}
+  .notfound h1{font-size:30px;}
+  .notfound p{margin:12px 0 24px; color:#555;}
+
+  .lightbox{position:fixed; inset:0; z-index:120; background:rgba(5,16,28,.92); display:none; align-items:center; justify-content:center; padding:24px; cursor:zoom-out;}
+  .lightbox.show{display:flex;}
+  .lightbox img{max-width:100%; max-height:100%; border-radius:12px;}
+
+  /* ---------- carrito ---------- */
+  .overlay{position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:90; opacity:0; pointer-events:none; transition:opacity .2s;}
+  .overlay.show{opacity:1; pointer-events:auto;}
+  .drawer{position:fixed; top:0; right:0; bottom:0; width:min(400px, 100%); background:#0b1a2b; color:#fff; z-index:100; transform:translateX(100%); transition:transform .25s; display:flex; flex-direction:column; border-left:1px solid rgba(255,255,255,.08);}
+  .drawer.show{transform:none;}
+  .drawer-head{display:flex; align-items:center; justify-content:space-between; padding:18px 20px; border-bottom:1px solid rgba(255,255,255,.08);}
+  .drawer-head h3{font-size:18px; font-weight:800;}
+  .icon-btn{background:none; border:0; color:#fff; cursor:pointer; width:34px; height:34px; display:flex; align-items:center; justify-content:center; border-radius:8px;}
+  .icon-btn:hover{background:rgba(255,255,255,.08);}
+  .icon-btn svg{width:20px; height:20px; stroke:currentColor; fill:none;}
+  .drawer-body{flex:1; overflow-y:auto; padding:16px 20px;}
+  .drawer-foot{padding:18px 20px; border-top:1px solid rgba(255,255,255,.08);}
+  .drawer-foot .btn{width:100%; justify-content:center;}
+  .drawer-foot .btn[disabled]{opacity:.4; cursor:not-allowed;}
+  .total-row{display:flex; justify-content:space-between; font-weight:800; font-size:17px; margin-bottom:14px;}
+  .total-row span:last-child{color:var(--lima);}
+  .empty{text-align:center; color:var(--crema); opacity:.8; font-size:14px; padding:40px 0;}
+  .line{display:grid; grid-template-columns:56px 1fr auto; gap:12px; align-items:center; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.06);}
+  .line img{width:56px; height:56px; object-fit:cover; border-radius:8px; background:#132538;}
+  .line b{display:block; font-size:14px;}
+  .line small{display:block; font-size:12px; color:var(--crema); opacity:.75; margin-top:2px;}
+  .qty{display:flex; align-items:center; gap:6px; margin-top:6px;}
+  .qty button{width:24px; height:24px; border-radius:6px; border:1px solid rgba(255,255,255,.2); background:none; color:#fff; cursor:pointer;}
+  .line .amt{font-weight:700; font-size:14px; text-align:right;}
+  .line .rm{background:none; border:0; color:var(--crema); opacity:.6; font-size:12px; cursor:pointer; margin-top:6px;}
+  .pay p{font-size:14px; color:var(--crema); line-height:1.6;}
+  .pay ol{margin:14px 0 0 18px; font-size:14px; line-height:1.7; color:#fff;}
+  .pay .qr{margin:18px auto 0; background:#fff; padding:14px; border-radius:14px; width:220px;}
+  .pay .qr-note{margin-top:14px; font-size:13px; text-align:center;}
+  .pay .llave{margin-top:16px; text-align:center; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:12px;}
+  .pay .llave small{display:block; font-size:12px; color:var(--crema); opacity:.75;}
+  .pay .llave b{display:block; font-size:20px; letter-spacing:1px; margin-top:4px; user-select:all;}
+  .pay .back{background:none; border:0; color:var(--crema); font-size:13px; cursor:pointer; margin-top:10px; width:100%;}
+
+  footer{background:var(--negro); color:#fff; border-top:1px solid rgba(255,255,255,.08); padding:34px 0;}
+  footer .bar{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;}
+  footer .brand{display:flex; align-items:center; gap:10px; font-weight:800;}
+  footer .brand img{width:26px;}
+  footer .links{display:flex; gap:22px; font-size:13.5px; opacity:.8;}
+  footer .fine{margin-top:22px; font-size:12px; opacity:.5; text-align:center;}
+
+  @media (max-width:860px){
+    nav{display:none;}
+    .detail{grid-template-columns:1fr; gap:26px;}
+    .gallery{grid-template-columns:1fr;}
+    .thumbs{flex-direction:row; order:2; overflow-x:auto;}
+    .thumbs button{flex-shrink:0; width:70px; height:70px;}
+    .info h1{font-size:30px;}
+    .strip .wrap{grid-template-columns:1fr; gap:18px;}
+    footer .bar{flex-direction:column; text-align:center;}
+  }
+  @media (max-width:520px){
+    header .bar{padding:12px 16px;}
+    header .brand{font-size:18px;}
+    header .brand img{width:40px;}
+    .head-actions .btn{display:none;}
+    .wrap{padding:0 16px;}
+    .perks{grid-template-columns:1fr 1fr;}
+    .price{font-size:28px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar wrap">
+    <a href="index.html" class="brand"><img src="logo-transparent.png" alt="3DSnapTech"><span><span class="d">3d</span>Snaptech</span></a>
+    <nav>
+      <a href="index.html#servicios">Servicios</a>
+      <div class="nav-drop active">
+        <button type="button" aria-haspopup="true" onclick="this.parentNode.classList.toggle('open')">Productos <svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="menu"><div>
+          <a href="productos.html">Impresoras 3D<small>Máquinas FDM y de resina</small></a>
+          <a href="tienda.html">Productos impresos en 3D<small>Figuras, accesorios, hogar y regalos</small></a>
+        </div></div>
+      </div>
+      <a href="index.html#trabajos">Trabajos</a>
+      <a href="educacion.html">Educación</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+    <div class="head-actions">
+      <button class="cart-btn" type="button" id="cart-open" aria-label="Abrir carrito">
+        <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3.5h2.6l2.4 11.3a1.5 1.5 0 0 0 1.5 1.2h8.7a1.5 1.5 0 0 0 1.5-1.1l1.6-6.9H6"/></svg>
+        <span class="cart-count" id="cart-count" hidden>0</span>
+      </button>
+      <a class="btn" href="https://wa.me/573207283295" target="_blank">WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <div class="crumbs" aria-label="Ruta" id="crumbs"><a href="index.html">Inicio</a><span>›</span><a href="tienda.html">Tienda</a></div>
+  <div class="notfound" id="cargando"><p>Cargando producto…</p></div>
+</main>
+
+<section class="strip">
+  <div class="wrap">
+    <div class="it">
+      <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><path d="M7 15h3"/></svg>
+      <div><b>Pago con Nequi</b><span>QR o llave Nequi Negocios</span></div>
+    </div>
+    <div class="it">
+      <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16V7a1 1 0 0 1 1-1h9v10"/><path d="M13 10h4l3 3v3h-2"/><circle cx="7.5" cy="16.5" r="1.8"/><circle cx="16.5" cy="16.5" r="1.8"/></svg>
+      <div><b>Envíos a toda Colombia</b><span>Coordinamos el envío por WhatsApp</span></div>
+    </div>
+    <div class="it">
+      <svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>
+      <div><b>¿Tienes una idea?</b><span>También imprimimos diseños personalizados. <a href="https://wa.me/573207283295?text=Hola%203DSnapTech%2C%20quiero%20cotizar%20una%20pieza%20personalizada" target="_blank">Cotiza aquí</a></span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="bar">
+      <a href="index.html" class="brand"><img src="logo-transparent.png" alt="3DSnapTech"><span>3dSnaptech</span></a>
+      <div class="links">
+        <a href="https://wa.me/573207283295" target="_blank">WhatsApp</a>
+        <a href="https://www.instagram.com/3dsnaptech/" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@3dsnaptech" target="_blank">TikTok</a>
+        <a href="mailto:info@ansuzstudio.com">Correo</a>
+      </div>
+    </div>
+    <div class="fine mono">© 2026 3DSNAPTECH · BOGOTÁ, COLOMBIA</div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Imagen ampliada"><img id="lightbox-img" alt=""></div>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Carrito de compras">
+  <div class="drawer-head">
+    <h3 id="drawer-title">Tu carrito</h3>
+    <button class="icon-btn" type="button" id="cart-close" aria-label="Cerrar carrito"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="drawer-body" id="drawer-body"></div>
+  <div class="drawer-foot" id="drawer-foot">
+    <div class="total-row"><span>Total</span><span id="cart-total">$0 COP</span></div>
+    <button class="btn" type="button" id="checkout" disabled>Finalizar pedido →</button>
+  </div>
+</aside>
+
+<script src="tienda.js"></script>
+<script>
+  var SVG_NS = 'http://www.w3.org/2000/svg';
+  function icono(paths) {
+    var svg = document.createElementNS(SVG_NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('stroke-width', '1.7');
+    svg.setAttribute('stroke-linecap', 'round');
+    svg.setAttribute('stroke-linejoin', 'round');
+    paths.forEach(function(d){
+      var p = document.createElementNS(SVG_NS, 'path');
+      p.setAttribute('d', d);
+      svg.appendChild(p);
+    });
+    return svg;
+  }
+  var PERKS = [
+    { t: 'Impreso en Bogotá', s: 'Fabricación local', d: ['M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z', 'M12 7a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z'] },
+    { t: 'Calidad revisada', s: 'Cada pieza antes de salir', d: ['M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z', 'M9 12l2 2 4-4'] },
+    { t: 'Material sostenible', s: 'Filamentos reciclables', d: ['M12 21c-4.5-2-7-5.5-7-9.5C5 7 8 4 12 3c4 1 7 4 7 8.5 0 4-2.5 7.5-7 9.5z', 'M12 21V9'] },
+    { t: 'Envíos a toda Colombia', s: 'Empaque protegido', d: ['M3 16V7a1 1 0 0 1 1-1h9v10', 'M13 10h4l3 3v3h-2', 'M6 16.5a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0z', 'M15 16.5a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0z'] }
+  ];
+
+  function noEncontrado() {
+    var main = document.getElementById('main');
+    document.getElementById('cargando').remove();
+    var box = el('div', 'notfound');
+    box.appendChild(el('h1', null, 'No encontramos este producto'));
+    box.appendChild(el('p', null, 'Puede que ya no esté disponible. Mira los demás productos de la tienda.'));
+    var a = el('a', 'btn', 'Ir a la tienda →'); a.href = 'tienda.html';
+    box.appendChild(a);
+    main.appendChild(box);
+  }
+
+  function pintarGaleria(p, cont) {
+    var items = (p.galeria || []).filter(function(g){
+      return g && (g.tipo === 'video' || g.tipo === 'imagen') && imagenSegura(g.src);
+    });
+    if (!items.length) {
+      if (imagenSegura(p.video)) items.push({ tipo: 'video', src: p.video, poster: p.imagen });
+      else if (imagenSegura(p.imagen)) items.push({ tipo: 'imagen', src: p.imagen });
+    }
+    var gal = el('div', 'gallery');
+    var thumbs = el('div', 'thumbs');
+    var stage = el('div', 'stage');
+    var zoom = el('button', 'zoom-btn');
+    zoom.type = 'button';
+    zoom.setAttribute('aria-label', 'Ampliar imagen');
+    zoom.appendChild(icono(['M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14z', 'M20 20l-4-4', 'M11 8v6M8 11h6']));
+
+    function mostrar(i) {
+      var g = items[i];
+      stage.textContent = '';
+      if (g.tipo === 'video') {
+        var v = crearVideo(imagenSegura(g.src), imagenSegura(g.poster), p.nombre);
+        v.controls = true;
+        stage.appendChild(v);
+        zoom.hidden = true;
+      } else {
+        var img = el('img');
+        img.src = imagenSegura(g.src);
+        img.alt = p.nombre;
+        img.addEventListener('click', function(){ ampliar(img.src); });
+        stage.appendChild(img);
+        zoom.hidden = false;
+        zoom.onclick = function(){ ampliar(img.src); };
+      }
+      stage.appendChild(zoom);
+      thumbs.querySelectorAll('button').forEach(function(b, j){ b.classList.toggle('on', j === i); });
+    }
+
+    items.forEach(function(g, i){
+      var b = el('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', (g.tipo === 'video' ? 'Ver video ' : 'Ver foto ') + (i + 1));
+      var t = el('img');
+      var src = imagenSegura(g.tipo === 'video' ? g.poster : g.src);
+      if (src) t.src = src;
+      t.alt = '';
+      b.appendChild(t);
+      if (g.tipo === 'video') {
+        var play = el('span', 'play');
+        var svg = document.createElementNS(SVG_NS, 'svg');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        var c = document.createElementNS(SVG_NS, 'circle');
+        c.setAttribute('cx', '12'); c.setAttribute('cy', '12'); c.setAttribute('r', '11'); c.setAttribute('fill', 'rgba(5,16,28,.6)');
+        var tri = document.createElementNS(SVG_NS, 'path');
+        tri.setAttribute('d', 'M10 8l6 4-6 4z'); tri.setAttribute('fill', '#fff');
+        svg.appendChild(c); svg.appendChild(tri);
+        play.appendChild(svg);
+        b.appendChild(play);
+      }
+      b.addEventListener('click', function(){ mostrar(i); });
+      thumbs.appendChild(b);
+    });
+    if (items.length < 2) thumbs.style.display = 'none';
+    gal.appendChild(thumbs);
+    gal.appendChild(stage);
+    cont.appendChild(gal);
+    if (items.length) mostrar(0);
+  }
+
+  function ampliar(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('show');
+  }
+  document.getElementById('lightbox').addEventListener('click', function(){ this.classList.remove('show'); });
+
+  function pintarProducto(p) {
+    document.title = p.nombre + ' — Tienda 3DSnapTech';
+    if (p.descripcion) document.querySelector('meta[name="description"]').setAttribute('content', p.descripcion);
+
+    var crumbs = document.getElementById('crumbs');
+    var cat = el('a', null, CATEGORIAS[p.categoria]);
+    cat.href = 'tienda.html#productos';
+    crumbs.appendChild(el('span', null, '›'));
+    crumbs.appendChild(cat);
+    crumbs.appendChild(el('span', null, '›'));
+    crumbs.appendChild(el('b', null, p.nombre));
+
+    document.getElementById('cargando').remove();
+    var detail = el('div', 'detail');
+    var left = el('div');
+    pintarGaleria(p, left);
+    detail.appendChild(left);
+
+    var info = el('div', 'info');
+    if (p.etiqueta) info.appendChild(el('span', 'tag', p.etiqueta));
+    info.appendChild(el('h1', null, p.nombre));
+    if (p.descripcion) info.appendChild(el('p', 'lead', p.descripcion));
+
+    var tamano = p.tamanos ? p.tamanos[0].nombre : '';
+    var color = p.colores && p.colores.length ? p.colores[0].nombre : '';
+    var cantidad = 1;
+
+    var priceRow = el('div', 'price-row');
+    var precio = el('span', 'price', pesos(precioDe(p, tamano)));
+    priceRow.appendChild(precio);
+    if (p.disponibilidad) {
+      var stock = el('span', 'stock');
+      stock.appendChild(icono(['M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z', 'M12 7v5l3 2']));
+      stock.appendChild(document.createTextNode(p.disponibilidad));
+      priceRow.appendChild(stock);
+    }
+    info.appendChild(priceRow);
+
+    if (p.descripcionLarga && p.descripcionLarga.length) {
+      var desc = el('div', 'desc');
+      p.descripcionLarga.forEach(function(t){ if (typeof t === 'string') desc.appendChild(el('p', null, t)); });
+      info.appendChild(desc);
+    }
+
+    var perks = el('div', 'perks');
+    PERKS.forEach(function(k){
+      var it = el('div', 'perk');
+      it.appendChild(icono(k.d));
+      var tx = el('div');
+      tx.appendChild(el('b', null, k.t));
+      tx.appendChild(document.createTextNode(k.s));
+      it.appendChild(tx);
+      perks.appendChild(it);
+    });
+    info.appendChild(perks);
+
+    if (p.colores && p.colores.length) {
+      var oc = el('div', 'opt');
+      var hc = el('h4', null, 'Color: ');
+      var hcSel = el('span', null, color);
+      hc.appendChild(hcSel);
+      oc.appendChild(hc);
+      var cc = el('div', 'chips');
+      p.colores.forEach(function(c, i){
+        var b = el('button', i === 0 ? 'on' : null);
+        b.type = 'button';
+        var dot = el('span', 'dot');
+        dot.style.background = colorSeguro(c.hex);
+        b.appendChild(dot);
+        b.appendChild(document.createTextNode(c.nombre));
+        b.addEventListener('click', function(){
+          color = c.nombre;
+          hcSel.textContent = c.nombre;
+          cc.querySelectorAll('button').forEach(function(x){ x.classList.remove('on'); });
+          b.classList.add('on');
+        });
+        cc.appendChild(b);
+      });
+      oc.appendChild(cc);
+      info.appendChild(oc);
+    }
+
+    if (p.tamanos) {
+      var ot = el('div', 'opt');
+      ot.appendChild(el('h4', null, 'Tamaño'));
+      var ct = el('div', 'chips');
+      p.tamanos.forEach(function(t, i){
+        var b = el('button', i === 0 ? 'on' : null);
+        b.type = 'button';
+        var tx = el('span', null, t.nombre);
+        tx.appendChild(el('small', null, pesos(t.precio)));
+        b.appendChild(tx);
+        b.addEventListener('click', function(){
+          tamano = t.nombre;
+          precio.textContent = pesos(t.precio);
+          ct.querySelectorAll('button').forEach(function(x){ x.classList.remove('on'); });
+          b.classList.add('on');
+        });
+        ct.appendChild(b);
+      });
+      ot.appendChild(ct);
+      info.appendChild(ot);
+    }
+
+    var buy = el('div', 'buy');
+    var q = el('div', 'qty-big');
+    var menos = el('button', null, '−'); menos.type = 'button'; menos.setAttribute('aria-label', 'Quitar uno');
+    var num = el('span', null, '1');
+    var mas = el('button', null, '+'); mas.type = 'button'; mas.setAttribute('aria-label', 'Agregar uno');
+    menos.addEventListener('click', function(){ cantidad = Math.max(1, cantidad - 1); num.textContent = cantidad; });
+    mas.addEventListener('click', function(){ cantidad = Math.min(99, cantidad + 1); num.textContent = cantidad; });
+    q.appendChild(menos); q.appendChild(num); q.appendChild(mas);
+    buy.appendChild(q);
+    var add = el('button', 'btn');
+    add.type = 'button';
+    add.appendChild(icono(['M2.5 3.5h2.6l2.4 11.3a1.5 1.5 0 0 0 1.5 1.2h8.7a1.5 1.5 0 0 0 1.5-1.1l1.6-6.9H6']));
+    add.appendChild(document.createTextNode('Agregar al carrito'));
+    add.addEventListener('click', function(){ agregar(p.id, color, tamano, cantidad); });
+    buy.appendChild(add);
+    info.appendChild(buy);
+
+    detail.appendChild(info);
+    document.getElementById('main').appendChild(detail);
+  }
+
+  cargarTienda(function(){
+    var id = new URLSearchParams(location.search).get('id');
+    var p = id ? buscar(id) : null;
+    if (p) pintarProducto(p); else noEncontrado();
+  });
+</script>
+</body>
+</html>
