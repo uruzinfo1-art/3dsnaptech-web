@@ -1,18 +1,43 @@
 {
-  "_instrucciones": "Para publicar un producto, copia el bloque de _ejemplo dentro de la lista productos (entre los corchetes) y cambia sus datos. categoria puede ser: figuras, accesorios, hogar o regalos. precio va en pesos, sin puntos. La foto va en la carpeta productos/. Para activar el pago con QR, la imagen del QR del negocio es nequi-qr.png y su nombre va en nequiQR.",
+  "_instrucciones": "Para publicar un producto, copia el bloque de _ejemplo dentro de la lista productos (entre los corchetes, separado con una coma) y cambia sus datos. categoria puede ser: figuras, accesorios, hogar o regalos. Los precios van en pesos, sin puntos. Si el producto tiene un solo tamaño, quita tamanos y escribe \"precio\": 25000. La foto y el video van en la carpeta productos/; video es opcional. El pago usa la imagen nequi-qr.png (nequiQR) y la llave nequiLlave.",
   "_ejemplo": {
-    "id": "dragon-articulado",
-    "nombre": "Dragón articulado",
+    "id": "nombre-del-producto",
+    "nombre": "Nombre del producto",
     "categoria": "figuras",
-    "precio": 35000,
-    "imagen": "productos/dragon-articulado.jpg",
+    "imagen": "productos/nombre-del-producto.jpg",
+    "video": "productos/nombre-del-producto.mp4",
     "etiqueta": "Nuevo",
+    "tamanos": [
+      { "nombre": "10 cm", "precio": 25000 },
+      { "nombre": "15 cm", "precio": 35000 }
+    ],
     "colores": [
-      { "nombre": "Azul y lima", "hex": "#1D4ED8" },
+      { "nombre": "Verde", "hex": "#2DB84B" },
       { "nombre": "Negro", "hex": "#111111" }
     ]
   },
   "nequiQR": "nequi-qr.png",
   "nequiLlave": "0093103141",
-  "productos": []
+  "productos": [
+    {
+      "id": "lizard-flex",
+      "nombre": "Lizard Flex",
+      "categoria": "figuras",
+      "imagen": "productos/lizard-flex.jpg",
+      "video": "productos/lizard-flex.mp4",
+      "etiqueta": "Nuevo",
+      "tamanos": [
+        { "nombre": "10 cm", "precio": 25000 },
+        { "nombre": "15 cm", "precio": 35000 }
+      ],
+      "colores": [
+        { "nombre": "Verde", "hex": "#2DB84B" },
+        { "nombre": "Azul", "hex": "#1D4ED8" },
+        { "nombre": "Rojo", "hex": "#DC2626" },
+        { "nombre": "Amarillo", "hex": "#FACC15" },
+        { "nombre": "Negro", "hex": "#111111" },
+        { "nombre": "Blanco", "hex": "#F5F5F5" }
+      ]
+    }
+  ]
 }
