@@ -1,0 +1,18 @@
+{
+  "_instrucciones": "Para publicar un producto, copia el bloque de _ejemplo dentro de la lista productos (entre los corchetes) y cambia sus datos. categoria puede ser: figuras, accesorios, hogar o regalos. precio va en pesos, sin puntos. La foto va en la carpeta productos/. Para activar el pago con QR, la imagen del QR del negocio es nequi-qr.png y su nombre va en nequiQR.",
+  "_ejemplo": {
+    "id": "dragon-articulado",
+    "nombre": "Dragón articulado",
+    "categoria": "figuras",
+    "precio": 35000,
+    "imagen": "productos/dragon-articulado.jpg",
+    "etiqueta": "Nuevo",
+    "colores": [
+      { "nombre": "Azul y lima", "hex": "#1D4ED8" },
+      { "nombre": "Negro", "hex": "#111111" }
+    ]
+  },
+  "nequiQR": "nequi-qr.png",
+  "nequiLlave": "0093103141",
+  "productos": []
+}

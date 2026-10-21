@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda — Productos impresos en 3D en Colombia | 3DSnapTech</title>
+<meta name="description" content="Figuras, accesorios, artículos para el hogar y regalos personalizados impresos en 3D. Fabricación local en Bogotá y envíos a toda Colombia.">
+<style>
+  :root{
+    --lima:#E1E91E; --negro:#05101C; --dorado:#FEAE12; --cafe:#AD6601; --crema:#FEE4AA; --paper:#F7F4EC;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Poppins', system-ui, sans-serif; background:var(--negro); color:#fff; -webkit-font-smoothing:antialiased;}
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+  .mono{font-family:'DejaVu Sans Mono', monospace;}
+
+  header{position:sticky; top:0; z-index:50; background:rgba(5,16,28,.9); backdrop-filter:blur(6px); border-bottom:1px solid rgba(255,255,255,.08);}
+  header .bar{display:flex; align-items:center; justify-content:space-between; padding:14px 24px;}
+  header .brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:22px;}
+  header .brand img{width:52px;}
+  header .brand span.d{color:var(--lima);}
+  nav{display:flex; gap:28px; font-size:14px; font-weight:600; align-items:center;}
+  nav a{opacity:.85;}
+  nav a:hover{opacity:1; color:var(--lima);}
+  .nav-drop{position:relative;}
+  .nav-drop > button{background:none; border:0; color:inherit; font:inherit; cursor:pointer; opacity:.85; display:flex; align-items:center; gap:5px; padding:0;}
+  .nav-drop > button:hover, .nav-drop.active > button{opacity:1; color:var(--lima);}
+  .nav-drop > button svg{width:12px; height:12px; stroke:currentColor; fill:none; transition:transform .2s;}
+  .nav-drop .menu{display:none; position:absolute; top:100%; left:-16px; padding-top:12px; min-width:240px;}
+  .nav-drop .menu div{background:#0b1a2b; border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:8px; box-shadow:0 14px 30px rgba(0,0,0,.4);}
+  .nav-drop .menu a{display:block; padding:10px 12px; border-radius:8px; opacity:1;}
+  .nav-drop .menu a:hover{background:rgba(225,233,30,.1);}
+  .nav-drop .menu small{display:block; font-weight:400; font-size:12px; color:var(--crema); opacity:.7; margin-top:2px;}
+  .nav-drop:hover .menu, .nav-drop:focus-within .menu, .nav-drop.open .menu{display:block;}
+  .nav-drop:hover > button svg, .nav-drop.open > button svg{transform:rotate(180deg);}
+  .head-actions{display:flex; align-items:center; gap:14px;}
+  .cart-btn{position:relative; background:none; border:1.5px solid rgba(255,255,255,.2); color:#fff; width:42px; height:42px; border-radius:10px; display:flex; align-items:center; justify-content:center; cursor:pointer;}
+  .cart-btn:hover{border-color:var(--lima);}
+  .cart-btn svg{width:20px; height:20px; stroke:currentColor; fill:none;}
+  .cart-count{position:absolute; top:-7px; right:-7px; background:var(--lima); color:var(--negro); font-size:11px; font-weight:800; min-width:19px; height:19px; border-radius:10px; display:flex; align-items:center; justify-content:center; padding:0 4px;}
+  .cart-count[hidden]{display:none;}
+  .btn{display:inline-flex; align-items:center; gap:8px; background:var(--lima); color:var(--negro); font-weight:800; padding:11px 20px; border-radius:8px; font-size:14px; border:0; cursor:pointer;}
+  .btn-outline{display:inline-flex; align-items:center; gap:8px; border:1.5px solid rgba(255,255,255,.35); color:#fff; padding:10px 18px; border-radius:8px; font-size:14px; font-weight:600; background:none; cursor:pointer;}
+  .eyebrow{font-family:'DejaVu Sans Mono', monospace; font-size:12.5px; letter-spacing:2px; color:var(--lima); display:block; margin-bottom:12px;}
+
+  /* ---------- hero ---------- */
+  .t-hero{position:relative; overflow:hidden; min-height:560px; display:flex; flex-direction:column; justify-content:center;
+    background:var(--negro) url('tienda-hero.jpg') center right / cover no-repeat;}
+  .t-hero::before{content:""; position:absolute; inset:0;
+    background:linear-gradient(90deg, rgba(5,16,28,.96) 0%, rgba(5,16,28,.85) 32%, rgba(5,16,28,.25) 62%, rgba(5,16,28,0) 80%),
+               linear-gradient(0deg, rgba(5,16,28,.9) 0%, rgba(5,16,28,0) 30%);}
+  .t-hero .wrap{position:relative; width:100%;}
+  .t-hero h1{font-size:64px; font-weight:800; line-height:1; letter-spacing:-1px;}
+  .t-hero h1 .accent{color:var(--lima); display:block;}
+  .t-hero .lead{margin-top:18px; font-size:17px; line-height:1.55; color:var(--crema); max-width:430px;}
+  .t-hero .ctas{margin-top:28px; display:flex; gap:14px; flex-wrap:wrap;}
+  .t-hero .ctas .btn, .t-hero .ctas .btn-outline{border-radius:30px; padding:13px 24px;}
+  .perks{position:relative; margin-top:56px; display:flex; gap:34px; flex-wrap:wrap;}
+  .perk{display:flex; align-items:center; gap:10px; font-size:13px; line-height:1.35; color:#fff;}
+  .perk svg{width:30px; height:30px; stroke:var(--lima); fill:none; flex-shrink:0;}
+
+  /* ---------- categorías ---------- */
+  .light{background:var(--paper); color:var(--negro);}
+  .light .eyebrow{color:var(--cafe);}
+  .sec{padding:64px 0;}
+  .sec-head{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:26px;}
+  h2{font-size:32px; font-weight:800;}
+  h2 .accent{color:#9aa10b;}
+  .sec-head a, .sec-head button{font-size:13.5px; font-weight:700; color:var(--cafe); background:none; border:0; cursor:pointer; white-space:nowrap;}
+  .cat-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  .cat-card{position:relative; aspect-ratio:6/5; border-radius:16px; overflow:hidden; cursor:pointer; border:0; text-align:left; color:#fff;
+    background-image:url('tienda-hero.jpg'); background-repeat:no-repeat; transition:transform .2s, box-shadow .2s;}
+  .cat-card:hover{transform:translateY(-3px); box-shadow:0 12px 26px rgba(5,16,28,.25);}
+  .cat-card::before{content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(5,16,28,.95) 0%, rgba(5,16,28,.55) 38%, rgba(5,16,28,0) 65%);}
+  .cat-card.c-fig{background-size:457%; background-position:9.7% 43%;}
+  .cat-card.c-acc{background-size:582%; background-position:100% 55%;}
+  .cat-card.c-hog{background-size:640%; background-position:67.6% 88%;}
+  .cat-card.c-reg{background-size:565%; background-position:17.7% 100%;}
+  .cat-card .info{position:absolute; left:16px; right:16px; bottom:16px; display:flex; align-items:flex-end; justify-content:space-between; gap:10px;}
+  .cat-card .ico{width:32px; height:32px; border-radius:8px; background:var(--lima); display:flex; align-items:center; justify-content:center; margin-bottom:8px;}
+  .cat-card .ico svg{width:18px; height:18px; stroke:var(--negro); fill:none;}
+  .cat-card b{display:block; font-size:16px; font-weight:700; line-height:1.2;}
+  .cat-card small{display:block; margin-top:4px; font-size:12px; opacity:.8;}
+  .cat-card .go{width:34px; height:34px; border-radius:50%; border:1.5px solid #fff; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .cat-card .go svg{width:16px; height:16px; stroke:#fff; fill:none;}
+
+  /* ---------- productos ---------- */
+  .filters{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:22px;}
+  .filters[hidden]{display:none;}
+  .filters button{border:1.4px solid rgba(5,16,28,.25); background:none; border-radius:20px; padding:7px 15px; font-size:13px; font-weight:600; cursor:pointer;}
+  .filters button.on{background:var(--negro); color:#fff; border-color:var(--negro);}
+  .prod-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:18px;}
+  .prod-card{background:#fff; border:1px solid rgba(5,16,28,.08); border-radius:16px; overflow:hidden; display:flex; flex-direction:column;}
+  .prod-card .shot{position:relative; aspect-ratio:1; overflow:hidden; background:#0b1a2b;}
+  .prod-card .shot img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+  .prod-card .tag{position:absolute; top:10px; left:10px; background:var(--lima); color:var(--negro); font-size:11px; font-weight:700; padding:4px 10px; border-radius:20px;}
+  .prod-card .body{padding:14px 14px 16px; display:flex; flex-direction:column; flex:1;}
+  .prod-card h3{font-size:15px; font-weight:700;}
+  .prod-card .cat{font-size:12px; color:#777; margin-top:2px;}
+  .prod-card .price{font-size:16px; font-weight:800; margin-top:8px;}
+  .swatches{display:flex; gap:7px; margin-top:10px; flex-wrap:wrap;}
+  .swatches button{width:20px; height:20px; border-radius:50%; border:2px solid #fff; box-shadow:0 0 0 1px rgba(5,16,28,.25); cursor:pointer;}
+  .swatches button.on{box-shadow:0 0 0 2px var(--negro);}
+  .prod-card .add{margin-top:auto; padding-top:14px;}
+  .prod-card .add .btn{width:100%; justify-content:center; border-radius:30px; font-size:13px;}
+
+  .soon{display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:center; background:#fff; border:1px dashed rgba(5,16,28,.25); border-radius:20px; padding:34px 40px;}
+  .soon[hidden]{display:none;}
+  .soon img{width:120px;}
+  .soon .badge{display:inline-block; background:var(--negro); color:var(--lima); font-family:'DejaVu Sans Mono', monospace; font-size:12px; letter-spacing:2px; padding:6px 12px; border-radius:20px;}
+  .soon h3{font-size:24px; font-weight:800; margin-top:12px;}
+  .soon p{margin-top:8px; font-size:14.5px; color:#4a4a4a; line-height:1.6; max-width:560px;}
+  .soon .ctas{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;}
+  .soon .btn-outline{color:var(--negro); border-color:rgba(5,16,28,.35);}
+
+  /* ---------- personalizado ---------- */
+  .custom{padding:0 0 64px;}
+  .custom-box{position:relative; overflow:hidden; border-radius:20px; display:flex; align-items:center; gap:28px; padding:22px 40px 0 30px;
+    background:radial-gradient(90% 140% at 100% 50%, rgba(225,233,30,.14), transparent 60%), linear-gradient(90deg, #0b1f3a, #0a1626);}
+  .custom-box img{width:130px; align-self:flex-end;}
+  .custom-box .txt{flex:1; padding-bottom:22px;}
+  .custom-box h3{font-size:26px; font-weight:800; color:#fff;}
+  .custom-box p{margin-top:6px; color:var(--crema); font-size:15px;}
+  .custom-box .btn{background:#fff; border-radius:30px; margin-bottom:22px; white-space:nowrap;}
+
+  /* ---------- carrito ---------- */
+  .overlay{position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:90; opacity:0; pointer-events:none; transition:opacity .2s;}
+  .overlay.show{opacity:1; pointer-events:auto;}
+  .drawer{position:fixed; top:0; right:0; bottom:0; width:min(400px, 100%); background:#0b1a2b; z-index:100; transform:translateX(100%); transition:transform .25s; display:flex; flex-direction:column; border-left:1px solid rgba(255,255,255,.08);}
+  .drawer.show{transform:none;}
+  .drawer-head{display:flex; align-items:center; justify-content:space-between; padding:18px 20px; border-bottom:1px solid rgba(255,255,255,.08);}
+  .drawer-head h3{font-size:18px; font-weight:800;}
+  .icon-btn{background:none; border:0; color:#fff; cursor:pointer; width:34px; height:34px; display:flex; align-items:center; justify-content:center; border-radius:8px;}
+  .icon-btn:hover{background:rgba(255,255,255,.08);}
+  .icon-btn svg{width:20px; height:20px; stroke:currentColor; fill:none;}
+  .drawer-body{flex:1; overflow-y:auto; padding:16px 20px;}
+  .drawer-foot{padding:18px 20px; border-top:1px solid rgba(255,255,255,.08);}
+  .drawer-foot .btn{width:100%; justify-content:center;}
+  .drawer-foot .btn[disabled]{opacity:.4; cursor:not-allowed;}
+  .total-row{display:flex; justify-content:space-between; font-weight:800; font-size:17px; margin-bottom:14px;}
+  .total-row span:last-child{color:var(--lima);}
+  .empty{text-align:center; color:var(--crema); opacity:.8; font-size:14px; padding:40px 0;}
+  .line{display:grid; grid-template-columns:56px 1fr auto; gap:12px; align-items:center; padding:12px 0; border-bottom:1px solid rgba(255,255,255,.06);}
+  .line img{width:56px; height:56px; object-fit:cover; border-radius:8px; background:#132538;}
+  .line b{display:block; font-size:14px;}
+  .line small{display:block; font-size:12px; color:var(--crema); opacity:.75; margin-top:2px;}
+  .qty{display:flex; align-items:center; gap:6px; margin-top:6px;}
+  .qty button{width:24px; height:24px; border-radius:6px; border:1px solid rgba(255,255,255,.2); background:none; color:#fff; cursor:pointer;}
+  .line .amt{font-weight:700; font-size:14px; text-align:right;}
+  .line .rm{background:none; border:0; color:var(--crema); opacity:.6; font-size:12px; cursor:pointer; margin-top:6px;}
+  .pay p{font-size:14px; color:var(--crema); line-height:1.6;}
+  .pay ol{margin:14px 0 0 18px; font-size:14px; line-height:1.7; color:#fff;}
+  .pay .qr{margin:18px auto 0; background:#fff; padding:14px; border-radius:14px; width:220px;}
+  .pay .qr-note{margin-top:14px; font-size:13px; text-align:center;}
+  .pay .llave{margin-top:16px; text-align:center; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:12px;}
+  .pay .llave small{display:block; font-size:12px; color:var(--crema); opacity:.75;}
+  .pay .llave b{display:block; font-size:20px; letter-spacing:1px; margin-top:4px; user-select:all;}
+  .pay .back{background:none; border:0; color:var(--crema); font-size:13px; cursor:pointer; margin-top:10px; width:100%;}
+
+  footer{background:var(--negro); border-top:1px solid rgba(255,255,255,.08); padding:34px 0;}
+  footer .bar{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;}
+  footer .brand{display:flex; align-items:center; gap:10px; font-weight:800;}
+  footer .brand img{width:26px;}
+  footer .links{display:flex; gap:22px; font-size:13.5px; opacity:.8;}
+  footer .fine{margin-top:22px; font-size:12px; opacity:.5; text-align:center;}
+
+  @media (max-width:860px){
+    nav{display:none;}
+    .t-hero{min-height:0; padding:60px 0 34px; background-position:48% center;}
+    .t-hero::before{background:linear-gradient(90deg, rgba(5,16,28,.92) 0%, rgba(5,16,28,.6) 60%, rgba(5,16,28,.3) 100%), linear-gradient(0deg, rgba(5,16,28,.95) 0%, rgba(5,16,28,0) 40%);}
+    .t-hero h1{font-size:44px;}
+    .perks{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:40px;}
+    .perk{flex-direction:column; text-align:center; font-size:11px;}
+    .cat-grid{grid-template-columns:1fr 1fr; gap:12px;}
+    h2{font-size:24px;}
+    .soon{grid-template-columns:1fr; text-align:center; padding:28px 22px;}
+    .soon img{margin:0 auto; width:100px;}
+    .soon .ctas{justify-content:center;}
+    .custom-box{flex-direction:column; text-align:center; padding:26px 22px 0; gap:14px;}
+    .custom-box .txt{padding-bottom:0;}
+    .custom-box img{order:3; align-self:center; width:110px; margin-top:4px;}
+    .custom-box .btn{margin-bottom:0;}
+    footer .bar{flex-direction:column; text-align:center;}
+  }
+  @media (max-width:520px){
+    header .bar{padding:12px 16px;}
+    header .brand{font-size:18px;}
+    header .brand img{width:40px;}
+    .head-actions .btn{display:none;}
+    .wrap{padding:0 16px;}
+    .t-hero h1{font-size:38px;}
+    .perks{grid-template-columns:1fr 1fr; row-gap:18px;}
+    .cat-card b{font-size:14px;}
+    .cat-card small{display:none;}
+    .cat-card .go{width:28px; height:28px;}
+    .prod-grid{grid-template-columns:1fr 1fr; gap:12px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar wrap">
+    <a href="index.html" class="brand"><img src="logo-transparent.png" alt="3DSnapTech"><span><span class="d">3d</span>Snaptech</span></a>
+    <nav>
+      <a href="index.html#servicios">Servicios</a>
+      <div class="nav-drop active">
+        <button type="button" aria-haspopup="true" onclick="this.parentNode.classList.toggle('open')">Productos <svg viewBox="0 0 24 24" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="menu"><div>
+          <a href="productos.html">Impresoras 3D<small>Máquinas FDM y de resina</small></a>
+          <a href="tienda.html">Productos impresos en 3D<small>Figuras, accesorios, hogar y regalos</small></a>
+        </div></div>
+      </div>
+      <a href="index.html#trabajos">Trabajos</a>
+      <a href="educacion.html">Educación</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+    <div class="head-actions">
+      <button class="cart-btn" type="button" id="cart-open" aria-label="Abrir carrito">
+        <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2.5 3.5h2.6l2.4 11.3a1.5 1.5 0 0 0 1.5 1.2h8.7a1.5 1.5 0 0 0 1.5-1.1l1.6-6.9H6"/></svg>
+        <span class="cart-count" id="cart-count" hidden>0</span>
+      </button>
+      <a class="btn" href="https://wa.me/573207283295" target="_blank">WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<section class="t-hero">
+  <div class="wrap">
+    <span class="eyebrow">TIENDA 3DSNAPTECH</span>
+    <h1>Ideas que <span class="accent">toman forma</span></h1>
+    <p class="lead">Descubre productos impresos en 3D que combinan creatividad, diseño y funcionalidad.</p>
+    <div class="ctas">
+      <a class="btn" href="#productos">Ver productos →</a>
+      <a class="btn-outline" href="#categorias">Explorar categorías</a>
+    </div>
+    <div class="perks">
+      <div class="perk"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l8 4.5v10l-8 4.5-8-4.5V7z"/><path d="M4 7l8 4.5L20 7"/><path d="M12 21V11.5"/></svg><span>Productos únicos<br>y originales</span></div>
+      <div class="perk"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Fabricación local<br>en Colombia</span></div>
+      <div class="perk"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.4-4.1a8.4 8.4 0 1 1 3.2 3.1z"/><path d="M8.5 8.7c.2-.5.5-.5.8-.5h.6c.2 0 .4 0 .6.4l.7 1.7c.1.2 0 .4-.1.6l-.5.6c-.1.2-.1.3 0 .5.4.7 1.5 1.9 2.9 2.4.2.1.3.1.5-.1l.6-.6c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.3.3.6-.2.7-1 1.4-1.8 1.4-1.5.1-3.8-.6-5.7-2.6-1.6-1.7-2-3.3-2.1-4z"/></svg><span>Atención<br>personalizada</span></div>
+      <div class="perk"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16V7a1 1 0 0 1 1-1h9v10"/><path d="M13 10h4l3 3v3h-2"/><circle cx="7.5" cy="16.5" r="1.8"/><circle cx="16.5" cy="16.5" r="1.8"/></svg><span>Envíos a<br>todo el país</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="light sec" id="categorias">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Explora nuestras <span class="accent">categorías</span></h2>
+      <button type="button" data-cat="todas">Ver todos los productos →</button>
+    </div>
+    <div class="cat-grid">
+      <button type="button" class="cat-card c-fig" data-cat="figuras">
+        <div class="info">
+          <div>
+            <div class="ico"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a3 3 0 0 1 3 3c0 1.3-.7 2-1.3 2.7-.5.6-.7 1-.7 1.8V11H11v-.5c0-.8-.2-1.2-.7-1.8C9.7 8 9 7.3 9 6a3 3 0 0 1 3-3z"/><path d="M7.5 21c.5-3.5 2-6 4.5-6s4 2.5 4.5 6"/></svg></div>
+            <b>Figuras y coleccionables</b><small>Creatividad sin límites</small>
+          </div>
+          <span class="go"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </button>
+      <button type="button" class="cat-card c-acc" data-cat="accesorios">
+        <div class="info">
+          <div>
+            <div class="ico"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg></div>
+            <b>Accesorios</b><small>Para tu escritorio y más</small>
+          </div>
+          <span class="go"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </button>
+      <button type="button" class="cat-card c-hog" data-cat="hogar">
+        <div class="info">
+          <div>
+            <div class="ico"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h12l-1.5 8h-9z"/><path d="M12 12V7M12 7c-1-2.5-3.5-3.5-5-3M12 7c1-2.5 3.5-3.5 5-3"/></svg></div>
+            <b>Hogar y organización</b><small>Soluciones prácticas</small>
+          </div>
+          <span class="go"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </button>
+      <button type="button" class="cat-card c-reg" data-cat="regalos">
+        <div class="info">
+          <div>
+            <div class="ico"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="8" width="17" height="4" rx="1"/><path d="M5 12v8h14v-8M12 8v12"/><path d="M12 8c-1.5-3-5-3.5-5-1.5S10 8 12 8zM12 8c1.5-3 5-3.5 5-1.5S14 8 12 8z"/></svg></div>
+            <b>Regalos personalizados</b><small>Detalles únicos</small>
+          </div>
+          <span class="go"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="light sec" id="productos" style="padding-top:10px;">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Productos <span class="accent">destacados</span></h2>
+    </div>
+    <div class="filters" id="filters" hidden>
+      <button type="button" data-cat="todas" class="on">Todos</button>
+      <button type="button" data-cat="figuras">Figuras y coleccionables</button>
+      <button type="button" data-cat="accesorios">Accesorios</button>
+      <button type="button" data-cat="hogar">Hogar y organización</button>
+      <button type="button" data-cat="regalos">Regalos personalizados</button>
+    </div>
+    <div class="prod-grid" id="prod-grid"></div>
+    <div class="soon" id="soon">
+      <img src="pango-hero.png" alt="Pango, la mascota de 3DSnapTech">
+      <div>
+        <span class="badge" id="soon-badge">PRÓXIMAMENTE</span>
+        <h3 id="soon-title">Estamos preparando la tienda</h3>
+        <p id="soon-text">Muy pronto encontrarás aquí figuras, accesorios, artículos para el hogar y regalos impresos en 3D, listos para comprar. Mientras tanto, cuéntanos qué te gustaría y te lo fabricamos.</p>
+        <div class="ctas">
+          <a class="btn" href="https://wa.me/573207283295?text=Hola%203DSnapTech%2C%20me%20interesa%20un%20producto%20impreso%20en%203D" target="_blank">Pedir por WhatsApp →</a>
+          <a class="btn-outline" href="https://www.instagram.com/3dsnaptech/" target="_blank">Ver lanzamientos en Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light custom">
+  <div class="wrap">
+    <div class="custom-box">
+      <img src="pango-hero.png" alt="">
+      <div class="txt">
+        <h3>¿Buscas algo personalizado?</h3>
+        <p>También diseñamos e imprimimos lo que necesitas.</p>
+      </div>
+      <a class="btn" href="https://wa.me/573207283295?text=Hola%203DSnapTech%2C%20quiero%20cotizar%20una%20pieza%20personalizada" target="_blank">Solicitar cotización →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="bar">
+      <a href="index.html" class="brand"><img src="logo-transparent.png" alt="3DSnapTech"><span>3dSnaptech</span></a>
+      <div class="links">
+        <a href="https://wa.me/573207283295" target="_blank">WhatsApp</a>
+        <a href="https://www.instagram.com/3dsnaptech/" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@3dsnaptech" target="_blank">TikTok</a>
+        <a href="mailto:info@ansuzstudio.com">Correo</a>
+      </div>
+    </div>
+    <div class="fine mono">© 2026 3DSNAPTECH · BOGOTÁ, COLOMBIA</div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Carrito de compras">
+  <div class="drawer-head">
+    <h3 id="drawer-title">Tu carrito</h3>
+    <button class="icon-btn" type="button" id="cart-close" aria-label="Cerrar carrito"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="drawer-body" id="drawer-body"></div>
+  <div class="drawer-foot" id="drawer-foot">
+    <div class="total-row"><span>Total</span><span id="cart-total">$0 COP</span></div>
+    <button class="btn" type="button" id="checkout" disabled>Finalizar pedido →</button>
+  </div>
+</aside>
+
+<script>
+  // Tienda: los productos se cargan desde productos.json.
+  // El carrito vive solo en el navegador del cliente; el pedido se envía por WhatsApp.
+  var WHATSAPP = '573207283295';
+  var CATEGORIAS = {
+    figuras: 'Figuras y coleccionables',
+    accesorios: 'Accesorios',
+    hogar: 'Hogar y organización',
+    regalos: 'Regalos personalizados'
+  };
+  var productos = [];
+  var nequiQR = '';
+  var nequiLlave = '';
+  var filtro = 'todas';
+  var carrito = leerCarrito();
+
+  function leerCarrito() {
+    try {
+      var data = JSON.parse(localStorage.getItem('3dsnap-carrito') || '[]');
+      return Array.isArray(data) ? data : [];
+    } catch (e) { return []; }
+  }
+  function guardarCarrito() {
+    try { localStorage.setItem('3dsnap-carrito', JSON.stringify(carrito)); } catch (e) {}
+  }
+  function pesos(n) { return '$ ' + Number(n).toLocaleString('es-CO') + ' COP'; }
+  function el(tag, cls, text) {
+    var node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (text != null) node.textContent = text;
+    return node;
+  }
+  function buscar(id) {
+    for (var i = 0; i < productos.length; i++) if (productos[i].id === id) return productos[i];
+    return null;
+  }
+  // Solo se aceptan rutas locales o https para las imágenes, y colores en formato #hex.
+  function imagenSegura(src) { return /^(https:\/\/|[\w\-\/.]+$)/.test(src || '') && !/^\/\//.test(src) ? src : ''; }
+  function colorSeguro(hex) { return /^#[0-9a-fA-F]{3,8}$/.test(hex || '') ? hex : '#cccccc'; }
+
+  // ---------- catálogo ----------
+  function pintarProductos() {
+    var grid = document.getElementById('prod-grid');
+    var soon = document.getElementById('soon');
+    grid.textContent = '';
+    var lista = productos.filter(function(p){ return filtro === 'todas' || p.categoria === filtro; });
+
+    document.getElementById('filters').hidden = productos.length === 0;
+    document.querySelectorAll('#filters button').forEach(function(b){ b.classList.toggle('on', b.dataset.cat === filtro); });
+
+    if (lista.length === 0) {
+      soon.hidden = false;
+      var enCategoria = productos.length > 0;
+      document.getElementById('soon-title').textContent = enCategoria
+        ? 'Pronto habrá productos en ' + CATEGORIAS[filtro]
+        : 'Estamos preparando la tienda';
+      return;
+    }
+    soon.hidden = true;
+
+    lista.forEach(function(p){
+      var card = el('article', 'prod-card');
+      var shot = el('div', 'shot');
+      var src = imagenSegura(p.imagen);
+      if (src) { var img = el('img'); img.src = src; img.alt = p.nombre; img.loading = 'lazy'; shot.appendChild(img); }
+      if (p.etiqueta) shot.appendChild(el('span', 'tag', p.etiqueta));
+      card.appendChild(shot);
+
+      var body = el('div', 'body');
+      body.appendChild(el('h3', null, p.nombre));
+      body.appendChild(el('div', 'cat', CATEGORIAS[p.categoria] || ''));
+      body.appendChild(el('div', 'price', pesos(p.precio)));
+
+      var elegido = p.colores && p.colores.length ? p.colores[0].nombre : '';
+      if (p.colores && p.colores.length) {
+        var sw = el('div', 'swatches');
+        p.colores.forEach(function(c, i){
+          var b = el('button');
+          b.type = 'button';
+          b.title = c.nombre;
+          b.setAttribute('aria-label', 'Color ' + c.nombre);
+          b.style.background = colorSeguro(c.hex);
+          if (i === 0) b.classList.add('on');
+          b.addEventListener('click', function(){
+            elegido = c.nombre;
+            sw.querySelectorAll('button').forEach(function(x){ x.classList.remove('on'); });
+            b.classList.add('on');
+          });
+          sw.appendChild(b);
+        });
+        body.appendChild(sw);
+      }
+
+      var add = el('div', 'add');
+      var btn = el('button', 'btn', 'Agregar al carrito');
+      btn.type = 'button';
+      btn.addEventListener('click', function(){ agregar(p.id, elegido); });
+      add.appendChild(btn);
+      body.appendChild(add);
+      card.appendChild(body);
+      grid.appendChild(card);
+    });
+  }
+
+  function elegirCategoria(cat) {
+    filtro = cat;
+    pintarProductos();
+    document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
+  }
+  document.querySelectorAll('[data-cat]').forEach(function(b){
+    b.addEventListener('click', function(){ elegirCategoria(b.dataset.cat); });
+  });
+
+  // ---------- carrito ----------
+  function agregar(id, color) {
+    var item = carrito.filter(function(x){ return x.id === id && x.color === color; })[0];
+    if (item) item.cantidad++;
+    else carrito.push({ id: id, color: color, cantidad: 1 });
+    guardarCarrito();
+    pintarCarrito();
+    abrirCarrito();
+  }
+  function lineasValidas() {
+    return carrito.filter(function(x){ return buscar(x.id); });
+  }
+  function totalCarrito() {
+    return lineasValidas().reduce(function(s, x){ return s + buscar(x.id).precio * x.cantidad; }, 0);
+  }
+  function pintarCarrito() {
+    var lineas = lineasValidas();
+    var unidades = lineas.reduce(function(s, x){ return s + x.cantidad; }, 0);
+    var count = document.getElementById('cart-count');
+    count.textContent = unidades;
+    count.hidden = unidades === 0;
+
+    document.getElementById('drawer-title').textContent = 'Tu carrito';
+    document.getElementById('drawer-foot').hidden = false;
+    var body = document.getElementById('drawer-body');
+    body.textContent = '';
+    if (lineas.length === 0) {
+      body.appendChild(el('p', 'empty', productos.length ? 'Tu carrito está vacío.' : 'La tienda abre muy pronto. Por ahora puedes pedir tu pieza por WhatsApp.'));
+    }
+    lineas.forEach(function(x){
+      var p = buscar(x.id);
+      var row = el('div', 'line');
+      var img = el('img');
+      var src = imagenSegura(p.imagen);
+      if (src) img.src = src;
+      img.alt = '';
+      row.appendChild(img);
+
+      var mid = el('div');
+      mid.appendChild(el('b', null, p.nombre));
+      if (x.color) mid.appendChild(el('small', null, 'Color: ' + x.color));
+      var qty = el('div', 'qty');
+      var menos = el('button', null, '−'); menos.type = 'button'; menos.setAttribute('aria-label', 'Quitar uno');
+      var mas = el('button', null, '+'); mas.type = 'button'; mas.setAttribute('aria-label', 'Agregar uno');
+      menos.addEventListener('click', function(){ x.cantidad = Math.max(1, x.cantidad - 1); guardarCarrito(); pintarCarrito(); });
+      mas.addEventListener('click', function(){ x.cantidad = Math.min(99, x.cantidad + 1); guardarCarrito(); pintarCarrito(); });
+      qty.appendChild(menos); qty.appendChild(el('span', null, x.cantidad)); qty.appendChild(mas);
+      mid.appendChild(qty);
+      row.appendChild(mid);
+
+      var right = el('div');
+      right.appendChild(el('div', 'amt', pesos(p.precio * x.cantidad)));
+      var rm = el('button', 'rm', 'Quitar'); rm.type = 'button';
+      rm.addEventListener('click', function(){ carrito.splice(carrito.indexOf(x), 1); guardarCarrito(); pintarCarrito(); });
+      right.appendChild(rm);
+      row.appendChild(right);
+      body.appendChild(row);
+    });
+    document.getElementById('cart-total').textContent = pesos(totalCarrito());
+    document.getElementById('checkout').disabled = lineas.length === 0;
+  }
+
+  function mensajePedido() {
+    var texto = 'Hola 3DSnapTech, quiero hacer este pedido:\n';
+    lineasValidas().forEach(function(x){
+      var p = buscar(x.id);
+      texto += '\n• ' + x.cantidad + ' × ' + p.nombre + (x.color ? ' (' + x.color + ')' : '') + ' — ' + pesos(p.precio * x.cantidad);
+    });
+    texto += '\n\nTotal: ' + pesos(totalCarrito()) + '\nPago por Nequi. Te envío el comprobante por aquí.';
+    return texto;
+  }
+
+  function mostrarPago() {
+    document.getElementById('drawer-title').textContent = 'Pago con Nequi';
+    document.getElementById('drawer-foot').hidden = true;
+    var body = document.getElementById('drawer-body');
+    body.textContent = '';
+    var pay = el('div', 'pay');
+    pay.appendChild(el('div', 'total-row', null));
+    pay.firstChild.appendChild(el('span', null, 'Total a pagar'));
+    pay.firstChild.appendChild(el('span', null, pesos(totalCarrito())));
+
+    var pasos = el('ol');
+    (nequiQR ? [
+      'Escanea el código QR con tu app Nequi y paga el total.',
+      'Envíanos tu pedido por WhatsApp con el botón de abajo.',
+      'Adjunta el comprobante del pago en el chat.',
+      'Confirmamos tu pago y coordinamos el envío.'
+    ] : [
+      'Envíanos tu pedido por WhatsApp con el botón de abajo.',
+      'Te compartimos los datos de pago Nequi.',
+      'Adjunta el comprobante del pago en el chat.',
+      'Confirmamos tu pago y coordinamos el envío.'
+    ]).forEach(function(t){ pasos.appendChild(el('li', null, t)); });
+    pay.appendChild(pasos);
+
+    var qrSrc = imagenSegura(nequiQR);
+    if (qrSrc) {
+      var qr = el('img', 'qr'); qr.src = qrSrc; qr.alt = 'Código QR de Nequi para pagar';
+      pay.appendChild(qr);
+      pay.appendChild(el('p', 'qr-note', 'Desde el celular: haz captura de pantalla del QR y súbela en Nequi.'));
+    }
+    if (nequiLlave) {
+      var llave = el('div', 'llave');
+      llave.appendChild(el('small', null, 'O paga con la llave Nequi Negocios'));
+      llave.appendChild(el('b', null, nequiLlave));
+      pay.appendChild(llave);
+    }
+
+    var enviar = el('a', 'btn', 'Enviar pedido por WhatsApp →');
+    enviar.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(mensajePedido());
+    enviar.target = '_blank';
+    enviar.rel = 'noopener';
+    enviar.style.cssText = 'width:100%; justify-content:center; margin-top:22px;';
+    pay.appendChild(enviar);
+
+    var back = el('button', 'back', '← Volver al carrito'); back.type = 'button';
+    back.addEventListener('click', pintarCarrito);
+    pay.appendChild(back);
+    body.appendChild(pay);
+  }
+
+  function abrirCarrito() {
+    pintarCarrito();
+    document.getElementById('drawer').classList.add('show');
+    document.getElementById('overlay').classList.add('show');
+  }
+  function cerrarCarrito() {
+    document.getElementById('drawer').classList.remove('show');
+    document.getElementById('overlay').classList.remove('show');
+  }
+  document.getElementById('cart-open').addEventListener('click', abrirCarrito);
+  document.getElementById('cart-close').addEventListener('click', cerrarCarrito);
+  document.getElementById('overlay').addEventListener('click', cerrarCarrito);
+  document.getElementById('checkout').addEventListener('click', mostrarPago);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') cerrarCarrito(); });
+
+  // ---------- carga de productos ----------
+  function validarProducto(p) {
+    return p && typeof p.id === 'string' && typeof p.nombre === 'string' &&
+      CATEGORIAS.hasOwnProperty(p.categoria) && typeof p.precio === 'number' && p.precio > 0 &&
+      (!p.colores || Array.isArray(p.colores));
+  }
+  fetch('productos.json', { cache: 'no-cache' })
+    .then(function(r){ return r.ok ? r.json() : {}; })
+    .then(function(data){
+      productos = Array.isArray(data.productos) ? data.productos.filter(validarProducto) : [];
+      nequiQR = typeof data.nequiQR === 'string' ? data.nequiQR : '';
+      nequiLlave = typeof data.nequiLlave === 'string' && /^[\w@.\-]{1,40}$/.test(data.nequiLlave) ? data.nequiLlave : '';
+    })
+    .catch(function(){ productos = []; })
+    .then(function(){ pintarProductos(); pintarCarrito(); });
+
+  // Cerrar el menú desplegable al tocar fuera de él
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.nav-drop.open').forEach(function(d){ if (!d.contains(e.target)) d.classList.remove('open'); });
+  });
+</script>
+</body>
+</html>
