@@ -66,6 +66,37 @@
   .perks{position:relative; margin-top:56px; display:flex; gap:34px; flex-wrap:wrap;}
   .perk{display:flex; align-items:center; gap:10px; font-size:13px; line-height:1.35; color:#fff;}
   .perk svg{width:30px; height:30px; stroke:var(--lima); fill:none; flex-shrink:0;}
+  .hero-grid{display:grid; grid-template-columns:1fr 330px; gap:40px; align-items:center; padding-top:40px;}
+
+  /* ---------- producto de temporada ---------- */
+  .season{background:rgba(5,16,28,.78); backdrop-filter:blur(8px); border:1px solid rgba(225,233,30,.4); border-radius:18px; padding:14px; box-shadow:0 18px 40px rgba(0,0,0,.45);}
+  .season[hidden]{display:none;}
+  .season .badge{display:inline-flex; align-items:center; gap:6px; background:var(--lima); color:var(--negro); font-size:11.5px; font-weight:800; letter-spacing:1px; padding:5px 11px; border-radius:20px;}
+  .season .media{display:block; margin-top:12px; aspect-ratio:4/3; border-radius:12px; overflow:hidden; background:#0b1a2b;}
+  .season .media img, .season .media video{width:100%; height:100%; object-fit:cover; display:block;}
+  .season h3{margin-top:12px; font-size:20px; font-weight:800;}
+  .season p{margin-top:4px; font-size:13px; line-height:1.45; color:var(--crema); opacity:.9;}
+  .season .row{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:12px;}
+  .season .row b{font-size:15px; color:var(--lima); white-space:nowrap;}
+  .season .row small{display:block; font-size:11px; color:var(--crema); opacity:.75; font-weight:400;}
+  .season .row .btn{padding:9px 16px; border-radius:30px; font-size:13px; white-space:nowrap;}
+
+  /* ---------- cinta de productos ---------- */
+  .cinta{position:relative; margin-top:36px; overflow:hidden; padding:4px 0;
+    -webkit-mask-image:linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); mask-image:linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);}
+  .cinta[hidden]{display:none;}
+  .cinta-track{display:flex; gap:12px; width:max-content; animation:cinta 60s linear infinite;}
+  .cinta:hover .cinta-track, .cinta:focus-within .cinta-track{animation-play-state:paused;}
+  @keyframes cinta{to{transform:translateX(-50%);}}
+  .cinta a{display:flex; align-items:center; gap:10px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); border-radius:40px; padding:6px 18px 6px 6px; white-space:nowrap; color:#fff;}
+  .cinta a:hover{border-color:var(--lima);}
+  .cinta img{width:46px; height:46px; border-radius:50%; object-fit:cover; background:#132538;}
+  .cinta b{display:block; font-size:13px; font-weight:700;}
+  .cinta span{display:block; font-size:12px; color:var(--lima);}
+  @media (prefers-reduced-motion: reduce){
+    .cinta{overflow-x:auto; -webkit-mask-image:none; mask-image:none;}
+    .cinta-track{animation:none; padding:0 16px;}
+  }
 
   /* ---------- categorías ---------- */
   .light{background:var(--paper); color:var(--negro);}
@@ -183,6 +214,9 @@
     .t-hero{min-height:0; padding:60px 0 34px; background-position:48% center;}
     .t-hero::before{background:linear-gradient(90deg, rgba(5,16,28,.92) 0%, rgba(5,16,28,.6) 60%, rgba(5,16,28,.3) 100%), linear-gradient(0deg, rgba(5,16,28,.95) 0%, rgba(5,16,28,0) 40%);}
     .t-hero h1{font-size:44px;}
+    .hero-grid{grid-template-columns:1fr; gap:28px; padding-top:0;}
+    .season{max-width:380px;}
+    .cinta{margin-top:28px;}
     .perks{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:40px;}
     .perk{flex-direction:column; text-align:center; font-size:11px;}
     .cat-grid{grid-template-columns:1fr 1fr; gap:12px;}
@@ -242,12 +276,17 @@
 
 <section class="t-hero">
   <div class="wrap">
-    <span class="eyebrow">TIENDA 3DSNAPTECH</span>
-    <h1>Ideas que <span class="accent">toman forma</span></h1>
-    <p class="lead">Descubre productos impresos en 3D que combinan creatividad, diseño y funcionalidad.</p>
-    <div class="ctas">
-      <a class="btn" href="#productos">Ver productos →</a>
-      <a class="btn-outline" href="#categorias">Explorar categorías</a>
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">TIENDA 3DSNAPTECH</span>
+        <h1>Ideas que <span class="accent">toman forma</span></h1>
+        <p class="lead">Descubre productos impresos en 3D que combinan creatividad, diseño y funcionalidad.</p>
+        <div class="ctas">
+          <a class="btn" href="#productos">Ver productos →</a>
+          <a class="btn-outline" href="#categorias">Explorar categorías</a>
+        </div>
+      </div>
+      <aside class="season" id="temporada" hidden aria-label="Producto de temporada"></aside>
     </div>
     <div class="perks">
       <div class="perk"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l8 4.5v10l-8 4.5-8-4.5V7z"/><path d="M4 7l8 4.5L20 7"/><path d="M12 21V11.5"/></svg><span>Productos únicos<br>y originales</span></div>
@@ -256,6 +295,7 @@
       <div class="perk"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16V7a1 1 0 0 1 1-1h9v10"/><path d="M13 10h4l3 3v3h-2"/><circle cx="7.5" cy="16.5" r="1.8"/><circle cx="16.5" cy="16.5" r="1.8"/></svg><span>Envíos a<br>todo el país</span></div>
     </div>
   </div>
+  <div class="cinta" id="cinta" hidden aria-label="Algunos de nuestros productos"><div class="cinta-track" id="cinta-track"></div></div>
 </section>
 
 <section class="light sec" id="categorias">
@@ -489,7 +529,56 @@
     b.addEventListener('click', function(){ elegirCategoria(b.dataset.cat); });
   });
 
-  cargarTienda(pintarProductos);
+  // ---------- producto de temporada y cinta de productos ----------
+  function pintarTemporada() {
+    var p = buscar(temporadaId);
+    var box = document.getElementById('temporada');
+    if (!p) return;
+    box.textContent = '';
+    box.appendChild(el('span', 'badge', '★ PRODUCTO DE TEMPORADA'));
+    var media = el('a', 'media');
+    media.href = urlProducto(p);
+    media.setAttribute('aria-label', 'Ver ' + p.nombre);
+    var src = imagenSegura(p.imagen), videoSrc = imagenSegura(p.video);
+    if (videoSrc) media.appendChild(crearVideo(videoSrc, src, p.nombre));
+    else if (src) { var img = el('img'); img.src = src; img.alt = p.nombre; media.appendChild(img); }
+    box.appendChild(media);
+    box.appendChild(el('h3', null, p.nombre));
+    if (p.descripcion) box.appendChild(el('p', null, p.descripcion));
+    var row = el('div', 'row');
+    row.appendChild(el('b', null, precioCorto(p)));
+    var ver = el('a', 'btn', 'Ver producto →');
+    ver.href = urlProducto(p);
+    row.appendChild(ver);
+    box.appendChild(row);
+    box.hidden = false;
+  }
+
+  function pintarCinta() {
+    var lista = productos.filter(function(p){ return !p.sinPrecio && imagenSegura(p.imagen) && p.id !== temporadaId; });
+    if (lista.length < 3) return;
+    var track = document.getElementById('cinta-track');
+    var quieta = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Se repite la lista dos veces para que la animación dé la vuelta sin saltos.
+    (quieta ? [false] : [false, true]).forEach(function(copia){
+      lista.forEach(function(p){
+        var a = el('a');
+        a.href = urlProducto(p);
+        if (copia) { a.setAttribute('aria-hidden', 'true'); a.tabIndex = -1; }
+        var img = el('img'); img.src = imagenSegura(p.imagen); img.alt = ''; img.loading = 'lazy';
+        a.appendChild(img);
+        var tx = el('div');
+        tx.appendChild(el('b', null, p.nombre));
+        tx.appendChild(el('span', null, precioCorto(p)));
+        a.appendChild(tx);
+        track.appendChild(a);
+      });
+    });
+    track.style.animationDuration = (lista.length * 4) + 's';
+    document.getElementById('cinta').hidden = false;
+  }
+
+  cargarTienda(function(){ pintarProductos(); pintarTemporada(); pintarCinta(); });
 </script>
 </body>
 </html>

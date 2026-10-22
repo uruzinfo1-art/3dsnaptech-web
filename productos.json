@@ -47,6 +47,7 @@
   },
   "nequiQR": "nequi-qr.png",
   "nequiLlave": "0093103141",
+  "temporada": "lizard-flex",
   "productos": [
     {
       "id": "lizard-flex",
@@ -1207,6 +1208,110 @@
         }
       ],
       "precio": 12000
+    },
+    {
+      "id": "banana-amiga",
+      "nombre": "Banana Amiga de Escritorio",
+      "categoria": "figuras",
+      "descripcion": "Una banana sonriente con patas flexibles. ¡El compañero de escritorio que no pide café ni te juzga!",
+      "descripcionLarga": [
+        "Imagínate llegar a trabajar y que esta banana te salude sentada en el borde de tu escritorio, con las piernas colgando y esa sonrisa que nunca pasa de moda. Sus patas se mueven, así que la puedes sentar, acostar o poner a posar donde quieras.",
+        "Es el detalle perfecto para alegrar la oficina, para regalar a ese compañero que necesita una sonrisa o para darle vida a tu repisa. Advertencia: todos van a querer una."
+      ],
+      "imagen": "productos/banana-amiga-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/banana-amiga-1.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/banana-amiga-2.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/banana-amiga-3.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/banana-amiga-4.webp"
+        },
+        {
+          "tipo": "imagen",
+          "src": "productos/banana-amiga-5.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
+    },
+    {
+      "id": "trex-mordelon",
+      "nombre": "T-Rex Mordelón",
+      "categoria": "figuras",
+      "descripcion": "Un T-Rex con resorte que muerde de verdad. ¡Ponlo a morder tus dedos, lápices o cables!",
+      "descripcionLarga": [
+        "Imagínate la cara de tus amigos cuando este T-Rex les muerda el dedo. Gracias a su resorte abre y cierra la boca, así que lo puedes poner a morder un lápiz, el borde de la pantalla o lo que se te ocurra.",
+        "Es un juguete divertidísimo para niños y grandes, perfecto para regalar a los fanáticos de los dinosaurios o para tener a mano en el escritorio."
+      ],
+      "imagen": "productos/trex-mordelon-1.webp",
+      "galeria": [
+        {
+          "tipo": "imagen",
+          "src": "productos/trex-mordelon-1.webp"
+        }
+      ],
+      "disponibilidad": "Hecho a pedido",
+      "colores": [
+        {
+          "nombre": "Rojo",
+          "hex": "#DC2626"
+        },
+        {
+          "nombre": "Verde",
+          "hex": "#2DB84B"
+        },
+        {
+          "nombre": "Azul",
+          "hex": "#1D4ED8"
+        },
+        {
+          "nombre": "Amarillo",
+          "hex": "#FACC15"
+        },
+        {
+          "nombre": "Negro",
+          "hex": "#111111"
+        },
+        {
+          "nombre": "Blanco",
+          "hex": "#F5F5F5"
+        }
+      ]
     }
   ]
 }

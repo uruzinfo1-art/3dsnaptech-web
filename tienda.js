@@ -11,6 +11,7 @@ var CATEGORIAS = {
 var productos = [];
 var nequiQR = '';
 var nequiLlave = '';
+var temporadaId = '';
 var carrito = leerCarrito();
 
 function leerCarrito() {
@@ -37,6 +38,12 @@ function urlProducto(p) { return 'producto.html?id=' + encodeURIComponent(p.id);
 // Solo se aceptan rutas locales o https para imágenes y videos, y colores en formato #hex.
 function imagenSegura(src) { return /^(https:\/\/|[\w\-\/.]+$)/.test(src || '') && !/^\/\//.test(src) ? src : ''; }
 function colorSeguro(hex) { return /^#[0-9a-fA-F]{3,8}$/.test(hex || '') ? hex : '#cccccc'; }
+// Texto corto del precio: "Desde $X" si tiene tamaños, el precio único, o "Precio por confirmar".
+function precioCorto(p) {
+  if (p.sinPrecio) return 'Precio por confirmar';
+  if (p.tamanos && p.tamanos.length > 1) return 'Desde ' + pesos(Math.min.apply(null, p.tamanos.map(function(t){ return t.precio; })));
+  return pesos(p.precio);
+}
 // Precio según el tamaño elegido; sin tamaños, el precio único del producto.
 function precioDe(p, tamano) {
   if (p.tamanos) for (var i = 0; i < p.tamanos.length; i++) if (p.tamanos[i].nombre === tamano) return p.tamanos[i].precio;
@@ -229,6 +236,7 @@ function cargarTienda(listo) {
       productos = Array.isArray(data.productos) ? data.productos.filter(validarProducto) : [];
       nequiQR = typeof data.nequiQR === 'string' ? data.nequiQR : '';
       nequiLlave = typeof data.nequiLlave === 'string' && /^[\w@.\-]{1,40}$/.test(data.nequiLlave) ? data.nequiLlave : '';
+      temporadaId = typeof data.temporada === 'string' ? data.temporada : '';
     })
     .catch(function(){ productos = []; })
     .then(function(){ listo(); pintarCarrito(); });
