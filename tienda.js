@@ -12,6 +12,7 @@ var productos = [];
 var nequiQR = '';
 var nequiLlave = '';
 var temporadaId = '';
+var portada = [];
 var carrito = leerCarrito();
 
 function leerCarrito() {
@@ -237,6 +238,7 @@ function cargarTienda(listo) {
       nequiQR = typeof data.nequiQR === 'string' ? data.nequiQR : '';
       nequiLlave = typeof data.nequiLlave === 'string' && /^[\w@.\-]{1,40}$/.test(data.nequiLlave) ? data.nequiLlave : '';
       temporadaId = typeof data.temporada === 'string' ? data.temporada : '';
+      portada = Array.isArray(data.portada) ? data.portada.slice(0, 12) : [];
     })
     .catch(function(){ productos = []; })
     .then(function(){ listo(); pintarCarrito(); });

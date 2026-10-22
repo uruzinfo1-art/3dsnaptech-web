@@ -48,6 +48,36 @@
   "nequiQR": "nequi-qr.png",
   "nequiLlave": "0093103141",
   "temporada": "lizard-flex",
+  "portada": [
+    {
+      "producto": "lizard-flex",
+      "imagen": "productos/lizard-flex-moto.jpg"
+    },
+    {
+      "producto": "escorpion-flexi",
+      "imagen": "productos/escorpion-flexi-1.webp"
+    },
+    {
+      "producto": "tiburon-ballena",
+      "imagen": "productos/tiburon-ballena-1.webp"
+    },
+    {
+      "producto": "dragon-esqueleto",
+      "imagen": "productos/dragon-esqueleto-1.webp"
+    },
+    {
+      "producto": "ajolote-feliz",
+      "imagen": "productos/ajolote-feliz-1.webp"
+    },
+    {
+      "producto": "pulpo-flexi",
+      "imagen": "productos/pulpo-flexi-1.webp"
+    },
+    {
+      "producto": "mantarraya-flexi",
+      "imagen": "productos/mantarraya-flexi-2.webp"
+    }
+  ],
   "productos": [
     {
       "id": "lizard-flex",

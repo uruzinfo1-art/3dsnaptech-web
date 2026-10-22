@@ -57,7 +57,23 @@
   .t-hero::before{content:""; position:absolute; inset:0;
     background:linear-gradient(90deg, rgba(5,16,28,.96) 0%, rgba(5,16,28,.85) 32%, rgba(5,16,28,.25) 62%, rgba(5,16,28,0) 80%),
                linear-gradient(0deg, rgba(5,16,28,.9) 0%, rgba(5,16,28,0) 30%);}
-  .t-hero .wrap{position:relative; width:100%;}
+  .t-hero .wrap{position:relative; z-index:2; width:100%;}
+  .t-hero::before{z-index:1;}
+
+  /* ---------- fondo que cambia con fotos de productos ---------- */
+  .slides{position:absolute; inset:0; z-index:0; overflow:hidden;}
+  .slide{position:absolute; inset:0; opacity:0; transition:opacity 1.2s ease;}
+  .slide.on{opacity:1;}
+  .slide .fill{position:absolute; inset:-40px; background-size:cover; background-position:center; filter:blur(30px) brightness(.5) saturate(1.2);}
+  .slide img{position:absolute; top:0; right:0; width:62%; height:100%; object-fit:cover;
+    -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 30%); mask-image:linear-gradient(90deg, transparent 0%, #000 30%);}
+  .slide.full img{width:100%; -webkit-mask-image:none; mask-image:none; object-position:right center;}
+  .slide-tag{position:absolute; right:24px; bottom:0; display:flex; align-items:center; gap:10px; background:rgba(5,16,28,.75); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.18); border-radius:30px; padding:8px 16px; font-size:13.5px; color:#fff;}
+  .slide-tag[hidden]{display:none;}
+  .slide-tag:hover{border-color:var(--lima);}
+  .slide-tag .badge{background:var(--lima); color:var(--negro); font-size:11px; font-weight:800; padding:3px 9px; border-radius:20px;}
+  .slide-tag b{font-weight:700;}
+  .slide-tag span.p{color:var(--lima); font-weight:700;}
   .t-hero h1{font-size:64px; font-weight:800; line-height:1; letter-spacing:-1px;}
   .t-hero h1 .accent{color:var(--lima); display:block;}
   .t-hero .lead{margin-top:18px; font-size:17px; line-height:1.55; color:var(--crema); max-width:430px;}
@@ -66,37 +82,7 @@
   .perks{position:relative; margin-top:56px; display:flex; gap:34px; flex-wrap:wrap;}
   .perk{display:flex; align-items:center; gap:10px; font-size:13px; line-height:1.35; color:#fff;}
   .perk svg{width:30px; height:30px; stroke:var(--lima); fill:none; flex-shrink:0;}
-  .hero-grid{display:grid; grid-template-columns:1fr 330px; gap:40px; align-items:center; padding-top:40px;}
 
-  /* ---------- producto de temporada ---------- */
-  .season{background:rgba(5,16,28,.78); backdrop-filter:blur(8px); border:1px solid rgba(225,233,30,.4); border-radius:18px; padding:14px; box-shadow:0 18px 40px rgba(0,0,0,.45);}
-  .season[hidden]{display:none;}
-  .season .badge{display:inline-flex; align-items:center; gap:6px; background:var(--lima); color:var(--negro); font-size:11.5px; font-weight:800; letter-spacing:1px; padding:5px 11px; border-radius:20px;}
-  .season .media{display:block; margin-top:12px; aspect-ratio:4/3; border-radius:12px; overflow:hidden; background:#0b1a2b;}
-  .season .media img, .season .media video{width:100%; height:100%; object-fit:cover; display:block;}
-  .season h3{margin-top:12px; font-size:20px; font-weight:800;}
-  .season p{margin-top:4px; font-size:13px; line-height:1.45; color:var(--crema); opacity:.9;}
-  .season .row{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:12px;}
-  .season .row b{font-size:15px; color:var(--lima); white-space:nowrap;}
-  .season .row small{display:block; font-size:11px; color:var(--crema); opacity:.75; font-weight:400;}
-  .season .row .btn{padding:9px 16px; border-radius:30px; font-size:13px; white-space:nowrap;}
-
-  /* ---------- cinta de productos ---------- */
-  .cinta{position:relative; margin-top:36px; overflow:hidden; padding:4px 0;
-    -webkit-mask-image:linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); mask-image:linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);}
-  .cinta[hidden]{display:none;}
-  .cinta-track{display:flex; gap:12px; width:max-content; animation:cinta 60s linear infinite;}
-  .cinta:hover .cinta-track, .cinta:focus-within .cinta-track{animation-play-state:paused;}
-  @keyframes cinta{to{transform:translateX(-50%);}}
-  .cinta a{display:flex; align-items:center; gap:10px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); border-radius:40px; padding:6px 18px 6px 6px; white-space:nowrap; color:#fff;}
-  .cinta a:hover{border-color:var(--lima);}
-  .cinta img{width:46px; height:46px; border-radius:50%; object-fit:cover; background:#132538;}
-  .cinta b{display:block; font-size:13px; font-weight:700;}
-  .cinta span{display:block; font-size:12px; color:var(--lima);}
-  @media (prefers-reduced-motion: reduce){
-    .cinta{overflow-x:auto; -webkit-mask-image:none; mask-image:none;}
-    .cinta-track{animation:none; padding:0 16px;}
-  }
 
   /* ---------- categorías ---------- */
   .light{background:var(--paper); color:var(--negro);}
@@ -214,9 +200,8 @@
     .t-hero{min-height:0; padding:60px 0 34px; background-position:48% center;}
     .t-hero::before{background:linear-gradient(90deg, rgba(5,16,28,.92) 0%, rgba(5,16,28,.6) 60%, rgba(5,16,28,.3) 100%), linear-gradient(0deg, rgba(5,16,28,.95) 0%, rgba(5,16,28,0) 40%);}
     .t-hero h1{font-size:44px;}
-    .hero-grid{grid-template-columns:1fr; gap:28px; padding-top:0;}
-    .season{max-width:380px;}
-    .cinta{margin-top:28px;}
+    .slide img{width:100%; -webkit-mask-image:none; mask-image:none;}
+    .slide-tag{position:relative; right:auto; bottom:auto; margin-top:22px; width:max-content; max-width:100%; font-size:12.5px; gap:8px; padding:7px 13px; white-space:nowrap;}
     .perks{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:40px;}
     .perk{flex-direction:column; text-align:center; font-size:11px;}
     .cat-grid{grid-template-columns:1fr 1fr; gap:12px;}
@@ -275,18 +260,14 @@
 </header>
 
 <section class="t-hero">
+  <div class="slides" id="slides" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <span class="eyebrow">TIENDA 3DSNAPTECH</span>
-        <h1>Ideas que <span class="accent">toman forma</span></h1>
-        <p class="lead">Descubre productos impresos en 3D que combinan creatividad, diseño y funcionalidad.</p>
-        <div class="ctas">
-          <a class="btn" href="#productos">Ver productos →</a>
-          <a class="btn-outline" href="#categorias">Explorar categorías</a>
-        </div>
-      </div>
-      <aside class="season" id="temporada" hidden aria-label="Producto de temporada"></aside>
+    <span class="eyebrow">TIENDA 3DSNAPTECH</span>
+    <h1>Ideas que <span class="accent">toman forma</span></h1>
+    <p class="lead">Descubre productos impresos en 3D que combinan creatividad, diseño y funcionalidad.</p>
+    <div class="ctas">
+      <a class="btn" href="#productos">Ver productos →</a>
+      <a class="btn-outline" href="#categorias">Explorar categorías</a>
     </div>
     <div class="perks">
       <div class="perk"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5l8 4.5v10l-8 4.5-8-4.5V7z"/><path d="M4 7l8 4.5L20 7"/><path d="M12 21V11.5"/></svg><span>Productos únicos<br>y originales</span></div>
@@ -294,8 +275,8 @@
       <div class="perk"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.4-4.1a8.4 8.4 0 1 1 3.2 3.1z"/><path d="M8.5 8.7c.2-.5.5-.5.8-.5h.6c.2 0 .4 0 .6.4l.7 1.7c.1.2 0 .4-.1.6l-.5.6c-.1.2-.1.3 0 .5.4.7 1.5 1.9 2.9 2.4.2.1.3.1.5-.1l.6-.6c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.3.3.6-.2.7-1 1.4-1.8 1.4-1.5.1-3.8-.6-5.7-2.6-1.6-1.7-2-3.3-2.1-4z"/></svg><span>Atención<br>personalizada</span></div>
       <div class="perk"><svg viewBox="0 0 24 24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16V7a1 1 0 0 1 1-1h9v10"/><path d="M13 10h4l3 3v3h-2"/><circle cx="7.5" cy="16.5" r="1.8"/><circle cx="16.5" cy="16.5" r="1.8"/></svg><span>Envíos a<br>todo el país</span></div>
     </div>
+    <a class="slide-tag" id="slide-tag" hidden></a>
   </div>
-  <div class="cinta" id="cinta" hidden aria-label="Algunos de nuestros productos"><div class="cinta-track" id="cinta-track"></div></div>
 </section>
 
 <section class="light sec" id="categorias">
@@ -529,56 +510,52 @@
     b.addEventListener('click', function(){ elegirCategoria(b.dataset.cat); });
   });
 
-  // ---------- producto de temporada y cinta de productos ----------
-  function pintarTemporada() {
-    var p = buscar(temporadaId);
-    var box = document.getElementById('temporada');
-    if (!p) return;
-    box.textContent = '';
-    box.appendChild(el('span', 'badge', '★ PRODUCTO DE TEMPORADA'));
-    var media = el('a', 'media');
-    media.href = urlProducto(p);
-    media.setAttribute('aria-label', 'Ver ' + p.nombre);
-    var src = imagenSegura(p.imagen), videoSrc = imagenSegura(p.video);
-    if (videoSrc) media.appendChild(crearVideo(videoSrc, src, p.nombre));
-    else if (src) { var img = el('img'); img.src = src; img.alt = p.nombre; media.appendChild(img); }
-    box.appendChild(media);
-    box.appendChild(el('h3', null, p.nombre));
-    if (p.descripcion) box.appendChild(el('p', null, p.descripcion));
-    var row = el('div', 'row');
-    row.appendChild(el('b', null, precioCorto(p)));
-    var ver = el('a', 'btn', 'Ver producto →');
-    ver.href = urlProducto(p);
-    row.appendChild(ver);
-    box.appendChild(row);
-    box.hidden = false;
-  }
-
-  function pintarCinta() {
-    var lista = productos.filter(function(p){ return !p.sinPrecio && imagenSegura(p.imagen) && p.id !== temporadaId; });
-    if (lista.length < 3) return;
-    var track = document.getElementById('cinta-track');
-    var quieta = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    // Se repite la lista dos veces para que la animación dé la vuelta sin saltos.
-    (quieta ? [false] : [false, true]).forEach(function(copia){
-      lista.forEach(function(p){
-        var a = el('a');
-        a.href = urlProducto(p);
-        if (copia) { a.setAttribute('aria-hidden', 'true'); a.tabIndex = -1; }
-        var img = el('img'); img.src = imagenSegura(p.imagen); img.alt = ''; img.loading = 'lazy';
-        a.appendChild(img);
-        var tx = el('div');
-        tx.appendChild(el('b', null, p.nombre));
-        tx.appendChild(el('span', null, precioCorto(p)));
-        a.appendChild(tx);
-        track.appendChild(a);
-      });
+  // ---------- fondo de la parte de arriba: cambia cada 4 segundos ----------
+  function iniciarPortada() {
+    var lista = [{ imagen: 'tienda-hero.jpg', full: true }];
+    portada.forEach(function(x){
+      var p = x && buscar(x.producto);
+      var src = p && imagenSegura(x.imagen || p.imagen);
+      if (src) lista.push({ imagen: src, producto: p });
     });
-    track.style.animationDuration = (lista.length * 4) + 's';
-    document.getElementById('cinta').hidden = false;
+    if (lista.length < 2) return;
+    var cont = document.getElementById('slides');
+    var tag = document.getElementById('slide-tag');
+    var slides = lista.map(function(s, i){
+      var d = el('div', 'slide' + (s.full ? ' full' : '') + (i === 0 ? ' on' : ''));
+      if (!s.full) { var f = el('div', 'fill'); f.style.backgroundImage = 'url("' + s.imagen + '")'; d.appendChild(f); }
+      var img = el('img'); img.src = s.imagen; img.alt = '';
+      d.appendChild(img);
+      cont.appendChild(d);
+      return d;
+    });
+    document.querySelector('.t-hero').style.backgroundImage = 'none';
+
+    function mostrarTag(s) {
+      tag.textContent = '';
+      if (!s.producto) { tag.hidden = true; return; }
+      var p = s.producto;
+      if (p.id === temporadaId) tag.appendChild(el('span', 'badge', '★ TEMPORADA'));
+      tag.appendChild(el('b', null, p.nombre));
+      tag.appendChild(el('span', 'p', precioCorto(p)));
+      tag.appendChild(document.createTextNode('→'));
+      tag.href = urlProducto(p);
+      tag.hidden = false;
+    }
+
+    var actual = 0;
+    var quieto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (quieto) return;
+    setInterval(function(){
+      if (document.hidden) return;
+      slides[actual].classList.remove('on');
+      actual = (actual + 1) % slides.length;
+      slides[actual].classList.add('on');
+      mostrarTag(lista[actual]);
+    }, 4000);
   }
 
-  cargarTienda(function(){ pintarProductos(); pintarTemporada(); pintarCinta(); });
+  cargarTienda(function(){ pintarProductos(); iniciarPortada(); });
 </script>
 </body>
 </html>
