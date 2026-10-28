@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<title>Mejores prácticas de diseño para impresión 3D — 3DSnapTech</title>
+<meta name="description" content="Reglas de oro para diseñar piezas que impriman bien, sean resistentes, y no desperdicien material. Desde grosor de paredes hasta soportes.">
+<style>
+  :root{ --lima:#E1E91E; --negro:#05101C; --dorado:#FEAE12; --cafe:#AD6601; --crema:#FEE4AA; --paper:#F7F4EC; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins', system-ui, sans-serif; background:var(--negro); color:#fff; -webkit-font-smoothing:antialiased;}
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+  .mono{font-family:'DejaVu Sans Mono', monospace;}
+  header{position:sticky; top:0; z-index:50; background:rgba(5,16,28,.9); backdrop-filter:blur(6px); border-bottom:1px solid rgba(255,255,255,.08);}
+  header .bar{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:1120px; margin:0 auto;}
+  header .brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:22px; text-decoration:none;}
+  header .brand img{width:52px;}
+  header .brand span.d{color:var(--lima);}
+  .btn{display:inline-flex; align-items:center; gap:8px; background:var(--lima); color:var(--negro); font-weight:800; padding:11px 20px; border-radius:8px; font-size:14px; text-decoration:none;}
+  .article{padding:50px 0 80px;}
+  .back{font-size:13px; color:var(--lima); text-decoration:none; font-weight:600;}
+  .tag{font-family:'DejaVu Sans Mono', monospace; font-size:11px; letter-spacing:1.5px; color:var(--dorado); margin-left:10px;}
+  h1{font-size:32px; font-weight:800; margin-top:12px; line-height:1.25;}
+  .meta{margin-top:10px; font-size:13px; color:var(--crema); opacity:.7;}
+  .cover-img{margin-top:26px; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.1);}
+  .content{margin-top:30px; font-size:15.5px; line-height:1.75; color:#e8e8e8;}
+  .content p{margin-bottom:18px;}
+  .content h2{font-size:20px; font-weight:700; margin:34px 0 12px; color:var(--lima);}
+  .content ul{margin:0 0 18px 20px;}
+  .content li{margin-bottom:10px;}
+  .cta-box{margin-top:44px; background:rgba(225,233,30,.06); border:1px solid rgba(225,233,30,.25); border-radius:14px; padding:26px;}
+  .cta-box p{margin-bottom:14px; font-size:14.5px;}
+  footer{background:var(--negro); border-top:1px solid rgba(255,255,255,.08); padding:30px 0; text-align:center; font-size:12px; opacity:.5;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a href="index.html" class="brand"><img src="logo-transparent.png" alt="3DSnapTech"><span><span class="d">3d</span>Snaptech</span></a>
+    <a class="btn" href="https://wa.me/573207283295" target="_blank">WhatsApp</a>
+  </div>
+</header>
+
+<section class="article">
+  <div class="wrap">
+    <a class="back" href="blog.html">← Volver al blog</a><span class="tag">FUNDAMENTOS</span>
+    <h1>Mejores prácticas de diseño para impresión 3D</h1>
+    <div class="meta">3DSnapTech · Diseño 3D</div>
+
+    <div class="cover-img"><img src="diseno-impresion-3d.jpg" alt="Diseñador 3D optimizando modelo para impresión"></div>
+
+    <div class="content">
+      <p>Cualquiera puede crear un modelo 3D. Pero no cualquiera diseña uno que imprima bien, sea resistente, y no desperdicie material. La diferencia entre un diseño amateur y uno profesional casi siempre está en los detalles pequeños. Detalles que se aprenden con práctica, pero que podemos resumir en reglas claras.</p>
+
+      <h2>Grosor de paredes: ni delgado ni grueso</h2>
+      <p>Muchos principiantes crean paredes muy finas (0.5mm) porque piensan que así ahorran material. Mentira. Una pared de 0.5mm con FDM no imprime bien — la boquilla casi no deja filamento o lo retira mientras imprime. Luego la pared queda frágil y el modelo se quiebra.</p>
+      <p><strong>Regla de oro:</strong> mínimo 1.2mm de grosor de pared. Si es una pieza decorativa, 1mm alcanza. Si es funcional, 1.5-2mm es seguro.</p>
+      <p>¿Y lo contrario? No hagas paredes gruesas si no lo necesitas. Una pared de 5mm en una figura pequeña es desperdicio de material y tiempo. Sé inteligente: usa el grosor mínimo que funciona.</p>
+
+      <h2>Radios y esquinas redondeadas</h2>
+      <p>Las esquinas agudas son debilidades. Dos caras que se encuentran en 90° crean un punto de estrés. Además, visualmente se ven vacías si se imprimen en FDM — las capas no llena perfectamente ese ángulo.</p>
+      <p><strong>Regla:</strong> redondea todas las esquinas exteriores con un radio de al menos 0.5-1mm. Los interiores también, si puedes.</p>
+      <p>Un radio pequeño mejora tanto la resistencia como la apariencia visual.</p>
+
+      <h2>Filetes (fillets) internos para resistencia</h2>
+      <p>Si tu diseño tiene una pared vertical que se une a una base horizontal (como un soporte o un refuerzo), esa unión es un punto débil. La solución: agrega un filete (un radio redondeado) en la esquina interior.</p>
+      <p>El filete distribuye mejor el estrés y previene grietas. Una pieza sin filetes puede romperse fácilmente; con filetes, resiste mucho más.</p>
+
+      <h2>Orientación y soportes</h2>
+      <p>Una pieza impresa es más resistente en la dirección de las capas (horizontal) que perpendicular a ellas (vertical). Si tu pieza necesita resistencia en una dirección específica, diseña para que esa carga sea horizontal.</p>
+      <p><strong>Soportes:</strong> los soportes son costosos. Requieren filamento adicional, crean superficies ásperas donde se tocan, y tiempo extra. Diseña para minimizar soportes. Si no puedes evitarlos, colócalos en zonas que no vayan a ser visibles.</p>
+      <p>Regla práctica: ángulos de voladizo (overhang) menores a 45° generalmente no necesitan soportes. Mayores a 45°, sí.</p>
+
+      <h2>Tolerancias e holguras</h2>
+      <p>Si dos piezas necesitan encajar, deja holgura. Un agujero de 10mm diseñado para un pasador de 10mm probablemente no encajará: la impresora hace el agujero más pequeño o el pasador más grande.</p>
+      <p><strong>Regla:</strong> si es ajuste normal (no muy apretado), agrega 0.3-0.5mm de holgura. Si es presione fit (ajuste apretado), resta 0.1-0.2mm.</p>
+      <p>Esto se llama "compensación de tolerancia" y es crucial en diseño para impresión 3D.</p>
+
+      <h2>Agujeros y características pequeñas</h2>
+      <p>Un agujero de 1mm es demasiado pequeño para imprimir bien. La boquilla (0.4mm típicamente) no puede entrar ahí. Los agujeros pequeños tienden a cerrarse durante la impresión.</p>
+      <p><strong>Mínimo recomendado:</strong> agujeros de 2-3mm para ser seguro. Si necesitas agujeros más pequeños, diseña más grande y después taladra.</p>
+      <p>Mismo con detalles finos: perillas, botones, textura. Si mide menos de 1mm, probablemente desaparecerá en la impresión.</p>
+
+      <h2>Evita características flotantes</h2>
+      <p>Algo "flotante" es una característica que no está conectada a la pieza principal (es decir, que necesita soporte para mantenerse en su lugar). Minimiza estas cosas. Cada una que evites = menos desperdicio y más velocidad.</p>
+      <p>Ejemplo: si diseñas un artículo con un botón en relieve que solo toca en un punto, eso flotante será débil. Mejor conéctalo en al menos 2 o 3 puntos.</p>
+
+      <h2>Cuidado con cavidades cerradas</h2>
+      <p>Un hueco completamente cerrado dentro de tu pieza es problemático. Si el interior es hueco, el filamento de relleno (infill) ocupa espacio sin agregar valor. Peor aún: si la cavidad es muy pequeña, podría quedar filamento sin polimerizar (en resina) o malformado (en FDM).</p>
+      <p><strong>Mejor práctica:</strong> si necesitas una cavidad, déjala abierta por un lado. Si debe ser cerrada, haz un pequeño agujero (2-3mm) para que se pueda limpiar.</p>
+
+      <h2>Optimiza para el material</h2>
+      <p>PLA es quebradizo. PETG es resistente y flexible. ABS es fuerte pero se retuerce. TPU es flexible como goma.</p>
+      <p>Adapta tu diseño al material:</p>
+      <ul>
+        <li><strong>PLA:</strong> evita piezas muy delgadas o con encastres apretados. Es fácil que se quiebre.</li>
+        <li><strong>PETG:</strong> puedes ser más atrevido con tolerancias ajustadas y detalles finos.</li>
+        <li><strong>TPU:</strong> diseña más grueso (2-3mm mínimo) porque el material se deforma bajo su propio peso en voladizos.</li>
+      </ul>
+
+      <h2>Piensa en el post-procesado desde el diseño</h2>
+      <p>¿Vas a pintar la pieza? ¿Lijar? ¿Ensamblarla con otras? Diseña con eso en mente.</p>
+      <p>Ejemplo: si van a pintar, suaviza todas las superficies visibles. Si van a lijar, no hagas detalles que se pierdan en el sanding. Si se va a ensamblar, crea encastres claros y soportes de ensamblaje que se puedan cortar después.</p>
+
+      <h2>Valida antes de imprimir</h2>
+      <p>Revisa tu modelo en un software de slicing (Cura, Prusa Slicer) antes de imprimir. Busca:</p>
+      <ul>
+        <li>Paredes muy finas</li>
+        <li>Características flotantes innecesarias</li>
+        <li>Agujeros cerrados</li>
+        <li>Grietas o espacios en la geometría</li>
+      </ul>
+      <p>Muchos errores se ven claramente en el preview del slicing. Mejor corregir ahí que después de 10 horas de impresión.</p>
+    </div>
+
+    <div class="cta-box">
+      <p><strong>¿Tienes un modelo pero no sabes si imprimirá bien?</strong> En 3DSnapTech podemos revisar tu diseño, dar feedback, y asegurar que tu impresión sea un éxito.</p>
+      <a class="btn" href="https://wa.me/573207283295?text=Hola%2C%20quiero%20revisar%20mi%20dise%C3%B1o%203D%20antes%20de%20imprimir" target="_blank">Escríbenos por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 3DSNAPTECH · COLOMBIA</footer>
+
+</body>
+</html>

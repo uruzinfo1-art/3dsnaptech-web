@@ -13,6 +13,8 @@
 | Cómo preparar un archivo STL para imprimir en 3D | 2026-09-23 | fundamentos | blog-preparar-archivo-stl | blog-preparar-archivo-stl.html |
 | FDM vs Resina: qué impresora 3D elegir | 2026-10-07 | tecnologías | blog-fdm-vs-resina | blog-fdm-vs-resina.html |
 | Diseño 3D para principiantes: cómo pensar en 3D | 2026-10-07 | fundamentos | blog-diseno-3d-principiantes | blog-diseno-3d-principiantes.html |
+| Tolerancias y precisión en impresión 3D | 2026-10-28 | calidad | blog-tolerancias-precision-3d | blog-tolerancias-precision-3d.html |
+| Mejores prácticas de diseño para impresión 3D | 2026-10-28 | fundamentos-diseño | blog-diseno-impresion-3d-practicas | blog-diseno-impresion-3d-practicas.html |
 
 ## Temas Cubiertos
 - ✅ Materiales (PLA, PETG, ABS)
@@ -24,10 +26,12 @@
 - ✅ Preparación de archivos STL (validación, escala, orientación, soportes)
 - ✅ Tecnologías: FDM vs Resina (diferencias, ventajas, desventajas)
 - ✅ Fundamentos de diseño 3D para principiantes
+- ✅ Tolerancias y precisión en impresión 3D
+- ✅ Mejores prácticas de diseño para impresión 3D
 
 ## Temas Pendientes / En Desarrollo
-- Tolerancias y precisión
 - Impresión rápida vs calidad
-- Diseño para impresión 3D (mejores prácticas)
 - Historia de la impresión 3D
-- Comparación impresoras FDM vs Resina
+- Aplicaciones especializadas de escaneo 3D
+- Ingeniería inversa con escaneo 3D
+- Impresión 3D en medicina y prototipado médico
