@@ -13,6 +13,9 @@
 | Cómo preparar un archivo STL para imprimir en 3D | 2026-09-23 | fundamentos | blog-preparar-archivo-stl | blog-preparar-archivo-stl.html |
 | FDM vs Resina: qué impresora 3D elegir | 2026-10-07 | tecnologías | blog-fdm-vs-resina | blog-fdm-vs-resina.html |
 | Diseño 3D para principiantes: cómo pensar en 3D | 2026-10-07 | fundamentos | blog-diseno-3d-principiantes | blog-diseno-3d-principiantes.html |
+| Tolerancias y precisión en impresión 3D: qué son y por qué importan | 2026-11-11 | calidad | blog-tolerancias-precision | blog-tolerancias-precision.html |
+| Cómo diseñar piezas para impresión 3D: mejores prácticas | 2026-11-11 | fundamentos | blog-diseno-para-impresion | blog-diseno-para-impresion.html |
+| Impresión 3D rápida vs de alta calidad: cómo elegir | 2026-11-11 | calidad | blog-velocidad-calidad | blog-velocidad-calidad.html |
 
 ## Temas Cubiertos
 - ✅ Materiales (PLA, PETG, ABS)
@@ -24,10 +27,18 @@
 - ✅ Preparación de archivos STL (validación, escala, orientación, soportes)
 - ✅ Tecnologías: FDM vs Resina (diferencias, ventajas, desventajas)
 - ✅ Fundamentos de diseño 3D para principiantes
+- ✅ Tolerancias y precisión en impresión 3D
+- ✅ Diseño para impresión 3D (mejores prácticas)
+- ✅ Velocidad vs calidad en impresión
 
 ## Temas Pendientes / En Desarrollo
-- Tolerancias y precisión
-- Impresión rápida vs calidad
-- Diseño para impresión 3D (mejores prácticas)
 - Historia de la impresión 3D
-- Comparación impresoras FDM vs Resina
+- Aplicaciones industriales de impresión 3D
+- Escaneo 3D avanzado (fotogrametría)
+- Impresión en metal
+- Bioimpresión
+
+## Fotos Pendientes
+- tolerancias-precision.jpg
+- diseno-para-impresion.jpg
+- velocidad-calidad.jpg

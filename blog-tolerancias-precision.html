@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<title>Tolerancias y precisión en impresión 3D — 3DSnapTech</title>
+<meta name="description" content="Entiende qué son las tolerancias en impresión 3D, cómo afectan la precisión de tus piezas y qué factores las influyen.">
+<style>
+  :root{ --lima:#E1E91E; --negro:#05101C; --dorado:#FEAE12; --cafe:#AD6601; --crema:#FEE4AA; --paper:#F7F4EC; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins', system-ui, sans-serif; background:var(--negro); color:#fff; -webkit-font-smoothing:antialiased;}
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+  .mono{font-family:'DejaVu Sans Mono', monospace;}
+  header{position:sticky; top:0; z-index:50; background:rgba(5,16,28,.9); backdrop-filter:blur(6px); border-bottom:1px solid rgba(255,255,255,.08);}
+  header .bar{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:1120px; margin:0 auto;}
+  header .brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:22px; text-decoration:none;}
+  header .brand img{width:52px;}
+  header .brand span.d{color:var(--lima);}
+  .btn{display:inline-flex; align-items:center; gap:8px; background:var(--lima); color:var(--negro); font-weight:800; padding:11px 20px; border-radius:8px; font-size:14px; text-decoration:none;}
+  .article{padding:50px 0 80px;}
+  .back{font-size:13px; color:var(--lima); text-decoration:none; font-weight:600;}
+  .tag{font-family:'DejaVu Sans Mono', monospace; font-size:11px; letter-spacing:1.5px; color:var(--dorado); margin-left:10px;}
+  h1{font-size:32px; font-weight:800; margin-top:12px; line-height:1.25;}
+  .meta{margin-top:10px; font-size:13px; color:var(--crema); opacity:.7;}
+  .cover-img{margin-top:26px; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.1);}
+  .content{margin-top:30px; font-size:15.5px; line-height:1.75; color:#e8e8e8;}
+  .content p{margin-bottom:18px;}
+  .content h2{font-size:20px; font-weight:700; margin:34px 0 12px; color:var(--lima);}
+  .content ul{margin:0 0 18px 20px;}
+  .content li{margin-bottom:10px;}
+  .cta-box{margin-top:44px; background:rgba(225,233,30,.06); border:1px solid rgba(225,233,30,.25); border-radius:14px; padding:26px;}
+  .cta-box p{margin-bottom:14px; font-size:14.5px;}
+  footer{background:var(--negro); border-top:1px solid rgba(255,255,255,.08); padding:30px 0; text-align:center; font-size:12px; opacity:.5;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a href="index.html" class="brand"><img src="logo-transparent.png" alt="3DSnapTech"><span><span class="d">3d</span>Snaptech</span></a>
+    <a class="btn" href="https://wa.me/573207283295" target="_blank">WhatsApp</a>
+  </div>
+</header>
+
+<section class="article">
+  <div class="wrap">
+    <a class="back" href="blog.html">← Volver al blog</a><span class="tag">CALIDAD</span>
+    <h1>Tolerancias y precisión en impresión 3D: qué son y por qué importan</h1>
+    <div class="meta">3DSnapTech · Precisión en fabricación</div>
+
+    <div class="cover-img"><img src="tolerancias-precision.jpg" alt="Piezas impresas con diferentes niveles de precisión y tolerancia"></div>
+
+    <div class="content">
+      <p>Si alguna vez has impreso una pieza que debería encajar en otra pero quedó demasiado apretada (o demasiado suelta), has experimentado de primera mano la importancia de las tolerancias. Las tolerancias no son un accidente de la fabricación — son un concepto deliberado que determina qué tan preciso es un producto y qué tan bien funciona en la práctica.</p>
+
+      <h2>¿Qué es exactamente una tolerancia?</h2>
+      <p>Una tolerancia es el rango permitido de variación en una dimensión de una pieza. Por ejemplo, si diseñas un eje que debe tener 10 mm de diámetro, una tolerancia de ±0.1 mm significa que es aceptable que ese eje tenga entre 9.9 y 10.1 mm. Nada en la manufactura es perfectamente preciso — siempre hay un margen de error, y ese margen es la tolerancia.</p>
+
+      <h2>¿Por qué no simplemente hacemos todo perfecto?</h2>
+      <p>Porque la perfección cuesta dinero y tiempo. A más apretada la tolerancia, más cuidado, más inspección, más tiempo de trabajo se necesita. En impresión 3D, una tolerancia muy ajustada podría significar imprimir más lentamente, usar mejores materiales, o hacer post-procesado adicional. Entonces la clave es establecer tolerancias lo suficientemente apretadas para que el producto funcione, pero lo suficientemente amplias para que sea realista manufacturar.</p>
+
+      <h2>Tolerancias típicas en impresión 3D</h2>
+      <ul>
+        <li><strong>FDM (estándar):</strong> Generalmente entre ±0.3 y ±0.5 mm. Depende del tamaño de la boquilla, la calibración y la velocidad de impresión.</li>
+        <li><strong>FDM (de precisión):</strong> Con calibración óptima y ajustes cuidadosos, se puede llegar a ±0.1 a ±0.2 mm en piezas pequeñas.</li>
+        <li><strong>Impresoras de resina:</strong> Pueden ser mucho más precisas, frecuentemente ±0.05 a ±0.1 mm, aunque esto depende de la resolución de la pantalla LCD/DLP.</li>
+      </ul>
+
+      <h2>Factores que afectan la tolerancia en tu impresora</h2>
+      <p>Varios factores hacen que una pieza sea más o menos precisa:</p>
+      <ul>
+        <li><strong>Calibración del eje Z:</strong> Si la altura de la capa no es exacta, toda la pieza se vuelve imprecisa.</li>
+        <li><strong>Temperatura del nozzle y la cama:</strong> Variaciones de temperatura hacen que el filamento se contraiga o expanda diferente.</li>
+        <li><strong>Velocidad de impresión:</strong> Más rápido = menos preciso. Ir lentamente permite que el material se estabilice mejor.</li>
+        <li><strong>Tipo y calidad del filamento:</strong> Algunos filamentos tienen más variación de diámetro que otros.</li>
+        <li><strong>Geometría de la pieza:</strong> Las esquinas agudas, los voladizos y los detalles pequeños son más difíciles de hacer precisamente.</li>
+      </ul>
+
+      <h2>Cómo diseñar pensando en tolerancias</h2>
+      <p>Si diseñas piezas que deben encajar juntas, siempre agrega un pequeño espacio extra (holgura). Por ejemplo, si tienes un agujero de 10 mm y quieres que un eje entre en él, diseña el agujero con 10.2 o 10.3 mm y el eje con 10 mm. Esto da margen para las variaciones de la impresión. No confíes en tolerancias más apretadas de lo que tu máquina puede lograr de forma consistente.</p>
+
+      <h2>La precisión no es siempre lo primero</h2>
+      <p>Para muchos proyectos, una tolerancia de ±0.5 mm es completamente aceptable. La pieza se verá bien, funcionará bien. Es solo cuando necesitas algo especial — un mecanismo complejo, un encaje preciso, o un acabado particular — que tienes que empezar a obsesionarte con tolerancias más apretadas.</p>
+    </div>
+
+    <div class="cta-box">
+      <p><strong>¿Tienes un proyecto con requisitos de tolerancia muy específicos?</strong> En 3DSnapTech podemos ayudarte a optimizar tu diseño y tu fabricación para lograr la precisión que necesitas.</p>
+      <a class="btn" href="https://wa.me/573207283295?text=Hola%2C%20tengo%20una%20idea%20con%20requisitos%20de%20tolerancia" target="_blank">Escríbenos por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 3DSNAPTECH · COLOMBIA</footer>
+</body>
+</html>
