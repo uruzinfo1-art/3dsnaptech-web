@@ -61,16 +61,20 @@
   /* ---------- hero ---------- */
   .hero{
     position:relative; overflow:hidden;
-    padding:90px 0 60px;
+    padding:110px 0 80px; min-height:620px; display:flex; align-items:center;
+    background:var(--negro) url('impresion-hero.jpg') center / cover no-repeat;
+  }
+  /* video de fondo del taller: en bucle, sin sonido; la portada se ve mientras carga */
+  .hero-video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;}
+  .hero-shade{
+    position:absolute; inset:0; z-index:1;
     background:
       radial-gradient(60% 60% at 80% 10%, rgba(225,233,30,.10), transparent 60%),
-      linear-gradient(120deg, rgba(5,16,28,.97) 0%, rgba(5,16,28,.94) 30%, rgba(5,16,28,.72) 55%, rgba(5,16,28,.32) 80%, rgba(5,16,28,.18) 100%),
-      url('foto-extrusor-bg.png');
-    background-size:auto, auto, cover;
-    background-position:center, center, 78% 55%;
-    background-repeat:no-repeat;
+      linear-gradient(100deg, rgba(5,16,28,.95) 0%, rgba(5,16,28,.88) 32%, rgba(5,16,28,.55) 58%, rgba(5,16,28,.25) 100%),
+      linear-gradient(0deg, rgba(5,16,28,.85) 0%, rgba(5,16,28,0) 35%);
   }
-  .hero .grid{display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:center;}
+  .hero .wrap{position:relative; z-index:2; width:100%;}
+  .hero .copy{max-width:620px;}
   .eyebrow{
     font-family:'DejaVu Sans Mono', monospace; font-size:12.5px; letter-spacing:2px;
     color:var(--lima); margin-bottom:16px; display:block;
@@ -389,6 +393,9 @@
   /* ---------- responsive ---------- */
   @media (max-width:860px){
     .hero .grid{grid-template-columns:1fr; text-align:center;}
+    .hero{min-height:0; padding:80px 0 60px;}
+    .hero .copy{margin:0 auto; text-align:center;}
+    .hero-shade{background:linear-gradient(0deg, rgba(5,16,28,.92) 0%, rgba(5,16,28,.72) 60%, rgba(5,16,28,.6) 100%);}
     .hero p.lead{margin-left:auto; margin-right:auto;}
     .hero .ctas{justify-content:center;}
     .stat-row{justify-content:center;}
@@ -471,8 +478,12 @@
 </header>
 
 <section class="hero">
-  <div class="wrap grid">
-    <div>
+  <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="auto" poster="impresion-hero.jpg" aria-hidden="true">
+    <source src="impresion-hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-shade"></div>
+  <div class="wrap">
+    <div class="copy">
       <span class="eyebrow">TALLER EN BOGOTÁ · ENVÍOS A TODA COLOMBIA</span>
       <h1>Convertimos tus <span class="accent">ideas</span> en piezas reales.</h1>
       <p class="lead">Impresión 3D, escaneo 3D, diseño y prototipado para personas y empresas que sienten que su idea no se puede hacer realidad. Nosotros la hacemos.</p>
@@ -484,15 +495,6 @@
         <div class="stat"><b>6</b><span>servicios de manufactura digital</span></div>
         <div class="stat"><b>100%</b><span>envíos a nivel nacional</span></div>
         <div class="stat"><b>♻</b><span>materiales reciclables</span></div>
-      </div>
-    </div>
-    <div class="hero-img">
-      <img class="pango-watermark" src="isotipo-hexagono.png" alt="">
-      <div class="pango-video-wrap">
-        <video class="pango-video" id="pango-video" autoplay muted playsinline poster="pango-hero.png">
-          <source src="pango-walk.webm" type="video/webm">
-          <source src="pango-walk.mp4" type="video/mp4">
-        </video>
       </div>
     </div>
   </div>
@@ -755,14 +757,17 @@
 
 
 <script>
-  var pangoVideo = document.getElementById('pango-video');
-  if (pangoVideo) {
-    pangoVideo.addEventListener('ended', function() {
-      setTimeout(function() {
-        pangoVideo.currentTime = 0;
-        pangoVideo.play();
-      }, 5000);
-    });
+  // Con "reducir movimiento" o "ahorro de datos" activados, el inicio muestra solo la portada, sin video.
+  var heroVideo = document.getElementById('hero-video');
+  if (heroVideo) {
+    var reducir = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var ahorro = navigator.connection && navigator.connection.saveData;
+    if (reducir || ahorro) {
+      heroVideo.pause();
+      heroVideo.removeAttribute('autoplay');
+      heroVideo.querySelectorAll('source').forEach(function(s){ s.remove(); });
+      heroVideo.load();
+    }
   }
 </script>
 <script>
